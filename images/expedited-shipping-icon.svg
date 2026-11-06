@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- transparent background -->
+
+  <!-- speed lines -->
+  <g fill="none" stroke="#3B82F6" stroke-linecap="round">
+    <path d="M55 190h105" stroke-width="18"/>
+    <path d="M35 235h100" stroke-width="16"/>
+    <path d="M65 280h75" stroke-width="14"/>
+  </g>
+
+  <!-- delivery truck -->
+  <g filter="url(#shadow)">
+    <!-- cargo box -->
+    <path d="M150 145h205v170H150z" fill="url(#blue)"/>
+    <path d="M355 205h62l52 57v53H355z" fill="#2563EB"/>
+
+    <!-- cargo panel -->
+    <rect x="175" y="170" width="155" height="105" rx="8" fill="#fff" opacity=".95"/>
+    <path d="M195 247h115" stroke="#BFDBFE" stroke-width="9" stroke-linecap="round"/>
+
+    <!-- windshield -->
+    <path d="M374 222h39l30 34h-69z" fill="#DBEAFE"/>
+
+    <!-- bumper -->
+    <path d="M407 315h67" stroke="#1E3A8A" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- wheels -->
+    <circle cx="215" cy="323" r="38" fill="#172033"/>
+    <circle cx="215" cy="323" r="17" fill="#CBD5E1"/>
+    <circle cx="405" cy="323" r="38" fill="#172033"/>
+    <circle cx="405" cy="323" r="17" fill="#CBD5E1"/>
+
+    <!-- lightning bolt -->
+    <path d="M250 180l-38 59h31l-15 40 54-69h-32z"
+          fill="#FACC15"/>
+  </g>
+</svg>

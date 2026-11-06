@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2B35F"/>
+      <stop offset="1" stop-color="#B96F2D"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#39D66F"/>
+      <stop offset="1" stop-color="#079447"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <!-- transparent background -->
+
+  <!-- motion lines -->
+  <g fill="none" stroke="#22B85A" stroke-linecap="round">
+    <path d="M42 252h105" stroke-width="18"/>
+    <path d="M58 286h88" stroke-width="16"/>
+    <path d="M83 318h55" stroke-width="14"/>
+  </g>
+
+  <!-- shipping box -->
+  <g filter="url(#shadow)">
+    <path d="M120 155 L285 105 L416 158 L251 211 Z" fill="#F6C77C"/>
+    <path d="M120 155 L251 211 L251 397 L120 337 Z" fill="url(#box)"/>
+    <path d="M251 211 L416 158 L416 338 L251 397 Z" fill="#D99246"/>
+
+    <!-- tape -->
+    <path d="M213 126 L270 108 L327 131 L270 151 Z" fill="#FFE0A5"/>
+    <path d="M213 126 L270 151 L270 211 L213 186 Z" fill="#F8D28F"/>
+
+    <!-- box handling symbols -->
+    <g fill="none" stroke="#4A3624" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="157" y="276" width="48" height="48" rx="5"/>
+      <path d="M169 309v-22m0 0-8 9m8-9 8 9"/>
+      <path d="M190 309v-22m0 0-8 9m8-9 8 9"/>
+      <rect x="211" y="292" width="48" height="48" rx="5"/>
+      <path d="M235 303v22m-10 0h20m-16-22h12"/>
+    </g>
+  </g>
+
+  <!-- protection shield -->
+  <g filter="url(#shadow)">
+    <path d="M343 196
+             C385 216 418 222 448 224
+             L448 299
+             C448 360 408 407 343 438
+             C278 407 238 360 238 299
+             L238 224
+             C268 222 301 216 343 196Z"
+          fill="#fff"/>
+    <path d="M343 209
+             C381 227 410 232 435 234
+             L435 298
+             C435 347 402 386 343 416
+             C284 386 251 347 251 298
+             L251 234
+             C276 232 305 227 343 209Z"
+          fill="url(#shield)"/>
+    <path d="M293 313 L327 347 L399 273"
+          fill="none" stroke="#fff" stroke-width="23"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

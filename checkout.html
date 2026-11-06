@@ -1,0 +1,3897 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veraxa Wellness</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/floating_cart.css" />
+    <link rel="stylesheet" href="css/searchbar.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="css/style_1.css" />
+
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/ingredients.css" />
+
+    <style>
+      input[type="text"]:focus,
+      input[type="search"]:focus,
+      input[type="password"]:focus,
+      input[type="tel"]:focus,
+      input[type="email"]:focus,
+      select:focus,
+      textarea:focus {
+        background: none !important;
+        box-shadow: none !important;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid #d6d6d6;
+      }
+
+      input.has-error:not([name="agree-checkbox"]) {
+        background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid orange;
+      }
+
+      select.has-error:not([name="agree-checkbox"]) {
+        background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid orange;
+      }
+
+      input.no-error:not([type="checkbox"]):not([type="radio"]):not(
+          [type="submit"]
+        ),
+      select.no-error {
+        background: url(images/tick-input.png) 99.5% 50% no-repeat transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid green;
+      }
+      .navbar:not(.cart-navbar) {
+        overflow: hidden;
+        background-color: #333;
+        position: relative !important;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+      }
+
+      #cookiePopup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #16281f !important;
+        color: #fff;
+        padding: 15px;
+        display: flex;
+        flex-wrap: nowrap;
+        z-index: 999999;
+        gap: 20px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        right: 0;
+      }
+      #cookiePopup .cookieBtns button#acceptCookie,
+      #cookiePopup .cookieBtns button#declineCookie {
+        font-size: 15px;
+        margin: 10px 0;
+        color: #16281f;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: #f3eddf;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        border: 2px solid #000000;
+      }
+      #cookiePopup .cookieBtns button#declineCookie:last-child {
+        background-color: #ad2b2b;
+        color: #fff;
+        border-color: #ad2b2b;
+      }
+      #cookiePopup p a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .cookieBtns {
+        display: inline-flex;
+        gap: 10px;
+      }
+
+      .cookie_content {
+        text-align: left;
+      }
+      .cookie_content h4 {
+        color: #fff;
+      }
+    </style>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min_1.css" />
+
+    <link rel="stylesheet" href="css/custom.css" />
+  
+  <link rel="stylesheet" href="css/page-loader.css"></head>
+  <body class="ignore-app-design">
+  <div class="page-loader" role="status" aria-label="Loading page"><span class="page-loader__mark"></span></div>
+    <div id="loading-indicator" style="display: none"></div>
+    <div
+      class="modal fade"
+      id="popupComponent"
+      tabindex="-1"
+      aria-labelledby="popupComponentLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="popupComponentLabel">Popup Title</h5>
+            <button
+              type="button"
+              class="btn-close modal-sp-btn"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">Popup Body.</div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary modal-sp-btn"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       NAVBAR
+       Bootstrap: navbar navbar-expand-lg + container-fluid + mx-auto nav
+  ============================================================ -->
+    <div class="announce">
+      <div class="container">
+        <div class="d-flex justify-content-between">
+          <span class="side" data-icon="truck" data-size="14"
+            >Free shipping on orders over $150</span
+          >
+          <span class="center">SCIENCE. PERFORMANCE. LONGEVITY.</span>
+          <!-- <span class="side">Subscribe &amp; save up to 20%</span> -->
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <nav class="luxe-nav navbar navbar-expand-lg">
+        <div class="header-row container">
+          <a class="navbar-brand luxe-logo" href="index.html">
+            <img src="images/logo.webp" alt="Logo" width="120" />
+          </a>
+          <button
+            class="navbar-toggler border-0 p-0 shadow-none"
+            id="mobileMenuToggle"
+            type="button"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto gap-lg-4">
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="index.html"> Home </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="about.html"> About Us </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="collections.html">
+                  Wellness Product
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="contact.html"> Contact </a>
+              </li>
+            </ul>
+          </div>
+          <div class="account_control_wrapper">
+            <button
+              class="icon-btn cart-btn position-relative"
+              type="button"
+              aria-label="Cart"
+              onclick="getCartAction()"
+            >
+              <img src="images/cart.svg" alt="" width="18" height="18" />
+              <span class="cart-badge position-absolute cart-product-count">
+                0
+              </span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- <header class="site-header">
+  <div class="header-row wrap">
+    <button class="mobile-toggle" aria-label="Menu"></button>
+    <a href="index.html" class="logo"> <img src="images/logo.png"> </a>
+    <nav class="main-nav">
+      <a href="#/shop">Shop</a>
+      <a href="#/shop?sort=bestsellers">Best Sellers</a>
+      <a href="#/shop">Categories</a>
+      <a href="#/">Learn</a>
+      <a href="#/">About Us</a>
+    </nav>
+    <div class="header-icons">
+      <button aria-label="Search" data-icon="search" data-size="19"></button>
+      <button aria-label="Account" data-icon="user" data-size="19"></button>
+      <button class="cart-dot" aria-label="Cart" data-icon="bag" data-size="19">
+        <span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </div>
+</header> -->
+    <!-- ============ SHOP INTRO BANNER ============ -->
+    <section class="shop-intro-banner" aria-label="Shop introduction">
+      <div class="container">
+        <div class="align-items-center">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb shop-intro-breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li
+                class="breadcrumb-item text-gradient active"
+                aria-current="page"
+              >
+                Checkout
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <main class="checkout-page">
+      <form
+        id="prospect_checkout"
+        name="prospect_checkout"
+        accept-charset="utf-8"
+        action="place-order"
+        class="from_wrapper"
+        enctype="application/json"
+        method="post"
+        novalidate="novalidate"
+      >
+        <div class="luxe-container">
+          <div class="checkout-wrapper">
+            <div id="checkout-main">
+              <!-- LEFT -->
+              <div class="checkout-main">
+                <div class="checkout-form-col">
+                  <div class="checkout-steps">
+                    <span>CART</span>
+                    <span>›</span>
+                    <span>SHIPPING</span>
+                    <span>›</span>
+                    <span class="active">BILLING</span>
+                  </div>
+
+                  <input
+                    type="hidden"
+                    id="productId"
+                    name="products[0][productId]"
+                    value="1482"
+                    class="required"
+                    data-error-message="Please choose a product!"
+                  />
+                  <input
+                    type="hidden"
+                    id="token"
+                    name="token"
+                    value="14n7w0qq44izt"
+                  />
+                  <input
+                    type="hidden"
+                    id="async_token"
+                    name="async_token"
+                    value="3gbhjo218uyo4"
+                  />
+                  <input
+                    type="hidden"
+                    id="campaignId"
+                    name="campaignId"
+                    value="46"
+                  />
+                  <input
+                    type="hidden"
+                    id="shippingId"
+                    name="shippingId"
+                    value="30"
+                  />
+                  <div id="product_div">
+                    <div
+                      class="sel-prod active"
+                      data-billingmodelid=""
+                      data-offerid=""
+                      data-productid="1482"
+                      data-quantity="1"
+                      data-price="130"
+                      data-productname="Bovine Colostrum Powder - Onetime"
+                      data-image="3a9c6382-6784-4bb0-8561-83360f457604.webp"
+                    ></div>
+                  </div>
+                  <div id="product_div1">
+                    <input
+                      type="hidden"
+                      name="products[0][billingModelId]"
+                      value=""
+                    />
+
+                    <input type="hidden" name="products[0][offerId]" value="" />
+
+                    <input
+                      type="hidden"
+                      name="products[0][quantity]"
+                      value="1"
+                    />
+
+                    <input
+                      type="hidden"
+                      name="products[0][price]"
+                      value="130"
+                    />
+                  </div>
+                  <div id="selection_div"></div>
+                  <div id="shipping_div1"></div>
+                  <div id="crossproduct_div1"></div>
+
+                  <div class="form-group my-2 d-none">
+                    <select
+                      class="required"
+                      data-error-message="This card is not permitted for this transaction. Please try another card!"
+                      name="creditCardType"
+                      id="creditCardType"
+                    >
+                      <option value="">Card Type</option>
+                      <option value="master">Master Card</option>
+                      <option value="visa">Visa</option>
+                      <option value="discover">Discover</option>
+                    </select>
+                  </div>
+
+                  <section class="checkout-section">
+                    <h2 class="checkout-title">Contact Information</h2>
+
+                    <div class="form-group">
+                      <label>Email Address</label>
+                      <input
+                        type="email"
+                        class="required ignore-app-design ignore-style"
+                        name="email"
+                        id="email"
+                        data-error-message="Please enter a valid email address!"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label>Phone</label>
+                      <input
+                        type="text"
+                        class="required ignore-app-design ignore-style"
+                        name="phone"
+                        id="phone"
+                        inputmode="numeric"
+                        maxlength="10"
+                        oninput="
+                          this.value = this.value
+                            .replace(/\D/g, '')
+                            .slice(0, 10)
+                        "
+                        data-error-message="Please enter a valid phone number!"
+                      />
+                    </div>
+                  </section>
+
+                  <section class="checkout-section shipping-section">
+                    <h2 class="checkout-title">Shipping Address</h2>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>First Name</label>
+                          <input
+                            type="text"
+                            class="required ignore-app-design ignore-style"
+                            name="firstName"
+                            id="firstName"
+                            data-error-message="Please enter your first name!"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Last Name</label>
+                          <input
+                            type="text"
+                            class="required ignore-app-design ignore-style"
+                            name="lastName"
+                            id="lastName"
+                            data-error-message="Please enter your last name!"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Country / Region</label>
+                          <select
+                            name="shippingCountry"
+                            class="required ignore-app-design ignore-style"
+                            id="shippingCountry"
+                            data-error-message="Please select a country!"
+                          >
+                            <option value="" selected="selected">
+                              Select Country
+                            </option>
+                            <option value="CA">Canada</option>
+                            <option value="US">United States</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Address</label>
+                          <input
+                            type="text"
+                            class="required ignore-app-design ignore-style"
+                            name="shippingAddress1"
+                            id="address"
+                            data-error-message="Please enter your shipping address!"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>City</label>
+                          <input
+                            type="text"
+                            class="required ignore-app-design ignore-style"
+                            name="shippingCity"
+                            id="shippingCity"
+                            data-error-message="Please enter your city!"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>State</label>
+                          <select
+                            name="shippingState"
+                            class="required ignore-app-design ignore-style"
+                            id="shippingState"
+                            data-error-message="Please select a state!"
+                          >
+                            <option>Select state</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Zip Code</label>
+                          <input
+                            type="text"
+                            class="required ignore-app-design ignore-style"
+                            name="shippingZip"
+                            id="shippingZip"
+                            data-error-message="Please enter your zip code!"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <!-- ===== LEFT COLUMN ===== -->
+                <div class="checkout-form-col">
+                  <div class="checkout-checkbox">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="billingSameAsShipping"
+                      id="billingSameAsShipping"
+                      value="yes"
+                      checked=""
+                      onchange="toggleBilling(this)"
+                      style="font-size: 18px; margin-top: 0px"
+                    />
+
+                    <label for="billingSameAsShipping">
+                      Bill to the same Address
+                    </label>
+                  </div>
+
+                  <div id="billing-address-form">
+                    <div class="row d-none mt-3" id="billingfields">
+                      <h3 class="checkout-title">Billing Address</h3>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="billingFirstName">First name</label>
+                          <input
+                            type="text"
+                            name="billingFirstName"
+                            id="billingFirstName"
+                            class="ignore-app-design ignore-style"
+                            data-error-message="Please enter your first name!"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="billingLastName">Last name</label>
+                          <input
+                            type="text"
+                            name="billingLastName"
+                            id="billingLastName"
+                            class="ignore-app-design ignore-style"
+                            data-error-message="Please enter your last name!"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="billingCountry">Country</label>
+                          <select
+                            name="billingCountry"
+                            id="billingCountry"
+                            class="ignore-app-design ignore-style"
+                            data-error-message="Please select a country!"
+                          >
+                            <option value="" selected="selected">
+                              Select Country
+                            </option>
+                            <option value="CA">Canada</option>
+                            <option value="US">United States</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label for="billingAddress1">Address</label>
+                        <input
+                          type="text"
+                          name="billingAddress1"
+                          id="billingAddress1"
+                          class="ignore-app-design ignore-style"
+                          data-error-message="Please enter your address!"
+                        />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="billingCity">City</label>
+                        <input
+                          type="text"
+                          name="billingCity"
+                          id="billingCity"
+                          class="ignore-app-design ignore-style"
+                          data-error-message="Please enter your city!"
+                        />
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="billingState">State</label>
+                        <select
+                          name="billingState"
+                          id="billingState"
+                          class="ignore-app-design ignore-style"
+                          data-error-message="Please select a state!"
+                        >
+                          <option value="">Select State</option>
+                          <option value="US">United States</option>
+                          <option value="CA">Canada</option>
+                          <option value="UK">United Kingdom</option>
+                          <option value="AU">Australia</option>
+                          <option value="DE">Germany</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="billingZip">Zip</label>
+                        <input
+                          type="text"
+                          name="billingZip"
+                          id="billingZip"
+                          class="ignore-app-design ignore-style"
+                          data-error-message="Please enter your zip code!"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ---- Shipping Options ---- -->
+                  <!-- <section class="checkout-section" style="margin-top: 30px;">
+                  <h2 class="checkout-title">Shipping Options</h2>
+
+                  <div class="shipping-options">
+
+                    <shippingmethod attr-id="25" attr-name="Free Shipping" attr-description="" attr-price="0" attr-crm-shipping-price="" attr-is-default="1" >
+                      <label class="shipping-option payment-section">
+                        <div class="shipping-option-left">
+                          <input type="radio" class="ship-radio" data-attr-app="id">
+                          <div class="shipping-option-info">
+                            <span class="shipping-option-name" data-attr-app="name">Shipping name</span>
+                          </div>
+                        </div>
+                        <span class="shipping-option-price"><span data-attr-app="price">0.00</span></span>
+                      </label>
+
+                    </shippingmethod><shippingmethod attr-id="28" attr-name="Shipping" attr-description="" attr-price="4.95" attr-crm-shipping-price="4.95" attr-is-default="0" >
+                      <label class="shipping-option payment-section">
+                        <div class="shipping-option-left">
+                          <input type="radio" class="ship-radio" data-attr-app="id">
+                          <div class="shipping-option-info">
+                            <span class="shipping-option-name" data-attr-app="name">Shipping name</span>
+                          </div>
+                        </div>
+                        <span class="shipping-option-price"><span data-attr-app="price">0.00</span></span>
+                      </label>
+
+                    </shippingmethod><shippingmethod attr-id="30" attr-name="Standard Shipping" attr-description="" attr-price="9.99" attr-crm-shipping-price="9.99" attr-is-default="0" >
+                      <label class="shipping-option payment-section">
+                        <div class="shipping-option-left">
+                          <input type="radio" class="ship-radio" data-attr-app="id">
+                          <div class="shipping-option-info">
+                            <span class="shipping-option-name" data-attr-app="name">Shipping name</span>
+                          </div>
+                        </div>
+                        <span class="shipping-option-price"><span data-attr-app="price">0.00</span></span>
+                      </label>
+
+                    </shippingmethod><shippingmethod attr-id="32" attr-name="Expedited Shipping" attr-description="" attr-price="19.95" attr-crm-shipping-price="19.95" attr-is-default="0" >
+                      <label class="shipping-option payment-section">
+                        <div class="shipping-option-left">
+                          <input type="radio" class="ship-radio" data-attr-app="id">
+                          <div class="shipping-option-info">
+                            <span class="shipping-option-name" data-attr-app="name">Shipping name</span>
+                          </div>
+                        </div>
+                        <span class="shipping-option-price"><span data-attr-app="price">0.00</span></span>
+                      </label>
+
+                    </shippingmethod><shippingmethod attr-id="31" attr-name="Expedited Shipping Offer" attr-description="" attr-price="24.99" attr-crm-shipping-price="24.99" attr-is-default="0" >
+                      <label class="shipping-option payment-section">
+                        <div class="shipping-option-left">
+                          <input type="radio" class="ship-radio" data-attr-app="id">
+                          <div class="shipping-option-info">
+                            <span class="shipping-option-name" data-attr-app="name">Shipping name</span>
+                          </div>
+                        </div>
+                        <span class="shipping-option-price"><span data-attr-app="price">0.00</span></span>
+                      </label>
+
+                    </shippingmethod>
+
+                  </div>
+                </section> -->
+
+                  <!-- ---- Payment Method ---- -->
+                  <section class="checkout-section mt-4">
+                    <h2 class="checkout-title">Payment Method</h2>
+
+                    <paymentmethod attr-providers="[]">
+                      <div class="payment-options">
+                        <!-- Credit / Debit Card -->
+                        <div
+                          class="payment-option payment-method-content"
+                          data-payment="creditcard"
+                          data-cardtype="visa"
+                        >
+                          <label
+                            class="payment-option-header"
+                            data-target-div="card-fields-card"
+                          >
+                            <input
+                              type="radio"
+                              name="payment"
+                              id="paycard"
+                              value="card"
+                              onchange="showPayFields('card')"
+                            />
+                            <span class="payment-option-label"
+                              >Credit / Debit Card</span
+                            >
+                          </label>
+
+                          <div
+                            class="card-fields"
+                            id="card-fields-card"
+                            style="display: block"
+                          >
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <div class="form-group">
+                                  <label for="card-number">Card Number</label>
+                                  <input
+                                    type="tel"
+                                    id="creditCardNumber"
+                                    name="creditCardNumber"
+                                    class="cc-field ignore-style required"
+                                    maxlength="16"
+                                    data-error-message="Please enter a valid card number!"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label for="card-expiry">Expiry Month</label>
+                                  <select
+                                    name="expmonth"
+                                    id="expmonth"
+                                    class="cc-field ignore-style required"
+                                    data-error-message="Please select a valid expiry month!"
+                                  >
+                                    <option value="">Month</option>
+                                    <option value="01">(01) January</option>
+                                    <option value="02">(02) February</option>
+                                    <option value="03">(03) March</option>
+                                    <option value="04">(04) April</option>
+                                    <option value="05">(05) May</option>
+                                    <option value="06">(06) June</option>
+                                    <option value="07">(07) July</option>
+                                    <option value="08">(08) August</option>
+                                    <option value="09">(09) September</option>
+                                    <option value="10">(10) October</option>
+                                    <option value="11">(11) November</option>
+                                    <option value="12">(12) December</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label for="card-expiry">Expiry Year</label>
+                                  <select
+                                    name="expyear"
+                                    id="expyear"
+                                    class="cc-field ignore-style required"
+                                    data-error-message="Please select a valid expiry year!"
+                                  >
+                                    <option value="">Year</option>
+                                    <option value="26">2026</option>
+                                    <option value="27">2027</option>
+                                    <option value="28">2028</option>
+                                    <option value="29">2029</option>
+                                    <option value="30">2030</option>
+                                    <option value="31">2031</option>
+                                    <option value="32">2032</option>
+                                    <option value="33">2033</option>
+                                    <option value="34">2034</option>
+                                    <option value="35">2035</option>
+                                    <option value="36">2036</option>
+                                    <option value="37">2037</option>
+                                    <option value="38">2038</option>
+                                    <option value="39">2039</option>
+                                    <option value="40">2040</option>
+                                    <option value="41">2041</option>
+                                    <option value="42">2042</option>
+                                    <option value="43">2043</option>
+                                    <option value="44">2044</option>
+                                    <option value="45">2045</option>
+                                    <option value="46">2046</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label for="card-cvv">CVV</label>
+                                  <input
+                                    type="text"
+                                    id="cvv"
+                                    name="CVV"
+                                    class="cc-field ignore-style required"
+                                    data-error-message="Please enter your CVV!"
+                                    maxlength="4"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- PayPal -->
+                        <div
+                          class="payment-option payment-method-content d-none"
+                          data-payment="paypal"
+                          data-cardtype="paypal"
+                        >
+                          <label class="payment-option-header">
+                            <input
+                              type="radio"
+                              name="payment"
+                              value="paypal"
+                              onchange="showPayFields('paypal')"
+                            />
+                            <img src="images/paypal.png" alt="PayPal" />
+                          </label>
+                        </div>
+
+                        <div
+                          class="payment-option payment-method-content d-none"
+                          data-payment="cash-on-delivery"
+                          data-cardtype="cod"
+                        >
+                          <label
+                            class="payment-option-header"
+                            data-target-div="card-fields-card"
+                          >
+                            <input
+                              type="radio"
+                              name="payment"
+                              value="cod"
+                              onchange="showPayFields('cod')"
+                            />
+                            <span class="payment-option-label"
+                              >Cash on delivery</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                    </paymentmethod>
+
+                    <div class="alternate-payment-providers"></div>
+                  </section>
+
+                  <!-- ---- Actions ---- -->
+                </div>
+                <!-- /left col -->
+              </div>
+            </div>
+
+            <!-- RIGHT -->
+            <aside class="checkout-summary">
+              <h2 class="summary-title mt-5">Order Summary</h2>
+
+              <div class="summary-products" id="pageItems">
+                <div
+                  class="summary-product cart-item"
+                  data-productid="1482"
+                  data-index="0"
+                >
+                  <div class="product-thumb">
+                    <img
+                      src="images/3a9c6382-6784-4bb0-8561-83360f457604.webp"
+                      alt="Bovine Colostrum Powder - Onetime"
+                      data-attr-app="image"
+                    />
+                  </div>
+
+                  <div class="product-info">
+                    <h4 data-attr-app="name">
+                      Bovine Colostrum Powder - Onetime
+                    </h4>
+                  </div>
+
+                  <span>$<span data-attr-app="price">130.00</span></span>
+                </div>
+              </div>
+
+              <div class="discount-row-wrapper">
+                <div class="discount-row">
+                  <input
+                    type="text"
+                    placeholder="Gift card or discount code"
+                    id="coupon_box"
+                    name="couponCode"
+                    class="ignore-style"
+                  />
+                  <button
+                    class="modal-sp-btn"
+                    type="button"
+                    onclick="applyCoupon()"
+                    id="coupon_button"
+                  >
+                    APPLY
+                  </button>
+                </div>
+                <span
+                  style="color: red; font-size: 12px"
+                  class="d-none"
+                  id="coupon_error"
+                  >No coupon found</span
+                >
+              </div>
+
+              <div class="summary-totals">
+                <div class="summary-line">
+                  <span>Subtotal</span>
+                  <span
+                    >$<span data-attr-app="subtotal">130.00</span
+                    ><input
+                      type="hidden"
+                      id="subtotalhidden"
+                      data-attr-app="subtotalhidden"
+                      value="130.00"
+                  /></span>
+                </div>
+
+                <!-- <div class="summary-line" id="free">
+                <span>Shipping</span>
+                <span class="muted">
+                  $<span class="summary-shipping" data-attr-app="total > 150 ? 0 : 4.95">0.00</span>
+              </span>
+              </div> -->
+
+                <div class="summary-line">
+                  <span>Shipping</span>
+                  <span>
+                    $<span class="summary-shipping" id="paidShip">9.99</span>
+                  </span>
+                </div>
+
+                <div
+                  class="summary-line shipmentProtection"
+                  style="display: none"
+                >
+                  <span>Shipment Protection</span>
+                  <span> $<span class="summary-protection">14.99</span> </span>
+                </div>
+
+                <div class="summary-line discount-line" style="display: none">
+                  <span>Discount</span>
+                  <span class="summary-discount">-$0.00</span>
+                </div>
+
+                <div class="summary-line d-none" id="promo-summary-wrapper">
+                  <span>Promo Code</span>
+                  <span class="muted" id="promo-summary"> </span>
+                </div>
+
+                <div class="summary-line">
+                  <span>Taxes</span>
+                  <span>$0.00</span>
+                </div>
+                <!-- <product attr-id="1533" attr-info-id="2264" attr-name="Expedited shipping Option at checkout" attr-description="" attr-price="19.95" attr-rebill-price="0" attr-sale-price="19.95" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="f6d2e60f-2050-4823-ae51-3c0568cd75f6.jpg" attr-images="'[{\'file_name\':\'f6d2e60f-2050-4823-ae51-3c0568cd75f6.jpg\',\'name\':\'expe.jpg\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1429" attr-info-id="2238" attr-name="Essential Amino Acid Powder" attr-description="&lt;p&gt;A powdered blend containing the nine essential amino acids: leucine, isoleucine, valine, lysine, threonine, phenylalanine, methionine, histidine, and tryptophan. The formula is designed as a straightforward amino-acid supplement for general sports and nutritional use. Final packaging should verify the amount of each amino acid per serving and avoid disease-treatment or muscle-wasting claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp" attr-images="'[{\'file_name\':\'1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp\',\'name\':\'da437206-d4af-4da9-ad60-679a53ba095d.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1421" attr-info-id="2213" attr-name="Plant-Based Organic Protein Powder" attr-description="&lt;p&gt;An organic plant-protein powder made with pea, pumpkin seed, and hemp proteins. The blend provides multiple plant-based protein sources in a simple powder format for everyday nutrition. Final packaging should confirm protein grams, serving size, allergen or cross-contact information, and the appropriate facts-panel classification.&lt;/p&gt;" attr-price="230" attr-rebill-price="0" attr-sale-price="230" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="fec514f9-3ae0-4936-a231-aa7986259046.webp" attr-images="'[{\'file_name\':\'fec514f9-3ae0-4936-a231-aa7986259046.webp\',\'name\':\'7298dc75-15dc-4166-a93c-6485d240059d.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1413" attr-info-id="2187" attr-name="Metabolic Protein Powder" attr-description="&lt;p&gt;A plant-based nutrition powder containing pea and hemp protein, fiber sources, MCT powder, carbohydrate ingredients, and a flax-derived omega-3 source. The formula is designed to provide a balanced combination of plant protein and additional nutritional ingredients. Marketing should remain focused on general nutrition and avoid weight-loss, blood-sugar-control, or metabolic-disease claims.&lt;/p&gt;" attr-price="145" attr-rebill-price="0" attr-sale-price="145" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="3acd3c87-a791-400b-b894-1a1a36bb1195.webp" attr-images="'[{\'file_name\':\'3acd3c87-a791-400b-b894-1a1a36bb1195.webp\',\'name\':\'3621f4f6-8a6b-46a8-8237-b85407f7a234.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1468" attr-info-id="2170" attr-name="Functional Mushroom &amp; Superfood Powder" attr-description="&lt;p&gt;A powdered mushroom and superfood blend containing functional mushrooms, prebiotic fiber, acerola, and vitamin C. The formula combines several mushroom species with complementary plant-based ingredients for general wellness use. Final labeling should verify mushroom species, plant parts, and ingredient amounts and avoid cancer, infection, or immune-disease treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="ac57fd86-0b24-4499-9fe6-80063849f895.webp" attr-images="'[{\'file_name\':\'ac57fd86-0b24-4499-9fe6-80063849f895.webp\',\'name\':\'2768d2c5-f645-4392-b8d4-ecc5408f358a.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1460" attr-info-id="2162" attr-name="Organic Daily Greens Powder" attr-description="&lt;p&gt;A powdered greens blend containing grasses, vegetables, botanicals, fruit ingredients, spices, and prebiotic fiber. The product offers a broad plant-based ingredient profile intended to complement normal dietary intake. Marketing should focus on general nutrition and wellness and avoid detoxification, disease-prevention, or unsupported immunity claims.&lt;/p&gt;" attr-price="120" attr-rebill-price="0" attr-sale-price="120" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp" attr-images="'[{\'file_name\':\'bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp\',\'name\':\'3e7e2cf8-8466-4681-b013-1f7da25a7912.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1450" attr-info-id="2154" attr-name="Post-Workout Electrolyte Mix" attr-description="&lt;p&gt;A post-workout powder containing BCAAs, L-glutamine, potassium citrate, and salt. The formula provides amino acids and electrolyte ingredients commonly used in sports-nutrition products. Final labeling should verify each ingredient amount and avoid claims to treat dehydration, guarantee recovery, or provide medical benefits.&lt;/p&gt;" attr-price="300" attr-rebill-price="0" attr-sale-price="300" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="054f57b5-6440-4367-98bb-4a1915b59708.webp" attr-images="'[{\'file_name\':\'054f57b5-6440-4367-98bb-4a1915b59708.webp\',\'name\':\'95211bbe-2b89-4ec5-aefe-bba42324cee9.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1437" attr-info-id="2146" attr-name="Advanced Performance Powder" attr-description="&lt;p&gt;A sports-nutrition powder containing electrolytes, B vitamins, amino acids, creatine compounds, and caffeine. The formula combines several common performance-nutrition ingredients in a convenient powdered format. Final packaging should disclose the exact caffeine amount and serving directions and avoid extreme, guaranteed, stimulant-like, or drug-comparison claims.&lt;/p&gt;" attr-price="190" attr-rebill-price="0" attr-sale-price="190" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp" attr-images="'[{\'file_name\':\'73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp\',\'name\':\'85144eee-c420-4e5b-8fca-d3d3c026b9f9.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1385" attr-info-id="2111" attr-name="Ancestral Protein &amp; amminos" attr-description="&lt;p&gt;A protein powder containing beef bone broth protein, bovine organ ingredients, mineral components, and selected mushroom ingredients. The formula offers a broad animal-based protein and nutrient profile intended for general nutritional use. Final packaging should verify every animal-source ingredient and avoid disease, immunity-treatment, or organ-healing claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp" attr-images="'[{\'file_name\':\'8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp\',\'name\':\'e7a58f40-9e2e-40f3-a5bd-65062e421cb9.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1374" attr-info-id="2103" attr-name="Whey Isolate Protein Powder" attr-description="&lt;p&gt;A whey protein isolate powder with sunflower lecithin for easier mixing. Whey isolate provides a concentrated source of complete protein and naturally occurring essential amino acids, including BCAAs. Final labeling should confirm protein grams, serving size, milk allergen information, and the correct facts-panel classification.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp" attr-images="'[{\'file_name\':\'db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp\',\'name\':\'3129aec1-32e2-415c-b41d-1c8731b8e672.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1358" attr-info-id="2095" attr-name="Ultra Testosterone" attr-description="&lt;p&gt;A men&#039;s dietary supplement containing D-aspartic acid, ashwagandha, tribulus, chrysin, boron, and black pepper extract. The formulation combines botanical and nutritional ingredients commonly found in men&#039;s wellness products. Marketing should stay focused on general vitality and avoid testosterone-treatment, hormone-modification, sexual-performance, or guaranteed muscle-gain claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="3ed2d586-da93-4da2-b914-8508ff4f69b6.webp" attr-images="'[{\'file_name\':\'3ed2d586-da93-4da2-b914-8508ff4f69b6.webp\',\'name\':\'706ff052-a733-485d-9e56-5f9e1ba5e1ac.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1337" attr-info-id="2087" attr-name="Magnesium Glycinate" attr-description="&lt;p&gt;A dietary supplement supplying magnesium in a chelated glycinate or bisglycinate form. The formula provides a straightforward source of supplemental magnesium for general nutritional use. Final packaging should state the verified elemental magnesium amount per serving and applicable Daily Value.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp" attr-images="'[{\'file_name\':\'27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp\',\'name\':\'153a5baf-61e7-4ad5-a42a-6282c072b441.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1525" attr-info-id="2079" attr-name="Grass-Fed Whey Protein" attr-description="&lt;p&gt;A grass-fed whey protein concentrate powder with sunflower lecithin for mixability. Whey protein naturally provides a complete profile of essential amino acids, including the branched-chain amino acids leucine, isoleucine, and valine. Final packaging should confirm protein content, serving size, allergen information, and whether a Supplement Facts or Nutrition Facts panel is appropriate.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp" attr-images="'[{\'file_name\':\'0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp\',\'name\':\'259f8597-fa22-499b-b3bd-99e474207370.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1517" attr-info-id="2070" attr-name="Vitamin K2 + D3" attr-description="&lt;p&gt;A dietary supplement containing vitamin D3 and vitamin K2. The formula offers two commonly paired fat-soluble vitamins in a straightforward daily supplement format. Final labelling should confirm the exact amounts and Daily Values and avoid claims to prevent or treat osteoporosis, heart disease, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="d564b19b-8064-4f43-a1b4-bf071b3bf897.webp" attr-images="'[{\'file_name\':\'d564b19b-8064-4f43-a1b4-bf071b3bf897.webp\',\'name\':\'7fa4c5b7-9d98-4ec1-b04b-35f08392f63e.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1509" attr-info-id="2062" attr-name="20B Probiotic" attr-description="&lt;p&gt;A multi-strain probiotic dietary supplement formulated with beneficial bacterial cultures and inulin prebiotic fiber. The product is intended to provide a clearly identified probiotic blend for general digestive wellness. Final packaging should list the exact strains and verified CFU quantity and should avoid claims to treat infections, IBS, or other diseases.&lt;/p&gt;" attr-price="40" attr-rebill-price="0" attr-sale-price="40" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp" attr-images="'[{\'file_name\':\'7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp\',\'name\':\'60961718-1cea-4e61-b3bd-46dbc54a1c02.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1501" attr-info-id="2054" attr-name="Cognitive Support" attr-description="&lt;p&gt;A dietary supplement containing amino acids, botanical extracts, phosphatidylserine, alpha-GPC, L-theanine, and caffeine. The formula is positioned for general cognitive and mental-performance support as part of a normal wellness routine. Marketing should avoid claims related to Alzheimer&#039;s disease, dementia, ADHD, memory-loss treatment, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp" attr-images="'[{\'file_name\':\'06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp\',\'name\':\'15014645-a967-4d25-8c55-0627bccdefe2.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1489" attr-info-id="2046" attr-name="L-Arginine Plus" attr-description="&lt;p&gt;An amino-acid-based dietary supplement centred on L-arginine with vitamin C, folate, and antioxidant compounds. The formula provides a combination of nutrients commonly used in general fitness and wellness products. Product descriptions should avoid erectile dysfunction, cardiovascular disease, blood pressure, or drug-like performance claims.&lt;/p&gt;" attr-price="50" attr-rebill-price="0" attr-sale-price="50" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="b860e43e-fcbd-4836-a344-18da35568bc2.webp" attr-images="'[{\'file_name\':\'b860e43e-fcbd-4836-a344-18da35568bc2.webp\',\'name\':\'7c14f3fa-78a1-418a-9ca2-8f00c3c5f8bd.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1473" attr-info-id="2038" attr-name="Seaweed Extract" attr-description="&lt;p&gt;A dietary supplement featuring brown seaweed or kelp extract as a source of naturally occurring iodine. The product provides a simple marine botanical ingredient for general nutritional use. Final labelling should confirm the exact seaweed species and iodine amount and should avoid thyroid-disease or detoxification claims.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp" attr-images="'[{\'file_name\':\'efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp\',\'name\':\'0928ad89-8a67-4195-a6f9-dcc03f379328.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1444" attr-info-id="2030" attr-name="Gut Repair" attr-description="&lt;p&gt;A dietary supplement blend containing L-glutamine, apple pectin, zinc carnosine, slippery elm, DGL, aloe, tributyrin, and curcumin. The formula combines amino acid, botanical, and nutrient ingredients commonly used in digestive wellness products. Marketing should focus on general digestive support and avoid claims that it repairs disease conditions, treats IBS, or heals the gastrointestinal tract.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="4eabed2d-4251-4b33-95bc-c65ac388da9c.webp" attr-images="'[{\'file_name\':\'4eabed2d-4251-4b33-95bc-c65ac388da9c.webp\',\'name\':\'0e0b9c70-d620-4861-8589-2cf43c769ae4.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1395" attr-info-id="2022" attr-name="Organic Sea Moss &amp; Bladderwrack Powder" attr-description="&lt;p&gt;A powdered botanical blend containing organic sea moss and bladderwrack. These marine ingredients naturally contain a variety of trace nutrients, with the final nutrient profile dependent on the actual manufacturer specification. The product should be marketed for general wellness without thyroid-treatment, detoxification, or disease-related claims.&lt;br&gt;&amp;nbsp;&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp" attr-images="'[{\'file_name\':\'7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp\',\'name\':\'dafee93b-1592-41bf-a5b5-144c99330675.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1372" attr-info-id="2014" attr-name="Hydrolyzed Collagen Powder" attr-description="&lt;p&gt;A hydrolyzed bovine collagen peptide powder that naturally provides amino acids such as glycine, proline, and hydroxyproline. The powder is designed as a convenient source of supplemental collagen protein for everyday nutrition. Product copy should remain focused on composition and general nutritional support rather than disease, pain-relief, or anti-aging treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="a8aab056-dc2e-4cf4-be95-3545a301fcde.webp" attr-images="'[{\'file_name\':\'a8aab056-dc2e-4cf4-be95-3545a301fcde.webp\',\'name\':\'7bea101f-f195-4841-90bb-d1a1fe3f1330.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1357" attr-info-id="2006" attr-name="Natural Energy" attr-description="&lt;p&gt;A dietary supplement containing L-theanine, caffeine, and vitamin B12. The combination is intended for consumers seeking a convenient energy-support formula as part of their daily routine. Any final product listing should disclose the actual caffeine amount and avoid guaranteed energy or performance claims.&lt;/p&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="beafe0d3-be01-4a6c-8aca-f986a29f062c.webp" attr-images="'[{\'file_name\':\'beafe0d3-be01-4a6c-8aca-f986a29f062c.webp\',\'name\':\'b1fedf0b-2600-4c75-a096-c8ba650054f6.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1345" attr-info-id="1998" attr-name="Cranberry UTI" attr-description="&lt;p&gt;A cranberry-extract dietary supplement formulated for general urinary wellness. The product offers a simple cranberry-based ingredient profile that can complement everyday wellness routines. It is presented without claims to prevent, treat, or cure urinary tract infections or other medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp" attr-images="'[{\'file_name\':\'0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp\',\'name\':\'392eb7b6-3b18-4176-9bc0-58b7d0255a85.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1333" attr-info-id="1990" attr-name="Coleus Forskolin" attr-description="&lt;p&gt;A botanical dietary supplement featuring standardized Coleus forskohlii root extract. The formula provides a straightforward plant-based ingredient profile for general wellness use. It is described without weight-loss, fat-burning, or guaranteed body-composition claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp" attr-images="'[{\'file_name\':\'07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp\',\'name\':\'47a0d017-7863-48d0-86fb-e01ea89f2bf1.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1325" attr-info-id="1982" attr-name="Blood Sugar Support" attr-description="&lt;p&gt;A dietary supplement formula featuring chromium, bitter melon, cinnamon, gymnema, alpha-lipoic acid, and supporting vitamins and minerals. The blend is designed to complement a balanced wellness routine and normal nutrient intake. It is presented without claims to diagnose, treat, cure, or prevent blood-sugar-related medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="5c86e088-5e8b-435b-823a-25c08677c638.webp" attr-images="'[{\'file_name\':\'5c86e088-5e8b-435b-823a-25c08677c638.webp\',\'name\':\'3b21d4da-89eb-4652-b778-e362e61a160a.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1482" attr-info-id="2265" attr-name="Bovine Colostrum Powder" attr-description="&lt;p&gt;A bovine colostrum powder containing naturally occurring immunoglobulins, proline-rich polypeptides, and lactoferrin. The product provides a dairy-derived colostrum ingredient in a convenient powder format for general nutritional use. Final packaging should verify bovine source, processing, IgG specification, allergen information, and avoid infection-prevention or therapeutic immune claims.&lt;/p&gt;" attr-price="130" attr-rebill-price="0" attr-sale-price="130" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="32" attr-image="3a9c6382-6784-4bb0-8561-83360f457604.webp" attr-images="'[{\'file_name\':\'3a9c6382-6784-4bb0-8561-83360f457604.webp\',\'name\':\'6d30979d-c13c-4206-ae16-2885c072d114.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="1645" attr-info-id="2924" attr-name="Shipment Protection" attr-description="&lt;p&gt;Covers your order against &lt;strong&gt;loss, theft, or damage during transit. If anything goes wrong, we’ll replace your order at no additional cost.&lt;/strong&gt;&lt;/p&gt;" attr-price="14.99" attr-rebill-price="0" attr-sale-price="14.99" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="32" attr-image="8efa2aaf-18c6-437f-bf82-76f0c53795d3.png" attr-images="'[{\'file_name\':\'8efa2aaf-18c6-437f-bf82-76f0c53795d3.png\',\'name\':\'shipment.png\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="2225" attr-info-id="99161" attr-name="Colon Cleanse Detox" attr-description="&lt;p&gt;Colon Cleanse Detox is a dietary supplement formulated with Psyllium Husk and Aloe Vera to support healthy digestion and regularity. Conveniently packaged in a bottle containing capsules, this supplement can be incorporated into your daily wellness routine according to the directions provided on the product label.&lt;/p&gt;&lt;p&gt;Designed for convenient everyday use, Colon Cleanse Detox offers a simple way to add these ingredients to your digestive wellness regimen.&lt;/p&gt;&lt;p&gt;Product Details:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Brand: Veraxa Wellness&lt;/li&gt;&lt;li&gt;Product Name: Colon Cleanse Detox&lt;/li&gt;&lt;li&gt;Key Ingredients: Psyllium Husk and Aloe Vera&lt;/li&gt;&lt;li&gt;Form: Capsules&lt;/li&gt;&lt;li&gt;Product Type: Dietary Supplement&lt;/li&gt;&lt;li&gt;Purpose: Supports healthy digestion and regularity*&lt;/li&gt;&lt;/ul&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="32" attr-image="d676a4ed-60d1-4fc1-97de-d5d381c611dd.png" attr-images="'[{\'file_name\':\'d676a4ed-60d1-4fc1-97de-d5d381c611dd.png\',\'name\':\'Veraxa Colon Cleanse Supplement Bottle.png\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="2229" attr-info-id="99169" attr-name="Micronized Monohydrate Powder" attr-description="&lt;p&gt;Micronized Monohydrate Powder features a pure monohydrate formula designed to complement your fitness and workout routine. Its micronized powder format makes it convenient to mix into your preferred beverage according to the product label’s directions. Ideal for fitness enthusiasts and active individuals, this dietary supplement is formulated to support muscle strength, athletic performance, and training goals as part of a balanced diet and regular exercise program.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Product Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Brand:&lt;/strong&gt; Veraxa Wellness&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Name:&lt;/strong&gt; Micronized Monohydrate Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Formula:&lt;/strong&gt; Pure Monohydrate&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Form:&lt;/strong&gt; Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Type:&lt;/strong&gt; Dietary Supplement&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Supports muscle strength and athletic performance*&lt;/li&gt;&lt;/ul&gt;" attr-price="200" attr-rebill-price="0" attr-sale-price="200" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="32" attr-image="dd63682e-04fa-4631-bd89-4294e00ce31d.png" attr-images="'[{\'file_name\':\'dd63682e-04fa-4631-bd89-4294e00ce31d.png\',\'name\':\'Veraxa Micronized Monohydrate Supplement Jar.png\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="2213" attr-info-id="99163" attr-name="Joint Support" attr-description="&lt;p&gt;Joint Support is a dietary supplement formulated with Glucosamine HCl, Chondroitin Sulfate, MSM, Turmeric Root Extract, and Boswellia Serrata Extract. It is designed to support joint comfort, mobility, and everyday wellness as part of an active lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="32" attr-image="9c6c1ac3-4145-4d77-b89b-171a3515569c.png" attr-images="'[{\'file_name\':\'9c6c1ac3-4145-4d77-b89b-171a3515569c.png\',\'name\':\'Veraxa Joint Support Bottle.png\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="2221" attr-info-id="99173" attr-name="Berberine" attr-description="&lt;p&gt;Berberine is a botanical dietary supplement formulated with Berberine HCl and Cinnamon Bark Extract. It is designed to support everyday wellness and complement a balanced diet and healthy lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="32" attr-image="70cc91e7-3e12-4111-b043-c1b76cff2f7f.png" attr-images="'[{\'file_name\':\'70cc91e7-3e12-4111-b043-c1b76cff2f7f.png\',\'name\':\'Berberine Wellness Supplement Bottle.png\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product><product attr-id="2217" attr-info-id="99177" attr-name="Complete Nutrition Powder" attr-description="&lt;p&gt;Complete Nutrition Powder is a dietary supplement designed to complement your daily nutrition and wellness routine. Its convenient powdered format makes it easy to incorporate into your everyday lifestyle. With a focus on balanced nutrition, daily energy, and overall wellness, this product is a suitable addition to a balanced diet and healthy lifestyle.&lt;br&gt;&lt;br&gt;Product Details:&lt;br&gt;- Brand: Veraxa Wellness&lt;br&gt;- Product Name: Complete Nutrition Powder&lt;br&gt;- Form: Powder&lt;br&gt;- Product Type: Dietary Supplement&lt;br&gt;- Purpose: Supports daily nutrition and overall wellness&lt;/p&gt;" attr-price="140" attr-rebill-price="0" attr-sale-price="140" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="32" attr-image="acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp" attr-images="'[{\'file_name\':\'acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp\',\'name\':\'b370f2ba-a1a2-44fa-9af5-5dc5e9e64f70.webp\',\'position\':1}]'" id="663" >
+                <table>
+                  <tbody class="sel-prod sel-product">
+                    <tr>
+                      <th class="fw-600 text-dark-gray alt-font">
+                          <label class="mb-0">
+                              <input type="checkbox" id="expeditedShipping" ng-model="expeditedShipping" ng-change="toggleExpeditedShipping()" class="ng-pristine ng-untouched ng-valid">
+                  
+                              <span class="product-name" data-attr-app="name"></span>
+                          </label>
+                      </th>
+                  
+                      <td class="product-price">
+                        $<span data-attr-app="price"></span>
+                      </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </product> -->
+
+                <div class="summary-total">
+                  <span>Total</span>
+
+                  <div class="final_amount">
+                    <strong
+                      >$<span id="grtotal" data-attr-app="subtotal"
+                        >139.99</span
+                      ></strong
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terms -->
+              <div>
+                <div id="oneTimeTerms" style="" class="pb-4">
+                  <label for="termsCheckboxOneTime">
+                    <input
+                      type="checkbox"
+                      class="required"
+                      id="termsCheckboxOneTime"
+                      name="termsCheckboxOneTime"
+                      data-error-message="Please click the agree checkbox"
+                      value="no"
+                      onchange="toggleAggreeTerms(this)"
+                    />
+                    I agree that my card will be charged $<span
+                      id="oneTimePrice"
+                      >139.99</span
+                    >
+                    <span id="dy_shipingTerms"
+                      >(Shipping &amp; Handling $9.99)</span
+                    >. My order will be processed and shipped with USPS within
+                    about 3-5 business days. Shipping time is estimated to be
+                    five (5) business days from when my order ships out. If this
+                    product is not right for me, or I have any questions,
+                    contact customer service by calling +1 8332004192 or
+                    emailing support@veraxawellness.com. Charges will appear on
+                    my credit card statement as veraxawellness.com.
+                  </label>
+                </div>
+
+                <div id="subscriptionTerms" style="display: none" class="pb-4">
+                  <label for="termsCheckboxSubscription">
+                    <input
+                      type="checkbox"
+                      class=""
+                      id="termsCheckboxSubscription"
+                      name="termsCheckboxSubscription"
+                      value="no"
+                      onchange="toggleAggreeSubcriptionTerms(this)"
+                    />
+                    I agree to the
+                    <a href="terms.html" target="_blank">Terms &amp; Conditions</a>,
+                    <a href="privacy.html" target="_blank">Privacy Policy</a>,
+                    Refund Policy, and Shipping Policy. I will be charged $<span
+                      id="subscriptionPrice"
+                      >0.00</span
+                    >
+                    now and every 30 days thereafter until I cancel my
+                    subscription. To cancel, I must request cancellation by
+                    phone 1 8332004192, email support@veraxawellness.com, or
+                    click the
+                    <a href="/cancellation" target="_blank">cancellation</a>
+                    link at least 1 day prior to my next scheduled billing date.
+                    This purchase will appear on my credit card statement as
+                    veraxawellness.com. By placing your monthly recurring order,
+                    you will be charged $<span id="subscriptionPrice"
+                      >0.00</span
+                    >
+                    now and every 30 days thereafter until you cancel your
+                    subscription. You will receive an electronic notification
+                    5–7 days prior to each transaction and a receipt after every
+                    successful transaction.
+                  </label>
+                </div>
+
+                <div
+                  id="expeditedShipping"
+                  style="display: none"
+                  class="add-to-cart-btn pb-4"
+                >
+                  If you choose Expedited Shipping Option, you will be charged
+                  extra $24.99 on your order of Veraxa Wellness. With our
+                  Expedited Shipping Option, we will make your shipment our
+                  priority and ship these packages out the same day (Packages
+                  will arrive within 1–3 business days).
+                </div>
+
+                <div class="shipping-options">
+                  <!-- Expedited Shipping -->
+                  <label class="shipping-option shipping-option--expedited">
+                    <span class="topShip">
+                      <input
+                        type="checkbox"
+                        id="expeditedCheckbox"
+                        class="shipping-option__checkbox"
+                      />
+                      <span class="shipping-option__icon">
+                        <img src="images/expedited-shipping-icon.svg" alt="" />
+                      </span>
+
+                      <span class="shipping-content shipping-option__content">
+                        <strong class="shipping-option__title">
+                          Expedited Shipping
+                        </strong>
+                      </span>
+                      <span class="shipping-price shipping-option__price">
+                        + $24.99
+                      </span>
+                    </span>
+                    <span class="bottomShip">
+                      <small class="shipping-option__description">
+                        Get your order in 2–3 business days instead of 5–7 days.
+                      </small>
+                    </span>
+                  </label>
+                  <!-- Shipment Protection -->
+                  <label class="shipping-option shipping-option--protection">
+                    <span class="topShip">
+                      <input
+                        type="checkbox"
+                        id="shipmentProtectionCheckbox"
+                        class="shipping-option__checkbox"
+                      />
+                      <span class="shipping-option__icon">
+                        <img src="images/shipment-protection-icon.svg" alt="" />
+                      </span>
+                      <span class="shipping-content shipping-option__content">
+                        <strong class="shipping-option__title">
+                          Shipment Protection
+                        </strong>
+                      </span>
+
+                      <span class="shipping-price shipping-option__price">
+                        + $14.99
+                      </span>
+                    </span>
+                    <span class="bottomShip">
+                      <small class="shipping-option__description">
+                        Covers loss, theft, or damage in transit — we'll replace
+                        your order at no extra cost. Over 87% of researchers add
+                        this
+                      </small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <!-- Terms end-->
+              <div class="checkout-actions">
+                <!-- <a href="cart.html" class="return-cart modal-sp-btn continue-show-shipping">← Return to
+                Cart</a> -->
+                <button
+                  class="collection-btn modal-sp-btn"
+                  type="button"
+                  onclick="submitForm()"
+                >
+                  CONFIRM ORDER
+                </button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <!-- ============================================================
+       FOOTER
+       Bootstrap: container-fluid > row (brand + links) + row (bottom bar)
+  ============================================================ -->
+    <script data-cfasync="false" src="js/email-decode.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+      // Required by selector-tags.js and the existing payment radio controls.
+      function showPayFields(paytype) {
+        var cardFields = document.getElementById("card-fields-card");
+        if (!cardFields) return;
+        cardFields.style.display = paytype === "card" ? "block" : "none";
+      }
+    </script>
+    <script src="js/selector-tags.js"></script>
+    <script src="js/searchbar.js"></script>
+    <script src="js/variant-tags.js"></script>
+
+    <script src="js/aos.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script>
+      window.addEventListener("load", function () {
+        AOS.init({
+          duration: 900, // Animation duration
+          easing: "ease-out-cubic",
+          once: true, // Animate only once
+          mirror: false,
+          offset: 80,
+          delay: 100,
+          anchorPlacement: "top-bottom",
+        });
+
+        // Refresh after full page load
+        AOS.refresh();
+      });
+    </script>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("mobileMenuToggle");
+        var menu = document.getElementById("navbarNav");
+        if (!btn || !menu) return;
+
+        function setOpen(open) {
+          menu.classList.toggle("show", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.classList.toggle("collapsed", !open);
+        }
+
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          // Keep Bootstrap's delegated data-API handler from toggling a
+          // second time after this checkout-specific handler runs.
+          e.stopImmediatePropagation();
+          setOpen(!menu.classList.contains("show"));
+        });
+
+        menu.addEventListener("click", function (e) {
+          if (e.target.closest("a")) setOpen(false);
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") setOpen(false);
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!menu.contains(e.target) && !btn.contains(e.target)) setOpen(false);
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 992) setOpen(false);
+        });
+      })();
+    </script>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <div class="hlx-footer__logo">
+              <img src="images/logo.png" alt="logo" width="120px" />
+            </div>
+            <p class="hlx-footer__desc">
+              We may provide good wellness products and health essentials
+              designed to support a balanced, healthier lifestyle with quality,
+              trust, and everyday care.
+            </p>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Quick links</h3>
+            <ul class="hlx-footer__links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="collections.html">Our Collection</a></li>
+              <li><a href="collections.html">Supplement Products</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Featured Links</h3>
+            <ul class="hlx-footer__links">
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="ingredients.html">Ingredients</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Contact</h3>
+            <ul class="hlx-footer__contact">
+              <li>
+                <i class="bi bi-envelope me-2"></i
+                ><a
+                  href="/cdn-cgi/l/email-protection#2a595f5a5a45585e6a5c4f584b524b5d4f4646444f595904494547"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="93e0e6e3e3fce1e7d3e5f6e1f2ebf2e4f6fffffdf6e0e0bdf0fcfe"
+                    >[email&nbsp;protected]</span
+                  ></a
+                >
+              </li>
+              <li>
+                <i class="bi bi-telephone me-2"></i
+                ><a href="tel:+1 8332004192">+1 8332004192</a>
+              </li>
+              <li>
+                <i class="bi bi-geo-alt me-2"></i>1209 Mountain Road PL NE,
+                Albuquerque, NM 87110, USA
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="text-center">
+            These statements have not been evaluated by the FDA and are not
+            intended to diagnose, cure or prevent disease. Please consult your
+            physician before beginning any diet or exercise program. If there is
+            a change in your medical condition, please notify your physician
+            immediately and stop taking the product. The product is not intended
+            for use by any individual under 18 years of age, pregnant or
+            lactating women. People with the following conditions should contact
+            a doctor before consuming this product: high blood pressure, heart,
+            liver, kidney or thyroid disease, diabetes, anemia, depression,
+            anxiety, other psychiatric conditions, a family history of other
+            medical conditions, or if taking any prescription, OTC and/or other
+            herbal medications.
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <span
+            >©
+            <script data-cfasync="false" src="js/email-decode.min.js"></script>
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Veraxa Wellness. All rights reserved.</span
+          >
+          <span>May designed for a healthier life everyday.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"> <img src="images/logo.png" alt="logo" width="120px" /> </div>
+        <p class="blurb">Premium supplements backed by science. Formulated for those who demand more from their health — today, and for years to come.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#/shop?category=Gut+Health">Gut Health</a></li>
+          <li><a href="#/shop?category=Performance">Performance</a></li>
+          <li><a href="#/shop?category=Protein+%26+Nutrition">Protein &amp; Nutrition</a></li>
+          <li><a href="#/shop?category=Vitamins+%26+Minerals">Vitamins &amp; Minerals</a></li>
+          <li><a href="#/shop?category=Superfoods">Superfoods</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#/">About Us</a></li>
+          <li><a href="#/">Learn</a></li>
+          <li><a href="#/">Our Approach</a></li>
+          <li><a href="#/">Third-Party Testing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#/">Contact</a></li>
+          <li><a href="#/">Shipping &amp; Returns</a></li>
+          <li><a href="#/">Subscriptions</a></li>
+          <li><a href="#/">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Veraxa. All rights reserved.</span>
+      <span>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</span>
+    </div>
+  </div>
+</footer> -->
+    <div id="cookiePopup" class="" style="display: none">
+      <div class="cookie_content">
+        <h4>Cookie Consent</h4>
+        <p>
+          Our website uses cookies to improve your browsing experience and
+          provide relevant information. By continuing to use our website, you
+          agree to our <a href="privacy.html">Cookie Policy &amp; Privacy</a>.
+        </p>
+      </div>
+      <div class="cookieBtns">
+        <button id="acceptCookie" onclick="cookieAccept()">Accept</button
+        ><button id="declineCookie" onclick="cookieDecline()">Decline</button>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/plain">
+      const public_config = [];
+             const funnel_config = {"test_cards":"[\"7111111111111111|visa\"]","available_country_state":"{\"US\":[\"AL\",\"AK\",\"AS\",\"AZ\",\"AR\",\"UM-81\",\"CA\",\"CO\",\"CT\",\"DE\",\"DC\",\"FL\",\"GA\",\"GU\",\"HI\",\"UM-84\",\"ID\",\"IL\",\"IN\",\"IA\",\"UM-86\",\"UM-67\",\"KS\",\"KY\",\"UM-89\",\"LA\",\"ME\",\"MD\",\"MA\",\"MI\",\"UM-71\",\"MN\",\"MS\",\"MO\",\"MT\",\"UM-76\",\"NE\",\"NV\",\"NH\",\"NJ\",\"NM\",\"NY\",\"NC\",\"ND\",\"MP\",\"OH\",\"OK\",\"OR\",\"UM-95\",\"PA\",\"PR\",\"RI\",\"SC\",\"SD\",\"TN\",\"TX\",\"UM\",\"VI\",\"UT\",\"VT\",\"VA\",\"UM-79\",\"WA\",\"WV\",\"WI\",\"WY\"],\"CA\":[\"AB\",\"BC\",\"MB\",\"NB\",\"NL\",\"NT\",\"NS\",\"NU\",\"ON\",\"PE\",\"QC\",\"SK\",\"YT\"]}","block_orders_from_army_base":1,"block_orders_from_territory":1,"display_error_type":"inline","meta_config":"[]","payment_networks":"[\"discover\",\"visa\",\"mastercard\"]","disable_browser_back":0,"path_urls":0};
+             const end_step = "17980";
+             const async_prospect = 1;
+             const pop_settings = [];
+             const popup_contents = [];
+             const decline_layout = "";
+             const installed_extensions = {"TransactionDelay":true,"PixelProcess":true,"OrderProcess":true,"CheckoutChampUtility":true,"CheckoutChampAdaptor":true,"CartSystem":true,"AutoResponder":true};
+             const current_step = "17982"
+    </script>
+
+    <script>
+      // Static-only interaction: retain the existing billing-address disclosure.
+      function toggleBilling(checkbox) {
+        var billingFields = document.getElementById("billingfields");
+        if (!billingFields) return;
+
+        billingFields.classList.toggle("d-none", checkbox.checked);
+        checkbox.value = checkbox.checked ? "yes" : "no";
+      }
+
+    // Local state options keep the static checkout usable without the former
+    // remote country/state data source.
+    (function () {
+      var country = document.getElementById("shippingCountry");
+      var state = document.getElementById("shippingState");
+      if (!country || !state) return;
+
+      var regions = {
+        US: ["Alabama|AL", "Alaska|AK", "Arizona|AZ", "Arkansas|AR", "California|CA", "Colorado|CO", "Connecticut|CT", "Delaware|DE", "District of Columbia|DC", "Florida|FL", "Georgia|GA", "Hawaii|HI", "Idaho|ID", "Illinois|IL", "Indiana|IN", "Iowa|IA", "Kansas|KS", "Kentucky|KY", "Louisiana|LA", "Maine|ME", "Maryland|MD", "Massachusetts|MA", "Michigan|MI", "Minnesota|MN", "Mississippi|MS", "Missouri|MO", "Montana|MT", "Nebraska|NE", "Nevada|NV", "New Hampshire|NH", "New Jersey|NJ", "New Mexico|NM", "New York|NY", "North Carolina|NC", "North Dakota|ND", "Ohio|OH", "Oklahoma|OK", "Oregon|OR", "Pennsylvania|PA", "Rhode Island|RI", "South Carolina|SC", "South Dakota|SD", "Tennessee|TN", "Texas|TX", "Utah|UT", "Vermont|VT", "Virginia|VA", "Washington|WA", "West Virginia|WV", "Wisconsin|WI", "Wyoming|WY"],
+        CA: ["Alberta|AB", "British Columbia|BC", "Manitoba|MB", "New Brunswick|NB", "Newfoundland and Labrador|NL", "Northwest Territories|NT", "Nova Scotia|NS", "Nunavut|NU", "Ontario|ON", "Prince Edward Island|PE", "Quebec|QC", "Saskatchewan|SK", "Yukon|YT"]
+      };
+
+      function populateStates() {
+        var selected = state.value;
+        var entries = regions[country.value] || [];
+        state.innerHTML = "";
+
+        var prompt = document.createElement("option");
+        prompt.value = "";
+        prompt.textContent = "Select state";
+        state.appendChild(prompt);
+
+        entries.forEach(function (entry) {
+          var parts = entry.split("|");
+          var option = document.createElement("option");
+          option.value = parts[1];
+          option.textContent = parts[0];
+          option.selected = parts[1] === selected;
+          state.appendChild(option);
+        });
+      }
+
+      country.addEventListener("change", populateStates);
+      populateStates();
+    })();
+
+      // Static-only add-ons: update the existing checkout summary locally.
+      (function () {
+        var expedited = document.getElementById("expeditedCheckbox");
+        var protection = document.getElementById("shipmentProtectionCheckbox");
+        var shipping = document.getElementById("paidShip");
+        var protectionLine = document.querySelector(".shipmentProtection");
+        var expeditedTerms = document.getElementById("expeditedShipping");
+        var total = document.getElementById("grtotal");
+        var oneTimePrice = document.getElementById("oneTimePrice");
+        var shippingTerms = document.getElementById("dy_shipingTerms");
+        var subtotal = document.querySelector(
+          '.summary-line [data-attr-app="subtotal"]',
+        );
+
+        if (
+          !expedited ||
+          !protection ||
+          !shipping ||
+          !protectionLine ||
+          !expeditedTerms ||
+          !total ||
+          !oneTimePrice ||
+          !shippingTerms ||
+          !subtotal
+        )
+          return;
+
+        var baseShipping = parseFloat(shipping.textContent) || 0;
+        var baseTotal = parseFloat(total.textContent) ||
+          (parseFloat(subtotal.textContent) || 0) + baseShipping;
+
+        function updateAddOns() {
+          var expeditedPrice = expedited.checked ? 24.99 : 0;
+          var protectionPrice = protection.checked ? 14.99 : 0;
+          // Expedited replaces the standard shipping charge; it is not added
+          // on top of it. This matches the original $139.99 → $154.99 flow.
+          var shippingTotal = expedited.checked ? expeditedPrice : baseShipping;
+          var merchandiseTotal = baseTotal - baseShipping;
+          var orderTotal = merchandiseTotal + shippingTotal + protectionPrice;
+
+          shipping.textContent = shippingTotal.toFixed(2);
+          protectionLine.style.display = protection.checked ? "" : "none";
+          // Preserve the original checkout's slide-down disclosure behavior.
+          if (window.jQuery) {
+            window
+              .jQuery(expeditedTerms)
+              .stop(true, true)
+              [expedited.checked ? "slideDown" : "slideUp"](250);
+          } else {
+            expeditedTerms.style.display = expedited.checked ? "block" : "none";
+          }
+          total.textContent = orderTotal.toFixed(2);
+          // The purchase agreement follows the original expedited-checkbox
+          // behavior only; shipment protection remains an order-summary add-on.
+          oneTimePrice.textContent = (merchandiseTotal + shippingTotal).toFixed(2);
+          shippingTerms.textContent = expedited.checked
+            ? "(Expedited Shipping $24.99)"
+            : "(Shipping & Handling $" + baseShipping.toFixed(2) + ")";
+        }
+
+        expedited.addEventListener("change", updateAddOns);
+        protection.addEventListener("change", updateAddOns);
+        updateAddOns();
+      })();
+    </script>
+
+    <!-- Checkout data sources are deliberately omitted in this static version. -->
+    <!-- <script src="js/cart.js?v=1"></script> -->
+    <script type="text/plain">
+          $(".payment-method-content").click(function (e) {
+            let cardType = $(this).data("cardtype") || "visa";
+            $("#creditCardType").val(cardType);
+            console.log(cardType)
+            if (cardType != 'visa') {
+              $('.cc-field').removeClass('required');
+              $('.cc-field').removeClass('has-error');
+            }
+            else {
+              $('.cc-field').addClass('required');
+            }
+          });
+
+
+          $(".continue-show-billing").click(function () {
+            $("#checkout-main").addClass("d-none");
+            $("#billing-main").removeClass("d-none");
+          })
+          $(".continue-show-shipping").click(function () {
+            $("#checkout-main").removeClass("d-none");
+            $("#billing-main").addClass("d-none");
+          })
+          function showPayFields(paytype) {
+            if (paytype == 'card') {
+              $("#card-fields-card").css('display', 'block');
+              $('.cc-field').addClass('required');
+            }
+            else {
+              $("#card-fields-card").css('display', 'none');
+              $('.cc-field').removeClass('required');
+            }
+          }
+
+          function toggleBilling(el) {
+            if (!el.checked) {
+              $("#billingfields").removeClass("d-none");
+              $("[name='prospect_checkout']").find('[name^="billing"]').not('[name="billingSameAsShipping"]').addClass("required");
+              el.value = 'no';
+            } else {
+              $("#billingfields").addClass("d-none");
+              $("[name='prospect_checkout']").find('[name^="billing"]').not('[name="billingSameAsShipping"]').removeClass("required has-error no-error");
+              el.value = 'yes';
+            }
+          }
+
+          // $(document).on("click", ".shipping-option", function () {
+          //   console.log('shipping');
+
+          //   // if ($(this).hasClass("shipping-active")) {
+          //   //   $(this).removeClass("shipping-active");
+          //   //   $("#shipping_div1").html("");
+          //   //   localStorage.removeItem("shippingPrice");
+          //   //   $("#shipping-summary").addClass("d-none");
+          //   //   recalcGrand();
+          //   // } else {
+          //   //   $(".ship-option").removeClass("shipping-active");
+          //   //   $(this).addClass("shipping-active");
+          //   //   let selectedShipping = $(this).attr("attr-id");
+          //   //   let selectedShippingPrice = parseFloat($(this).attr("attr-price"));
+          //   //   localStorage.setItem("shippingPrice", selectedShippingPrice);
+          //   //   addShippingField(selectedShipping);
+          //   //   $(".summary-shipping").text(selectedShippingPrice.toFixed(2));
+          //   //   $("#shipping-summary").removeClass("d-none");
+          //   //   recalcGrand();
+          //   // }
+          // });
+
+          $('.ship-radio').on('click', function () {
+
+            let shipId = $(this).val();
+            let shipprice = $(this).data('attr-price')
+
+            if ($(this).is("checked")) {
+              // uncheck all
+              $('.ship-radio').prop("checked", false);
+              $("#shipping_div1").html('');
+            }
+            else {
+              // check
+              $(this).prop("checked", true);
+              addShippingField(shipId)
+              $('.summary-shipping').html(shipprice)
+
+              let oldtotal = $('#subtotalhidden').val();
+              let newtotal = (parseFloat(oldtotal) + parseFloat(shipprice)).toFixed(2);
+              $('#grtotal').html(newtotal)
+
+              $(".ship-radio").not(this).prop("checked", false);
+            }
+
+          });
+
+          // function toggleRadio(el) {
+          //   $(".ship-radio").not(el).prop("checked", false);
+          //   console.log(el);
+
+          // }
+
+          function submitForm() {
+            // $("#prospect_checkout").submit()
+            document.getElementById('prospect_checkout').requestSubmit();
+          }
+
+          document.addEventListener("formSubmitSuccess", (e) => {
+            let formData = e.detail.formData;
+            // If it's a string, parse it into an object
+            if (typeof formData === "string") {
+              formData = JSON.parse(formData);
+            }
+            console.log("Original payload:", formData);
+            formData.products = [
+              {
+                productId: formData.productId,
+                offerId: formData.offerId,
+                billingModelId: formData.billingModelId,
+                quantity: formData.quantity,
+                originalPrice: formData.originalPrice,
+                cross: formData.cross,
+
+              },
+            ];
+            delete formData.productId;
+            delete formData.offerId;
+            delete formData.billingModelId;
+            delete formData.quantity;
+            delete formData.originalPrice;
+            delete formData.cross;
+
+            if (formData.creditCardType == 'paypal' || formData.creditCardType == 'cod') {
+              formData.payment_type = formData.creditCardType
+            }
+            else {
+              formData.payment_type = 'credit_card';
+            }
+
+            if ($('#billingSameAsShipping').prop('checked')) {
+              formData.billingSameAsShipping = 'yes'
+            }
+            else {
+              formData.billingSameAsShipping = 'no'
+            }
+
+
+            console.log("Modified payload:", formData);
+            // Store as a string in localStorage
+            localStorage.setItem("checkoutData", JSON.stringify(formData));
+
+          });
+
+          function toggleAggreeTerms(el) {
+            if (!el.checked) {
+              $("#termsCheckboxOneTime").addClass("required");
+              el.value = 'no';
+            } else {
+              $("#termsCheckboxOneTime").removeClass("required has-error no-error");
+              el.value = 'yes';
+            }
+          }
+
+
+          function toggleAggreeSubcriptionTerms(el) {
+            if (!el.checked) {
+              $("#termsCheckboxSubscription").addClass("required");
+              el.value = 'no';
+            } else {
+              $("#termsCheckboxSubscription").removeClass("required has-error no-error");
+              el.value = 'yes';
+            }
+          }
+
+
+          $(document).ready(function () {
+
+      // =====================================================
+      // FIND CART KEY
+      // =====================================================
+
+      var cartKey = Object.keys(localStorage).find(function (key) {
+          return key.startsWith("cart-");
+      });
+
+
+      // =====================================================
+      // SHIPPING CONFIGURATION
+      // =====================================================
+
+      var SHIPPING_IDS = {
+          expedited: 31,
+          free: 25,
+          standard: 30
+      };
+
+      var SHIPPING_PRICES = {
+          expedited: 24.99,
+          free: 0,
+          standard: 9.99
+      };
+
+
+      // =====================================================
+      // SHIPMENT PROTECTION CONFIGURATION
+      // =====================================================
+
+      var SHIPMENT_PROTECTION_PRODUCT_ID = 1645;
+
+      function getShipmentProtectionProduct() {
+
+          return {
+              productId: SHIPMENT_PROTECTION_PRODUCT_ID,
+              productName: "Shipment Protection",
+              price: 14.99,
+              billingModelId: "",
+              offerId: "",
+              quantity: 1,
+              image: "shipment.png",
+              purchaseType: "One Time"
+          };
+      }
+
+
+      // =====================================================
+      // LOAD CART
+      // =====================================================
+
+      var cart = cartKey
+          ? JSON.parse(localStorage.getItem(cartKey)) || []
+          : [];
+
+
+      // =====================================================
+      // COUPON DISCOUNT
+      // =====================================================
+
+      window.appliedDiscountPercent = 0;
+
+
+      // =====================================================
+      // GET CURRENT CART
+      // =====================================================
+
+      function getCurrentCart() {
+
+          if (!cartKey) {
+              return [];
+          }
+
+          try {
+
+              return JSON.parse(
+                  localStorage.getItem(cartKey)
+              ) || [];
+
+          } catch (error) {
+
+              console.error(
+                  "Unable to parse cart:",
+                  error
+              );
+
+              return [];
+          }
+      }
+
+
+      // =====================================================
+      // SAVE CART
+      // =====================================================
+      /*
+      function saveCart(updatedCart) {
+
+          if (!cartKey) {
+              return;
+          }
+
+          localStorage.setItem(
+              cartKey,
+              JSON.stringify(updatedCart)
+          );
+
+          cart = updatedCart;
+
+          cartManager._refreshUI();
+
+      }
+      */
+
+      // =====================================================
+      // CALCULATE MERCHANDISE TOTAL
+      // =====================================================
+
+      function getMerchandiseTotal(currentCart) {
+
+          var merchandiseTotal = 0;
+
+          currentCart.forEach(function (item) {
+
+              var price =
+                  parseFloat(item.price) || 0;
+
+              var quantity =
+                  parseInt(item.quantity, 10) || 1;
+
+              merchandiseTotal +=
+                  price * quantity;
+          });
+
+          return merchandiseTotal;
+      }
+
+
+      // =====================================================
+      // GET SHIPPING INFORMATION
+      // =====================================================
+
+      function getShippingInfo(merchandiseTotal) {
+
+          var isExpedited =
+              $("#expeditedCheckbox").is(":checked");
+
+
+          // ---------------------------------------------
+          // EXPEDITED SHIPPING
+          // ---------------------------------------------
+
+          if (isExpedited) {
+
+              return {
+                  id: SHIPPING_IDS.expedited,
+                  price: SHIPPING_PRICES.expedited,
+                  expedited: true
+              };
+          }
+
+
+          // ---------------------------------------------
+          // FREE SHIPPING $150+
+          // ---------------------------------------------
+
+          if (merchandiseTotal >= 150) {
+
+              return {
+                  id: SHIPPING_IDS.free,
+                  price: SHIPPING_PRICES.free,
+                  expedited: false
+              };
+          }
+
+
+          // ---------------------------------------------
+          // STANDARD SHIPPING BELOW $150
+          // ---------------------------------------------
+
+          return {
+              id: SHIPPING_IDS.standard,
+              price: SHIPPING_PRICES.standard,
+              expedited: false
+          };
+      }
+
+
+      // =====================================================
+      // UPDATE SHIPPING ID
+      // =====================================================
+
+      function updateShippingId(shippingId) {
+
+          $("#shippingId").val(shippingId);
+
+          console.log(
+              "Shipping ID updated:",
+              shippingId
+          );
+      }
+
+
+      // =====================================================
+      // UPDATE TOTALS
+      // =====================================================
+
+      window.updateTotals = function () {
+
+          if (!cartKey) {
+              return;
+          }
+
+
+          // ---------------------------------------------
+          // GET CURRENT CART
+          // ---------------------------------------------
+
+          var currentCart =
+              getCurrentCart();
+
+
+          // ---------------------------------------------
+          // TOTALS
+          // ---------------------------------------------
+
+          var oneTimeTotal = 0;
+          var subscriptionTotal = 0;
+          var merchandiseTotal = 0;
+
+
+          // ---------------------------------------------
+          // CALCULATE CART TOTALS
+          // ---------------------------------------------
+
+          currentCart.forEach(function (item) {
+
+              var price =
+                  parseFloat(item.price) || 0;
+
+              var quantity =
+                  parseInt(item.quantity, 10) || 1;
+
+              var lineTotal =
+                  price * quantity;
+
+              if (String(item.productId) !== "1645") {
+                // Merchandise
+                merchandiseTotal += lineTotal;
+              }
+
+              // Purchase type
+              var purchaseType =
+                  String(item.purchaseType || "")
+                      .replace(/\s+/g, "")
+                      .toLowerCase();
+
+
+              // Subscription
+              if (
+                  purchaseType === "subscription"
+              ) {
+
+                  subscriptionTotal +=
+                      lineTotal;
+              }
+
+
+              // One Time
+              else if (
+                  purchaseType === "onetime"
+              ) {
+
+                  oneTimeTotal +=
+                      lineTotal;
+              }
+          });
+
+
+          // ---------------------------------------------
+          // COUPON DISCOUNT
+          // ---------------------------------------------
+
+          var discountPercent =
+              parseFloat(
+                  window.appliedDiscountPercent || 0
+              );
+
+          var discountAmount = 0;
+
+
+          if (discountPercent > 0) {
+
+              discountAmount =
+                  merchandiseTotal *
+                  discountPercent /
+                  100;
+          }
+
+
+          // ---------------------------------------------
+          // SHIPPING
+          // ---------------------------------------------
+
+          var shippingInfo =
+              getShippingInfo(
+                  merchandiseTotal
+              );
+
+          var shippingPrice =
+              shippingInfo.price;
+
+          var shippingId =
+              shippingInfo.id;
+
+
+          // ---------------------------------------------
+          // UPDATE SHIPPING ID
+          // ---------------------------------------------
+
+          updateShippingId(
+              shippingId
+          );
+
+
+          // ---------------------------------------------
+          // GRAND TOTAL
+          // ---------------------------------------------
+
+          var grandTotal =
+              merchandiseTotal -
+              discountAmount +
+              shippingPrice;
+
+
+          // Prevent negative total
+          if (grandTotal < 0) {
+              grandTotal = 0;
+          }
+
+
+          // =============================================
+          // UPDATE PRODUCT TOTALS
+          // =============================================
+
+          $("#oneTimePrice").text(
+              oneTimeTotal.toFixed(2)
+          );
+
+          $("#subscriptionPrice").text(
+              subscriptionTotal.toFixed(2)
+          );
+
+
+          // =============================================
+          // UPDATE SUBTOTAL
+          // =============================================
+
+          $('.summary-line [data-attr-app="subtotal"]')
+              .text(
+                  merchandiseTotal.toFixed(2)
+              );
+
+          $(".summary-subtotal").text(
+              merchandiseTotal.toFixed(2)
+          );
+
+
+          // =============================================
+          // UPDATE DISCOUNT
+          // =============================================
+
+          if (discountAmount > 0) {
+
+              $(".summary-discount").text(
+                  "-$" +
+                  discountAmount.toFixed(2)
+              );
+
+              $(".discount-line").show();
+
+          } else {
+
+              $(".summary-discount").text(
+                  "-$0.00"
+              );
+
+              $(".discount-line").hide();
+          }
+
+
+          // =============================================
+          // UPDATE SHIPPING
+          // =============================================
+
+          $(".summary-shipping").text(
+              shippingPrice.toFixed(2)
+          );
+
+          $("#paidShip").text(
+              shippingPrice.toFixed(2)
+          );
+
+
+          // =============================================
+          // UPDATE GRAND TOTAL
+          // =============================================
+
+          $("#grtotal").text(
+              grandTotal.toFixed(2)
+          );
+
+          $(".summary-grand").text(
+              grandTotal.toFixed(2)
+          );
+
+
+          // =============================================
+          // SHIPPING TERMS
+          // =============================================
+
+          if (shippingInfo.expedited) {
+
+              $("#dy_shipingTerms").text(
+                  "(Expedited Shipping $24.99"
+              );
+
+          } else if (shippingPrice === 0) {
+
+              $("#dy_shipingTerms").text(
+                  "(Shipping & Handling free)"
+              );
+
+          } else {
+
+              $("#dy_shipingTerms").text(
+                  "(Shipping & Handling $9.99)"
+              );
+          }
+
+
+          // =============================================
+          // CONSOLE
+          // =============================================
+
+          console.log(
+              "========== CART TOTAL =========="
+          );
+
+          console.log(
+              "Merchandise Total:",
+              merchandiseTotal.toFixed(2)
+          );
+
+          console.log(
+              "Discount %:",
+              discountPercent.toFixed(2)
+          );
+
+          console.log(
+              "Discount Amount:",
+              discountAmount.toFixed(2)
+          );
+
+          console.log(
+              "Shipping ID:",
+              shippingId
+          );
+
+          console.log(
+              "Shipping:",
+              shippingPrice.toFixed(2)
+          );
+
+          console.log(
+              "Expedited:",
+              shippingInfo.expedited
+          );
+
+          console.log(
+              "Grand Total:",
+              grandTotal.toFixed(2)
+          );
+      };
+
+
+      // =====================================================
+      // UPDATE CART TOTAL
+      // =====================================================
+
+      window.updateCartTotal = function () {
+
+          if (!cartKey) {
+              return;
+          }
+
+
+          // ---------------------------------------------
+          // GET CURRENT CART
+          // ---------------------------------------------
+
+          var currentCart =
+              getCurrentCart();
+
+
+          // ---------------------------------------------
+          // MERCHANDISE TOTAL
+          // ---------------------------------------------
+
+          var merchandiseTotal =
+              getMerchandiseTotal(
+                  currentCart
+              );
+
+
+          // ---------------------------------------------
+          // SHIPPING
+          // ---------------------------------------------
+
+          var shippingInfo =
+              getShippingInfo(
+                  merchandiseTotal
+              );
+
+          var shippingId =
+              shippingInfo.id;
+
+          var shipping =
+              shippingInfo.price;
+
+
+          // ---------------------------------------------
+          // UPDATE SHIPPING ID
+          // ---------------------------------------------
+
+          $("#shippingId").val(
+              shippingId
+          );
+
+
+          // ---------------------------------------------
+          // COUPON DISCOUNT
+          // ---------------------------------------------
+
+          var discountPercent =
+              parseFloat(
+                  window.appliedDiscountPercent || 0
+              );
+
+          var discountAmount =
+              merchandiseTotal *
+              discountPercent /
+              100;
+
+
+          // ---------------------------------------------
+          // FINAL TOTAL
+          // ---------------------------------------------
+
+          var total =
+              merchandiseTotal -
+              discountAmount +
+              shipping;
+
+
+          if (total < 0) {
+              total = 0;
+          }
+
+
+          // ---------------------------------------------
+          // CONSOLE
+          // ---------------------------------------------
+
+          console.log(
+              "========== CART TOTAL =========="
+          );
+
+          console.log(
+              "Merchandise:",
+              merchandiseTotal.toFixed(2)
+          );
+
+          console.log(
+              "Discount:",
+              discountAmount.toFixed(2)
+          );
+
+          console.log(
+              "Shipping ID:",
+              shippingId
+          );
+
+          console.log(
+              "Shipping:",
+              shipping.toFixed(2)
+          );
+
+          console.log(
+              "Total:",
+              total.toFixed(2)
+          );
+
+
+          // ---------------------------------------------
+          // SHIPPING DISPLAY
+          // ---------------------------------------------
+
+          $("#paidShip").text(
+              shipping.toFixed(2)
+          );
+
+          $(".summary-shipping").text(
+              shipping.toFixed(2)
+          );
+
+
+          // ---------------------------------------------
+          // GRAND TOTAL
+          // ---------------------------------------------
+
+          $("#grtotal").text(
+              total.toFixed(2)
+          );
+
+          $(".summary-grand").text(
+              total.toFixed(2)
+          );
+
+
+          // ---------------------------------------------
+          // ONE TIME PRICE
+          // ---------------------------------------------
+
+          $("#oneTimePrice").text(
+              total.toFixed(2)
+          );
+
+
+          // ---------------------------------------------
+          // SHIPPING TERMS
+          // ---------------------------------------------
+
+          if (shippingInfo.expedited) {
+
+              $("#dy_shipingTerms").text(
+                  "(Expedited Shipping $24.99)"
+              );
+
+          } else if (shipping === 0) {
+
+              $("#dy_shipingTerms").text(
+                  "(Shipping & Handling free)"
+              );
+
+          } else {
+
+              $("#dy_shipingTerms").text(
+                  "(Shipping & Handling $9.99)"
+              );
+          }
+      };
+
+
+      // =====================================================
+      // DETERMINE WHICH TERMS TO SHOW
+      // =====================================================
+
+      var subscriptionTerms = false;
+      var oneTimeTerms = false;
+
+
+      if (cart.length > 0) {
+
+          var hasSubscription =
+              cart.some(function (item) {
+
+                  return String(
+                      item.purchaseType || ""
+                  )
+                      .replace(/\s+/g, "")
+                      .toLowerCase() ===
+                      "subscription";
+              });
+
+
+          var hasOneTime =
+              cart.some(function (item) {
+
+                  return String(
+                      item.purchaseType || ""
+                  )
+                      .replace(/\s+/g, "")
+                      .toLowerCase() ===
+                      "onetime";
+              });
+
+
+          if (hasSubscription) {
+              subscriptionTerms = true;
+          }
+
+
+          if (hasOneTime) {
+              oneTimeTerms = true;
+          }
+      }
+
+
+      console.log(
+          "subscriptionTerms:",
+          subscriptionTerms
+      );
+
+      console.log(
+          "oneTimeTerms:",
+          oneTimeTerms
+      );
+
+
+      // =====================================================
+      // HIDE SECTIONS INITIALLY
+      // =====================================================
+
+      $(
+          "#oneTimeTerms, #subscriptionTerms, #expeditedShipping"
+      ).hide();
+
+
+      // =====================================================
+      // SHOW ONE-TIME TERMS
+      // =====================================================
+
+      if (oneTimeTerms) {
+
+          $("#oneTimeTerms").show();
+
+          $("#termsCheckboxOneTime")
+              .addClass("required");
+
+      } else {
+
+          $("#termsCheckboxOneTime")
+              .removeClass("required");
+      }
+
+
+      // =====================================================
+      // SHOW SUBSCRIPTION TERMS
+      // =====================================================
+
+      if (subscriptionTerms) {
+
+          $("#subscriptionTerms").show();
+
+          $("#termsCheckboxSubscription")
+              .addClass("required");
+
+      } else {
+
+          $("#termsCheckboxSubscription")
+              .removeClass("required");
+      }
+
+
+      // =====================================================
+      // EXPEDITED SHIPPING
+      // =====================================================
+
+      // Unchecked by default
+      $("#expeditedCheckbox")
+          .prop("checked", false);
+
+      $("#expeditedShipping")
+          .hide();
+
+
+      // =====================================================
+      // SHIPMENT PROTECTION - INITIAL STATE
+      // =====================================================
+      //
+      // If the shipment protection product is already in the
+      // cart (e.g. returning to checkout), reflect that in the
+      // checkbox and reveal the related UI block.
+      // =====================================================
+
+      var hasShipmentProtection =
+          cart.some(function (item) {
+
+              return String(item.productId) ===
+                  String(SHIPMENT_PROTECTION_PRODUCT_ID);
+          });
+
+      $("#shipmentProtectionCheckbox")
+          .prop("checked", hasShipmentProtection);
+
+      $(".shipmentProtection")
+          .css(
+              "display",
+              hasShipmentProtection ? "flex" : "none"
+          );
+
+
+      // =====================================================
+      // REMOVE OLD SHIPMENT PROTECTION PRODUCT IF IT EXISTS
+      // =====================================================
+      //
+      // This is only cleanup for carts that may already
+      // contain the old product 1645 from the previous code.
+      //
+      // It will NOT add product 1645 again.
+      // =====================================================
+
+      if (cartKey) {
+
+          var existingCart =
+              getCurrentCart();
+
+          var cleanedCart =
+              existingCart.filter(function (item) {
+
+                  return String(
+                      item.productId
+                  ) !== "1645";
+              });
+
+
+          if (
+              cleanedCart.length !==
+              existingCart.length
+          ) {
+
+              localStorage.setItem(
+                  cartKey,
+                  JSON.stringify(cleanedCart)
+              );
+
+              cart = cleanedCart;
+          }
+      }
+
+
+      // =====================================================
+      // HANDLE EXPEDITED SHIPPING CHECKBOX
+      // =====================================================
+
+      $("#expeditedCheckbox").on(
+          "change",
+          function () {
+
+              if (!cartKey) {
+                  return;
+              }
+
+
+              var enabled =
+                  $(this).is(":checked");
+
+
+              // -----------------------------------------
+              // SHOW / HIDE EXPEDITED SHIPPING
+              // -----------------------------------------
+
+              if (enabled) {
+
+                  $("#expeditedShipping")
+                      .slideDown();
+
+              } else {
+
+                  $("#expeditedShipping")
+                      .slideUp();
+              }
+
+
+              // -----------------------------------------
+              // DO NOT ADD SHIPPING PRODUCT
+              // -----------------------------------------
+              //
+              // Shipping is controlled only through
+              // #shippingId and the calculated shipping
+              // amount.
+              // -----------------------------------------
+
+
+              // -----------------------------------------
+              // RECALCULATE TOTALS
+              // -----------------------------------------
+
+              updateTotals();
+
+              updateCartTotal();
+
+
+              // -----------------------------------------
+              // CONSOLE
+              // -----------------------------------------
+
+              console.log(
+                  "Expedited Shipping:",
+                  enabled ? "ON" : "OFF"
+              );
+
+              console.log(
+                  "Shipping ID:",
+                  $("#shippingId").val()
+              );
+          }
+      );
+
+
+      // =====================================================
+      // HANDLE SHIPMENT PROTECTION CHECKBOX
+      // =====================================================
+
+      $("#shipmentProtectionCheckbox").on(
+          "change",
+          function () {
+
+              if (!cartKey) {
+                  return;
+              }
+
+
+              var enabled =
+                  $(this).is(":checked");
+
+              var currentCart =
+                  getCurrentCart();
+
+
+              // -----------------------------------------
+              // ADD SHIPMENT PROTECTION
+              // -----------------------------------------
+
+              if (enabled) {
+
+                  var alreadyInCart =
+                      currentCart.some(function (item) {
+
+                          return String(item.productId) ===
+                              String(SHIPMENT_PROTECTION_PRODUCT_ID);
+                      });
+
+
+                  if (!alreadyInCart) {
+
+                      // currentCart.push(
+                      //     getShipmentProtectionProduct()
+                      // );
+
+                      // saveCart(currentCart);
+
+                      cartManager.addToCart(getShipmentProtectionProduct());
+                      cartManager._refreshUI();
+
+                  }
+
+
+                  $(".shipmentProtection")
+                      .css("display", "flex");
+
+
+              // -----------------------------------------
+              // REMOVE SHIPMENT PROTECTION
+              // -----------------------------------------
+
+              } else {
+
+                  var filteredCart =
+                      currentCart.filter(function (item) {
+
+                          return String(item.productId) !==
+                              String(SHIPMENT_PROTECTION_PRODUCT_ID);
+                      });
+
+                  // saveCart(filteredCart);
+                  cartManager.removeItem(SHIPMENT_PROTECTION_PRODUCT_ID);
+                  cartManager._refreshUI();
+                  $(".shipmentProtection")
+                      .css("display", "none");
+
+              }
+
+
+              // -----------------------------------------
+              // RECALCULATE TOTALS
+              // -----------------------------------------
+
+              updateTotals();
+
+              updateCartTotal();
+
+
+
+              // -----------------------------------------
+              // CONSOLE
+              // -----------------------------------------
+
+              console.log(
+                  "Shipment Protection:",
+                  enabled ? "ON" : "OFF"
+              );
+          }
+      );
+
+      // =====================================================
+      // LOAD FUNNEL / RENDER CART
+      // =====================================================
+
+      getFunnelHash().then(function (hash) {
+
+          var cartProducts =
+              localStorage.getItem(
+                  "cart-" + hash
+              );
+
+          if (cartProducts != null) {
+
+              cartProducts =
+                  JSON.parse(cartProducts);
+
+              // -----------------------------------------
+              // PRODUCT HTML
+              // -----------------------------------------
+
+              var product_html = "";
+
+
+              // -----------------------------------------
+              // SUMMARY HTML
+              // -----------------------------------------
+
+              var summary_html = "";
+
+
+              var summaryTotal = 0;
+
+
+              $("#subtotal-div")
+                  .removeClass("force-hide");
+
+              $(".subtotal-line")
+                  .removeClass("force-hide");
+
+
+              cartProducts.forEach(
+                  function (product, index) {
+
+                      product_html += `
+                          <div class="sel-prod active"
+                              data-billingmodelid="${product.billingModelId}"
+                              data-offerid="${product.offerId}"
+                              data-productid="${product.productId}"
+                              data-quantity="${product.quantity}"
+                              data-price="${product.price}"
+                              data-productname="${product.productName}"
+                              data-image="${product.image}">
+                          </div>
+                      `;
+
+
+                      var lineTotal =
+                          (
+                              parseFloat(product.price || 0) *
+                              (parseInt(product.quantity, 10) || 1)
+                          ).toFixed(2);
+
+
+                      summary_html += `
+                          <div class="order-item"
+                              id="summary-item-${product.productId}">
+
+                              <div class="order-item-thumb">
+
+                                  <img
+                                      src="${_getImageBasePath() + product.image}"
+                                      alt="${product.productName}"
+                                  >
+
+                                  <span class="order-item-badge">
+                                      ${product.quantity}
+                                  </span>
+
+                              </div>
+
+                              <p class="order-item-name">
+                                  ${product.productName}
+                              </p>
+
+                              <span class="order-item-price">
+                                  $${lineTotal}
+                              </span>
+
+                          </div>
+                      `;
+
+
+                      summaryTotal +=
+                          parseFloat(product.price || 0) *
+                          (parseInt(product.quantity, 10) || 1);
+                  }
+              );
+
+
+              $("#product_div")
+                  .html(product_html);
+
+
+              $("#summary-items")
+                  .html(summary_html);
+
+
+              $(".summary-subtotal")
+                  .text(
+                      summaryTotal.toFixed(2)
+                  );
+
+
+              if (cartProducts.length >= 1) {
+
+                  $("#productId")
+                      .val(
+                          cartProducts[0]["productId"]
+                      );
+              }
+
+          } else {
+
+              $("#subtotal-div")
+                  .hide();
+          }
+
+
+          // =================================================
+          // HIDDEN PRODUCT FIELDS
+          // =================================================
+
+          var productDiv =
+              document.getElementById(
+                  "product_div1"
+              );
+
+
+          var productDivHtml = "";
+
+
+          if (
+              cartProducts &&
+              cartProducts.length > 0
+          ) {
+
+              cartProducts.forEach(
+                  function (item, index) {
+
+                      productDivHtml += `
+                          <input
+                              type="hidden"
+                              name="products[${index}][billingModelId]"
+                              value="${item.billingModelId}"
+                          />
+
+                          <input
+                              type="hidden"
+                              name="products[${index}][offerId]"
+                              value="${item.offerId}"
+                          />
+
+                          <input
+                              type="hidden"
+                              name="products[${index}][quantity]"
+                              value="${item.quantity}"
+                          />
+
+                          <input
+                              type="hidden"
+                              name="products[${index}][price]"
+                              value="${item.price}"
+                          />
+                      `;
+
+
+                      // Product ID for every product after
+                      // the first one, preserving your
+                      // original structure.
+
+                      if (index != 0) {
+
+                          productDivHtml += `
+                              <input
+                                  type="hidden"
+                                  name="products[${index}][productId]"
+                                  value="${item.productId}"
+                              />
+                          `;
+                      }
+                  }
+              );
+          }
+
+
+          productDiv.innerHTML =
+              productDivHtml;
+
+
+          // =================================================
+          // INITIAL TOTAL CALCULATION
+          // =================================================
+
+          updateTotals();
+
+          updateCartTotal();
+      });
+
+
+      // =====================================================
+      // APPLY COUPON
+      // =====================================================
+
+      window.applyCoupon = function () {
+
+          const button =
+              $("#coupon_button");
+
+          const couponBox =
+              $("#coupon_box");
+
+          const couponError =
+              $("#coupon_error");
+
+
+          const couponCode =
+              couponBox.val().trim();
+
+
+          // =================================================
+          // REMOVE COUPON
+          // =================================================
+
+          if (
+              button.html().trim() ===
+              "REMOVE"
+          ) {
+
+              // Reset coupon
+              window.appliedDiscountPercent = 0;
+
+
+              couponError
+                  .addClass("d-none");
+
+
+              couponBox
+                  .removeClass(
+                      "has-error no-error"
+                  );
+
+
+              // Hide promo banner
+              $("#co-promo-banner")
+                  .removeClass("d-none");
+
+
+              $("#promo-msg").html(
+                  "Promo removed from your order"
+              );
+
+
+              // Hide coupon summary
+              $("#promo-summary-wrapper")
+                  .addClass("d-none");
+
+
+              $("#promo-summary")
+                  .html("");
+
+
+              // Clear coupon
+              couponBox
+                  .prop("readonly", false)
+                  .val("");
+
+
+              // APPLY button
+              button.css({
+                  background: "white",
+                  color: "black"
+              })
+              .html("APPLY");
+
+
+              // Recalculate totals
+              updateTotals();
+
+              updateCartTotal();
+
+
+              setTimeout(function () {
+
+                  $("#co-promo-banner")
+                      .addClass("d-none");
+
+              }, 3000);
+
+
+              return;
+          }
+
+
+          // =================================================
+          // CHECK EMPTY COUPON
+          // =================================================
+
+          if (
+              couponCode.length === 0
+          ) {
+
+              couponError
+                  .removeClass("d-none")
+                  .html(
+                      "Coupon code is required"
+                  );
+
+
+              couponBox
+                  .removeClass("no-error")
+                  .addClass("has-error");
+
+
+              return;
+          }
+
+
+          // =================================================
+          // GET CAMPAIGN ID
+          // =================================================
+
+          const campaignId =
+              $("#campaignId").val();
+
+
+          if (!campaignId) {
+
+              couponError
+                  .removeClass("d-none")
+                  .html(
+                      "Campaign ID is missing"
+                  );
+
+
+              couponBox
+                  .addClass("has-error");
+
+
+              return;
+          }
+
+
+          // =================================================
+          // SHOW CHECKING STATE
+          // =================================================
+
+          couponError
+              .addClass("d-none");
+
+
+          couponBox
+              .removeClass("has-error");
+
+
+          button
+              .prop("disabled", true)
+              .html("CHECKING...");
+
+
+          // =================================================
+          // VALIDATE COUPON
+          // =================================================
+
+          $.ajax({
+
+              url:
+                  "https://visionnerooptical.com/validate-coupon.php",
+
+              method:
+                  "POST",
+
+              dataType:
+                  "json",
+
+              timeout:
+                  15000,
+
+              data: {
+
+                  campaignId:
+                      campaignId,
+
+                  couponCode:
+                      couponCode
+              },
+
+
+              // =================================================
+              // SUCCESS
+              // =================================================
+
+              success:
+                  function (response) {
+
+                      console.log(
+                          "Coupon validation response:",
+                          response
+                      );
+
+
+                      // =====================================
+                      // VALID COUPON
+                      // =====================================
+
+                      if (
+                          response &&
+                          response.valid
+                      ) {
+
+                          var discountPercent =
+                              parseFloat(
+                                  response.discountPercent ||
+                                  0
+                              );
+
+
+                          // Store globally
+                          window.appliedDiscountPercent =
+                              discountPercent;
+
+
+                          // ---------------------------------
+                          // COUPON UI
+                          // ---------------------------------
+
+                          couponError
+                              .addClass("d-none");
+
+
+                          couponBox
+                              .removeClass("has-error")
+                              .addClass("no-error");
+
+
+                          // ---------------------------------
+                          // SHOW PROMO BANNER
+                          // ---------------------------------
+
+                          $("#co-promo-banner")
+                              .removeClass("d-none");
+
+
+                          $("#promo-msg").html(
+                              "Promo Applied: <strong>'" +
+                              couponCode +
+                              "'</strong> has been successfully added to your order"
+                          );
+
+
+                          // ---------------------------------
+                          // SHOW COUPON SUMMARY
+                          // ---------------------------------
+
+                          $("#promo-summary-wrapper")
+                              .removeClass("d-none");
+
+
+                          $("#promo-summary").html(
+                              couponCode +
+                              " (" +
+                              discountPercent.toFixed(2) +
+                              "% OFF)"
+                          );
+
+
+                          // Keep coupon available for CRM
+                          couponBox
+                              .prop("readonly", true);
+
+
+                          // APPLY → REMOVE
+                          button.css({
+                              background: "#000",
+                              color: "white"
+                          })
+                          .html("REMOVE");
+
+
+                          // ---------------------------------
+                          // RECALCULATE TOTALS
+                          // ---------------------------------
+
+                          updateTotals();
+
+                          updateCartTotal();
+
+
+                          console.log(
+                              "Applied discount:",
+                              discountPercent + "%"
+                          );
+
+                      }
+
+
+                      // =====================================
+                      // INVALID COUPON
+                      // =====================================
+
+                      else {
+
+                          // Reset discount
+                          window.appliedDiscountPercent =
+                              0;
+
+
+                          // Recalculate totals
+                          updateTotals();
+
+                          updateCartTotal();
+
+
+                          var message =
+                              response &&
+                              response.message
+                                  ? response.message
+                                  : "No coupon found";
+
+
+                          couponError
+                              .removeClass("d-none")
+                              .html(message);
+
+
+                          couponBox
+                              .removeClass("no-error")
+                              .addClass("has-error");
+
+
+                          couponBox
+                              .prop("readonly", false);
+
+
+                          button
+                              .prop("disabled", false)
+                              .html("APPLY");
+                      }
+                  },
+
+
+              // =================================================
+              // AJAX / SERVER ERROR
+              // =================================================
+
+              error:
+                  function (
+                      xhr,
+                      status,
+                      error
+                  ) {
+
+                      console.error(
+                          "Coupon validation failed:",
+                          status,
+                          error
+                      );
+
+
+                      console.error(
+                          "Server response:",
+                          xhr.responseText
+                      );
+
+
+                      let message =
+                          "Unable to validate coupon. Please try again.";
+
+
+                      // Try to read JSON error
+                      if (
+                          xhr.responseJSON &&
+                          xhr.responseJSON.message
+                      ) {
+
+                          message =
+                              xhr.responseJSON.message;
+                      }
+
+
+                      couponError
+                          .removeClass("d-none")
+                          .html(message);
+
+
+                      couponBox
+                          .removeClass("no-error")
+                          .addClass("has-error");
+
+
+                      couponBox
+                          .prop("readonly", false);
+
+
+                      button
+                          .html("APPLY");
+                  },
+
+
+              // =================================================
+              // ALWAYS
+              // =================================================
+
+              complete:
+                  function () {
+
+                      button
+                          .prop("disabled", false);
+
+
+                      setTimeout(function () {
+
+                          $("#co-promo-banner")
+                              .addClass("d-none");
+
+                      }, 3000);
+                  }
+          });
+      };
+
+      });
+    </script>
+  
+  <script src="js/page-loader.js"></script></body>
+</html>

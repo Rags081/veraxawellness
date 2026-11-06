@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veraxa Wellness</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/floating_cart.css" />
+    <link rel="stylesheet" href="css/searchbar.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="css/style_1.css" />
+
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/ingredients.css" />
+
+    <style>
+      input[type="text"]:focus,
+      input[type="search"]:focus,
+      input[type="password"]:focus,
+      input[type="tel"]:focus,
+      input[type="email"]:focus,
+      select:focus,
+      textarea:focus {
+        background: none !important;
+        box-shadow: none !important;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid #d6d6d6;
+      }
+
+      input.has-error:not([name="agree-checkbox"]) {
+        background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid orange;
+      }
+
+      select.has-error:not([name="agree-checkbox"]) {
+        background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid orange;
+      }
+
+      input.no-error:not([type="checkbox"]):not([type="radio"]):not(
+          [type="submit"]
+        ),
+      select.no-error {
+        background: url(images/tick-input.png) 99.5% 50% no-repeat transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid green;
+      }
+      .navbar:not(.cart-navbar) {
+        overflow: hidden;
+        background-color: #333;
+        position: relative !important;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+      }
+
+      #cookiePopup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #16281f !important;
+        color: #fff;
+        padding: 15px;
+        display: flex;
+        flex-wrap: nowrap;
+        z-index: 999999;
+        gap: 20px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        right: 0;
+      }
+      #cookiePopup .cookieBtns button#acceptCookie,
+      #cookiePopup .cookieBtns button#declineCookie {
+        font-size: 15px;
+        margin: 10px 0;
+        color: #16281f;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: #f3eddf;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        border: 2px solid #000000;
+      }
+      #cookiePopup .cookieBtns button#declineCookie:last-child {
+        background-color: #ad2b2b;
+        color: #fff;
+        border-color: #ad2b2b;
+      }
+      #cookiePopup p a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .cookieBtns {
+        display: inline-flex;
+        gap: 10px;
+      }
+
+      .cookie_content {
+        text-align: left;
+      }
+      .cookie_content h4 {
+        color: #fff;
+      }
+    </style>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min_1.css" />
+
+    <link rel="stylesheet" href="css/custom.css" />
+  
+  <link rel="stylesheet" href="css/page-loader.css"></head>
+  <body>
+  <div class="page-loader" role="status" aria-label="Loading page"><span class="page-loader__mark"></span></div>
+    <!-- ============================================================
+       NAVBAR
+       Bootstrap: navbar navbar-expand-lg + container-fluid + mx-auto nav
+  ============================================================ -->
+    <div class="announce">
+      <div class="container">
+        <div class="d-flex justify-content-between">
+          <span class="side" data-icon="truck" data-size="14"
+            >Free shipping on orders over $150</span
+          >
+          <span class="center">SCIENCE. PERFORMANCE. LONGEVITY.</span>
+          <!-- <span class="side">Subscribe &amp; save up to 20%</span> -->
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <nav class="luxe-nav navbar navbar-expand-lg">
+        <div class="header-row container">
+          <a class="navbar-brand luxe-logo" href="index.html">
+            <img src="images/logo.webp" alt="Logo" width="120" />
+          </a>
+          <button
+            class="navbar-toggler border-0 p-0 shadow-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto gap-lg-4">
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="index.html"> Home </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="about.html"> About Us </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="collections.html">
+                  Wellness Product
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="contact.html"> Contact </a>
+              </li>
+            </ul>
+          </div>
+          <div class="account_control_wrapper">
+            <button
+              class="icon-btn cart-btn position-relative"
+              type="button"
+              aria-label="Cart"
+              onclick="getCartAction()"
+            >
+              <img src="images/cart.svg" alt="" width="18" height="18" />
+              <span class="cart-badge position-absolute cart-product-count">
+                0
+              </span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- <header class="site-header">
+  <div class="header-row wrap">
+    <button class="mobile-toggle" aria-label="Menu"></button>
+    <a href="index.html" class="logo"> <img src="images/logo.png"> </a>
+    <nav class="main-nav">
+      <a href="#/shop">Shop</a>
+      <a href="#/shop?sort=bestsellers">Best Sellers</a>
+      <a href="#/shop">Categories</a>
+      <a href="#/">Learn</a>
+      <a href="#/">About Us</a>
+    </nav>
+    <div class="header-icons">
+      <button aria-label="Search" data-icon="search" data-size="19"></button>
+      <button aria-label="Account" data-icon="user" data-size="19"></button>
+      <button class="cart-dot" aria-label="Cart" data-icon="bag" data-size="19">
+        <span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </div>
+</header> -->
+    <div id="view-home">
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-copy">
+            <h1 class="serif">Science.<br />Performance.<br />Longevity.</h1>
+            <p class="lead">
+              Premium supplements. Backed by science. Formulated for those who
+              demand more from their health.
+            </p>
+            <div class="cta-row">
+              <a href="collections.html" class="btn btn-dark">Explore Products</a>
+              <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+            <div class="hero-badges">
+              <div class="hb">
+                <span
+                  ><svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M5 20c9 0 14-5 14-14 0 0-13-1-14 9-.3 2.2 0 5 0 5Z"
+                    ></path>
+                    <path d="M5 20c0-5 3-9 8-12"></path></svg></span
+                ><strong>Premium Ingredients</strong
+                ><span>Sourced for purity and potency</span>
+              </div>
+              <div class="hb">
+                <span
+                  ><svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M9 3h6M10 3v6.2L4.8 18a2 2 0 0 0 1.7 3h11a2 2 0 0 0 1.7-3L14 9.2V3"
+                    ></path>
+                    <path d="M7.5 15h9"></path></svg></span
+                ><strong>Science Backed</strong
+                ><span>Formulas rooted in clinical research</span>
+              </div>
+              <div class="hb">
+                <span
+                  ><svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3Z"
+                    ></path>
+                    <path d="M9 12l2 2 4-4"></path></svg></span
+                ><strong>Third-Party Tested</strong
+                ><span>For quality, safety and transparency</span>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="hero-art">
+            <img src="images/banner_image.png">
+        </div> -->
+        </div>
+      </section>
+
+      <section class="feature-strip">
+        <div class="wrap">
+          <div class="fi">
+            <span data-icon="atom" data-icon-done="1"
+              ><svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="1.7"
+                  fill="currentColor"
+                  stroke="none"
+                ></circle>
+                <ellipse cx="12" cy="12" rx="9" ry="3.6"></ellipse>
+                <ellipse
+                  cx="12"
+                  cy="12"
+                  rx="9"
+                  ry="3.6"
+                  transform="rotate(60 12 12)"
+                ></ellipse>
+                <ellipse
+                  cx="12"
+                  cy="12"
+                  rx="9"
+                  ry="3.6"
+                  transform="rotate(120 12 12)"
+                ></ellipse></svg></span
+            ><strong>SCIENCE DRIVEN</strong>
+            <p>Every formula is rooted in clinical research</p>
+          </div>
+          <div class="fi">
+            <span data-icon="leaf" data-icon-done="1"
+              ><svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M5 20c9 0 14-5 14-14 0 0-13-1-14 9-.3 2.2 0 5 0 5Z"
+                ></path>
+                <path d="M5 20c0-5 3-9 8-12"></path></svg></span
+            ><strong>CLEAN &amp; PURE</strong>
+            <p>Non-GMO, gluten-free, and free from fillers</p>
+          </div>
+          <div class="fi">
+            <span data-icon="shield" data-icon-done="1"
+              ><svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3Z"
+                ></path>
+                <path d="M9 12l2 2 4-4"></path></svg></span
+            ><strong>PERFORMANCE FOCUSED</strong>
+            <p>Formulated to help you perform at your best</p>
+          </div>
+          <div class="fi">
+            <span data-icon="circle" data-icon-done="1"
+              ><svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="12" cy="12" r="8.5"></circle>
+                <path d="M12 7.5v4.8l3 1.7"></path></svg></span
+            ><strong>LONGEVITY MINDED</strong>
+            <p>Supporting your health today and for years to come</p>
+          </div>
+          <div class="fi">
+            <span data-icon="heart" data-icon-done="1"
+              ><svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M12 20.5S3.8 15.4 3.8 9.6C3.8 6.6 6.1 4.5 8.8 4.5c1.6 0 3 .8 3.2 2 0 0 1.6-2 3.2-2 2.7 0 5 2.1 5 5.1 0 5.8-8.2 10.9-8.2 10.9Z"
+                ></path></svg></span
+            ><strong>MADE WITH CARE</strong>
+            <p>Proudly made in facilities that meet the highest standards</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="serif">Shop by Category</h2>
+          </div>
+          <div class="category-grid">
+            <div class="cat-card">
+              <div class="cat-circle">
+                <img
+                  src="images/product-1.png"
+                  data-img="20-billion-cfu-probiotic-blend"
+                  alt="Gut Health"
+                />
+              </div>
+              <strong>GUT HEALTH</strong>
+              <a class="shop-link" href="collections.html"
+                >SHOP NOW <span data-icon="chevronRight" data-size="11"></span
+              ></a>
+            </div>
+            <div class="cat-card">
+              <div class="cat-circle">
+                <img
+                  src="images/product-2.png"
+                  data-img="men-s-vitality-support"
+                  alt="Performance"
+                />
+              </div>
+              <strong>PERFORMANCE</strong>
+              <a class="shop-link" href="collections.html"
+                >SHOP NOW <span data-icon="chevronRight" data-size="11"></span
+              ></a>
+            </div>
+            <div class="cat-card">
+              <div class="cat-circle">
+                <img
+                  src="images/product-3.png"
+                  data-img="grass-fed-whey-protein"
+                  alt="Protein &amp; Nutrition"
+                />
+              </div>
+              <strong>PROTEIN &amp; NUTRITION</strong>
+              <a class="shop-link" href="collections.html"
+                >SHOP NOW <span data-icon="chevronRight" data-size="11"></span
+              ></a>
+            </div>
+            <div class="cat-card">
+              <div class="cat-circle">
+                <img
+                  src="images/product-4.png"
+                  data-img="vitamin-k2-plus-d3"
+                  alt="Vitamins &amp; Minerals"
+                />
+              </div>
+              <strong>VITAMINS &amp; MINERALS</strong>
+              <a class="shop-link" href="collections.html"
+                >SHOP NOW <span data-icon="chevronRight" data-size="11"></span
+              ></a>
+            </div>
+            <div class="cat-card">
+              <div class="cat-circle">
+                <img
+                  src="images/product-5.png"
+                  data-img="organic-daily-greens-powder"
+                  alt="Superfoods"
+                />
+              </div>
+              <strong>SUPERFOODS</strong>
+              <a class="shop-link" href="collections.html"
+                >SHOP NOW <span data-icon="chevronRight" data-size="11"></span
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div class="results-grid">
+          <div class="results-copy">
+            <h2 class="serif">Formulated for<br />Real Results.</h2>
+            <p>
+              We combine premium, bioavailable ingredients with cutting-edge
+              science to help you feel, function and perform at your peak.
+            </p>
+            <div>
+              <a
+                href="collections.html"
+                class="btn btn-outline"
+                style="border-color: var(--cream); color: var(--cream)"
+                >Learn Our Approach</a
+              >
+            </div>
+          </div>
+          <div class="results-img">
+            <img src="images/about_image.jpg" />
+          </div>
+          <ul class="results-list">
+            <li>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="8" cy="8" r="5.5" stroke="#B89A62"></circle>
+                <path
+                  d="M5.7 8L7.3 9.6L10.4 6.4"
+                  stroke="#B89A62"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              High quality active ingredients in effective doses
+            </li>
+            <li>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="8" cy="8" r="5.5" stroke="#B89A62"></circle>
+                <path
+                  d="M5.7 8L7.3 9.6L10.4 6.4"
+                  stroke="#B89A62"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              Minimal, clean formulations you can trust
+            </li>
+            <li>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="8" cy="8" r="5.5" stroke="#B89A62"></circle>
+                <path
+                  d="M5.7 8L7.3 9.6L10.4 6.4"
+                  stroke="#B89A62"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              Tested for purity, potency and consistency
+            </li>
+            <li>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <circle cx="8" cy="8" r="5.5" stroke="#B89A62"></circle>
+                <path
+                  d="M5.7 8L7.3 9.6L10.4 6.4"
+                  stroke="#B89A62"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              Backed by real science, not trends
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bestsellers">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="serif">Best Sellers</h2>
+            <p>The formulas our customers reorder again and again.</p>
+          </div>
+
+          <div class="product-grid" id="bestsellers-grid">
+            <div class="product-card">
+              <div class="sel-prod sel-product">
+                <div class="thumb">
+                  <img
+                    src="images/5c86e088-5e8b-435b-823a-25c08677c638.webp"
+                    alt="Product image"
+                    data-attr-app="image"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="info">
+                  <!-- <span class="cat">Gut Health</span> -->
+                  <h3 data-attr-app="name">Blood Sugar Support</h3>
+                  <div class="price-row">
+                    <span class="price"
+                      >$<span data-attr-app="price">60.00</span></span
+                    >
+                  </div>
+                  <button class="add-btn" aria-label="Add to cart">
+                    View Product
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="sel-prod sel-product">
+                <div class="thumb">
+                  <img
+                    src="images/27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp"
+                    alt="Product image"
+                    data-attr-app="image"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="info">
+                  <!-- <span class="cat">Gut Health</span> -->
+                  <h3 data-attr-app="name">Magnesium Glycinate</h3>
+                  <div class="price-row">
+                    <span class="price"
+                      >$<span data-attr-app="price">60.00</span></span
+                    >
+                  </div>
+                  <button class="add-btn" aria-label="Add to cart">
+                    View Product
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="sel-prod sel-product">
+                <div class="thumb">
+                  <img
+                    src="images/07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp"
+                    alt="Product image"
+                    data-attr-app="image"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="info">
+                  <!-- <span class="cat">Gut Health</span> -->
+                  <h3 data-attr-app="name">Coleus Forskolin</h3>
+                  <div class="price-row">
+                    <span class="price"
+                      >$<span data-attr-app="price">70.00</span></span
+                    >
+                  </div>
+                  <button class="add-btn" aria-label="Add to cart">
+                    View Product
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="sel-prod sel-product">
+                <div class="thumb">
+                  <img
+                    src="images/0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp"
+                    alt="Product image"
+                    data-attr-app="image"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="info">
+                  <!-- <span class="cat">Gut Health</span> -->
+                  <h3 data-attr-app="name">Cranberry UTI</h3>
+                  <div class="price-row">
+                    <span class="price"
+                      >$<span data-attr-app="price">60.00</span></span
+                    >
+                  </div>
+                  <button class="add-btn" aria-label="Add to cart">
+                    View Product
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 44px">
+            <a href="collections.html" class="btn btn-outline">View All Products</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="view-shop" style="display: none">
+      <div class="shop-header wrap">
+        <h1 class="serif">Shop All Products</h1>
+        <p>
+          26 formulas across gut health, performance, protein &amp; nutrition,
+          vitamins &amp; minerals, and superfoods — every one with 1, 3, 5 and
+          10-jar bundle pricing.
+        </p>
+      </div>
+      <div class="wrap"><div class="filter-row" id="filter-row"></div></div>
+      <div class="shop-grid-wrap wrap">
+        <div class="product-grid" id="shop-grid"></div>
+      </div>
+    </div>
+
+    <div id="view-product" style="display: none">
+      <div class="wrap"><div class="breadcrumb" id="breadcrumb"></div></div>
+      <main class="product-main">
+        <div class="wrap">
+          <div class="product-layout">
+            <div class="gallery-main">
+              <img id="gallery-image" src="" alt="" />
+            </div>
+            <div class="product-info">
+              <h1 class="serif" id="p-name"></h1>
+              <div class="rating-row">
+                <span class="stars" id="p-stars"></span>
+                <span id="p-rating-text"></span>
+              </div>
+              <p class="subtitle" id="p-subtitle"></p>
+              <div class="icon-badges" id="p-benefits"></div>
+              <div class="bundle-label">CHOOSE YOUR QUANTITY</div>
+              <div class="qty-table" id="qty-table"></div>
+              <div class="purchase-summary">
+                <span class="purchase-label">ONE-TIME PURCHASE</span>
+                <span class="purchase-price" id="purchase-price"></span>
+              </div>
+              <details class="subscribe-box">
+                <summary>
+                  <span data-icon="circle" data-size="16"></span> Subscribe
+                  &amp; Save up to 20%
+                  <span
+                    style="
+                      margin-left: auto;
+                      font-weight: 400;
+                      color: var(--ink-soft);
+                    "
+                    >▾</span
+                  >
+                </summary>
+                <div class="sub-body">
+                  Set up a recurring delivery and save an additional 5% on top
+                  of your quantity discount, cancel or adjust anytime from your
+                  account. Never run out, never pay full price.
+                </div>
+              </details>
+              <div class="add-to-cart-row">
+                <button class="btn btn-dark btn-block" id="add-to-cart">
+                  ADD TO CART&nbsp;•&nbsp;<span id="cart-total"></span>
+                </button>
+              </div>
+              <div class="secure-note">
+                <span data-icon="lock" data-size="14"></span
+                ><span
+                  >Secure checkout — SSL encrypted &amp; PCI compliant</span
+                >
+              </div>
+              <div class="ship-note">
+                <span data-icon="truck" data-size="16"></span> Free shipping on
+                orders over $125
+              </div>
+              <div class="side-panel">
+                <h4>Why You'll Love It</h4>
+                <ul id="trust-badges"></ul>
+              </div>
+              <div class="accordion" id="accordion"></div>
+            </div>
+          </div>
+          <div class="seal-strip" id="seal-strip"></div>
+          <p class="fda-disclaimer">
+            These statements have not been evaluated by the Food and Drug
+            Administration. This product is not intended to diagnose, treat,
+            cure, or prevent any disease. Individual results may vary. Consult
+            your healthcare provider before use, especially if pregnant,
+            nursing, or taking medication.
+          </p>
+        </div>
+      </main>
+      <section class="feature-strip">
+        <div class="wrap">
+          <div class="fi">
+            <span data-icon="atom"></span><strong>SCIENCE DRIVEN</strong>
+            <p>Every formula is rooted in clinical research</p>
+          </div>
+          <div class="fi">
+            <span data-icon="leaf"></span><strong>CLEAN &amp; PURE</strong>
+            <p>Non-GMO, gluten-free, and free from fillers</p>
+          </div>
+          <div class="fi">
+            <span data-icon="shield"></span><strong>PERFORMANCE FOCUSED</strong>
+            <p>Formulated to help you perform at your best</p>
+          </div>
+          <div class="fi">
+            <span data-icon="circle"></span><strong>LONGEVITY MINDED</strong>
+            <p>Supporting your health today and for years to come</p>
+          </div>
+        </div>
+      </section>
+      <section class="stack-section">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 class="serif">Complete Your Stack</h2>
+            <p>Pair with these customer favorites.</p>
+          </div>
+          <div class="product-grid" id="stack-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/selector-tags.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/floating_cart.js"></script>
+    <script src="js/searchbar.js"></script>
+    <script src="js/variant-tags.js"></script>
+
+    <script src="js/aos.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/fit.js"></script>
+    <script src="js/cookie-consent.js"></script>
+
+    <script src="js/theme.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script>
+      window.addEventListener("load", function () {
+        AOS.init({
+          duration: 900, // Animation duration
+          easing: "ease-out-cubic",
+          once: true, // Animate only once
+          mirror: false,
+          offset: 80,
+          delay: 100,
+          anchorPlacement: "top-bottom",
+        });
+
+        // Refresh after full page load
+        AOS.refresh();
+      });
+    </script>
+
+    <script>
+      (function () {
+        // If Bootstrap's JS is present and working, let it handle this.
+        if (window.bootstrap && window.bootstrap.Collapse) return;
+
+        var btn = document.querySelector(
+          '[data-bs-toggle="collapse"][data-bs-target="#navbarNav"]',
+        );
+        var menu = document.getElementById("navbarNav");
+        if (!btn || !menu) return;
+
+        function setOpen(open) {
+          menu.classList.toggle("show", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.classList.toggle("collapsed", !open);
+        }
+
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          setOpen(!menu.classList.contains("show"));
+        });
+
+        menu.addEventListener("click", function (e) {
+          if (e.target.closest("a")) setOpen(false);
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") setOpen(false);
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 992) setOpen(false);
+        });
+      })();
+    </script>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <div class="hlx-footer__logo">
+              <img src="images/logo.png" alt="logo" width="120px" />
+            </div>
+            <p class="hlx-footer__desc">
+              We may provide good wellness products and health essentials
+              designed to support a balanced, healthier lifestyle with quality,
+              trust, and everyday care.
+            </p>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Quick links</h3>
+            <ul class="hlx-footer__links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="collections.html">Our Collection</a></li>
+              <li><a href="collections.html">Supplement Products</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Featured Links</h3>
+            <ul class="hlx-footer__links">
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="ingredients.html">Ingredients</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Contact</h3>
+            <ul class="hlx-footer__contact">
+              <li>
+                <i class="bi bi-envelope me-2"></i
+                ><a
+                  href="/cdn-cgi/l/email-protection#cab9bfbabaa5b8be8abcafb8abb2abbdafa6a6a4afb9b9e4a9a5a7"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="2f5c5a5f5f405d5b6f594a5d4e574e584a4343414a5c5c014c4042"
+                    >[email&nbsp;protected]</span
+                  ></a
+                >
+              </li>
+              <li>
+                <i class="bi bi-telephone me-2"></i
+                ><a href="tel:+1 8332004192">+1 8332004192</a>
+              </li>
+              <li>
+                <i class="bi bi-geo-alt me-2"></i>1209 Mountain Road PL NE,
+                Albuquerque, NM 87110, USA
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="text-center">
+            These statements have not been evaluated by the FDA and are not
+            intended to diagnose, cure or prevent disease. Please consult your
+            physician before beginning any diet or exercise program. If there is
+            a change in your medical condition, please notify your physician
+            immediately and stop taking the product. The product is not intended
+            for use by any individual under 18 years of age, pregnant or
+            lactating women. People with the following conditions should contact
+            a doctor before consuming this product: high blood pressure, heart,
+            liver, kidney or thyroid disease, diabetes, anemia, depression,
+            anxiety, other psychiatric conditions, a family history of other
+            medical conditions, or if taking any prescription, OTC and/or other
+            herbal medications.
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <span
+            >©
+            <script data-cfasync="false" src="js/email-decode.min.js"></script>
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Veraxa Wellness. All rights reserved.</span
+          >
+          <span>May designed for a healthier life everyday.</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- <footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"> <img src="images/logo.png" alt="logo" width="120px" /> </div>
+        <p class="blurb">Premium supplements backed by science. Formulated for those who demand more from their health — today, and for years to come.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#/shop?category=Gut+Health">Gut Health</a></li>
+          <li><a href="#/shop?category=Performance">Performance</a></li>
+          <li><a href="#/shop?category=Protein+%26+Nutrition">Protein &amp; Nutrition</a></li>
+          <li><a href="#/shop?category=Vitamins+%26+Minerals">Vitamins &amp; Minerals</a></li>
+          <li><a href="#/shop?category=Superfoods">Superfoods</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#/">About Us</a></li>
+          <li><a href="#/">Learn</a></li>
+          <li><a href="#/">Our Approach</a></li>
+          <li><a href="#/">Third-Party Testing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#/">Contact</a></li>
+          <li><a href="#/">Shipping &amp; Returns</a></li>
+          <li><a href="#/">Subscriptions</a></li>
+          <li><a href="#/">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Veraxa. All rights reserved.</span>
+      <span>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</span>
+    </div>
+  </div>
+</footer> -->
+    <div id="cookiePopup" class="" style="display: none">
+      <div class="cookie_content">
+        <h4>Cookie Consent</h4>
+        <p>
+          Our website uses cookies to improve your browsing experience and
+          provide relevant information. By continuing to use our website, you
+          agree to our <a href="privacy.html">Cookie Policy &amp; Privacy</a>.
+        </p>
+      </div>
+      <div class="cookieBtns">
+        <button id="acceptCookie" onclick="cookieAccept()">Accept</button
+        ><button id="declineCookie" onclick="cookieDecline()">Decline</button>
+      </div>
+    </div>
+    <script>
+      window.addEventListener("load", function () {
+        AOS.init({
+          duration: 900, // Animation duration
+          easing: "ease-out-cubic",
+          once: true, // Animate only once
+          mirror: false,
+          offset: 80,
+          delay: 100,
+          anchorPlacement: "top-bottom",
+        });
+
+        // Refresh after full page load
+        AOS.refresh();
+      });
+    </script>
+
+    <!-- Bootstrap 5 JS -->
+  
+  <script src="js/page-loader.js"></script></body>
+</html>

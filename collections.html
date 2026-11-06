@@ -1,0 +1,1471 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veraxa Wellness</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/floating_cart.css" />
+  <link rel="stylesheet" href="css/searchbar.css" />
+  <link rel="stylesheet" href="css/style2.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+  <link rel="stylesheet" href="css/style_1.css" />
+
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/ingredients.css" />
+
+  <style>
+    input[type="text"]:focus,
+    input[type="search"]:focus,
+    input[type="password"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      background: none !important;
+      box-shadow: none !important;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid #d6d6d6;
+    }
+
+    input.has-error:not([name="agree-checkbox"]) {
+      background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid orange;
+    }
+
+    select.has-error:not([name="agree-checkbox"]) {
+      background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid orange;
+    }
+
+    input.no-error:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+    select.no-error {
+      background: url(images/tick-input.png) 99.5% 50% no-repeat transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid green;
+    }
+
+    .navbar:not(.cart-navbar) {
+      overflow: hidden;
+      background-color: #333;
+      position: relative !important;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    #cookiePopup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #16281f !important;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      flex-wrap: nowrap;
+      z-index: 999999;
+      gap: 20px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      display: none;
+      right: 0;
+    }
+
+    #cookiePopup .cookieBtns button#acceptCookie,
+    #cookiePopup .cookieBtns button#declineCookie {
+      font-size: 15px;
+      margin: 10px 0;
+      color: #16281f;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background: #f3eddf;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      border: 2px solid #000000;
+    }
+
+    #cookiePopup .cookieBtns button#declineCookie:last-child {
+      background-color: #ad2b2b;
+      color: #fff;
+      border-color: #ad2b2b;
+    }
+
+    #cookiePopup p a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .cookieBtns {
+      display: inline-flex;
+      gap: 10px;
+    }
+
+    .cookie_content {
+      text-align: left;
+    }
+
+    .cookie_content h4 {
+      color: #fff;
+    }
+  </style>
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="css/aos.css" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="css/bootstrap-icons.min_1.css" />
+
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <link rel="stylesheet" href="css/page-loader.css"></head>
+
+<body>
+  <div class="page-loader" role="status" aria-label="Loading page"><span class="page-loader__mark"></span></div>
+  <!-- ============================================================
+       NAVBAR
+       Bootstrap: navbar navbar-expand-lg + container-fluid + mx-auto nav
+  ============================================================ -->
+  <div class="announce">
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <span class="side" data-icon="truck" data-size="14">Free shipping on orders over $150</span>
+        <span class="center">SCIENCE. PERFORMANCE. LONGEVITY.</span>
+        <!-- <span class="side">Subscribe &amp; save up to 20%</span> -->
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="luxe-nav navbar navbar-expand-lg">
+      <div class="header-row container">
+        <a class="navbar-brand luxe-logo" href="index.html">
+          <img src="images/logo.webp" alt="Logo" width="120" />
+        </a>
+        <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto gap-lg-4">
+            <li class="nav-item">
+              <a class="nav-link luxe-nav-link" href="index.html"> Home </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link luxe-nav-link" href="about.html"> About Us </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link luxe-nav-link" href="collections.html">
+                Wellness Product
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link luxe-nav-link" href="contact.html"> Contact </a>
+            </li>
+          </ul>
+        </div>
+        <div class="account_control_wrapper">
+          <button class="icon-btn cart-btn position-relative" type="button" aria-label="Cart" onclick="getCartAction()">
+            <img src="images/cart.svg" alt="" width="18" height="18" />
+            <span class="cart-badge position-absolute cart-product-count">
+              0
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- <header class="site-header">
+  <div class="header-row wrap">
+    <button class="mobile-toggle" aria-label="Menu"></button>
+    <a href="index.html" class="logo"> <img src="images/logo.png"> </a>
+    <nav class="main-nav">
+      <a href="#/shop">Shop</a>
+      <a href="#/shop?sort=bestsellers">Best Sellers</a>
+      <a href="#/shop">Categories</a>
+      <a href="#/">Learn</a>
+      <a href="#/">About Us</a>
+    </nav>
+    <div class="header-icons">
+      <button aria-label="Search" data-icon="search" data-size="19"></button>
+      <button aria-label="Account" data-icon="user" data-size="19"></button>
+      <button class="cart-dot" aria-label="Cart" data-icon="bag" data-size="19">
+        <span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </div>
+</header> -->
+
+  <!-- ============================================================
+       COLLECTION HERO
+       Bootstrap: row g-0 > col-lg-5 (text) + col-lg-7 (image)
+       Full-bleed section, image flush to the right edge
+  ============================================================ -->
+
+  <!-- ============================================================
+       FILTER BAR
+       Bootstrap: container-fluid > row > col-12
+       Filter pills use d-flex flex-wrap gap-2
+  ============================================================ -->
+  <!-- <section class="filter-section">
+    <div class="container-fluid luxe-container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="d-flex align-items-center flex-nowrap gap-3 filter_wrapper">
+            <span class="filter-label">Filter By:</span>
+            <div class="filter_btn_wrapper">
+              <button class="filter-btn filter-btn--active" attr-id="0">All</button>
+              <productcategory attr-id="184" attr-name="Gut Health" attr-url="?category=184" >
+                <button class="filter-btn viewcategorybtn" data-attr-app="name">Category name</button>
+              </productcategory>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ============================================================
+       PRODUCT GRID
+       Bootstrap: container-fluid > row g-4 > col-lg-4 col-md-4
+       6 products across 2 rows
+  ============================================================ -->
+  <section class="products-section">
+
+    <div class="container-fluid luxe-container" id="productGrid">
+      <!-- pagination.js injects <section class="product_row"><div class="row g-3">…</div></section>
+           here, so this wrapper must NOT itself be a .row (avoids nested-row grid breakage). -->
+      <div class="products-list" id="categoryArea" style="visibility: visible">
+        <section class="mb-5 product_row">
+          <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1482"
+              data-price="130" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="3a9c6382-6784-4bb0-8561-83360f457604.webp" data-productname="Bovine Colostrum Powder"
+              data-infoid="2265" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/3a9c6382-6784-4bb0-8561-83360f457604.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Bovine Colostrum Powder</p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">130.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1429"
+              data-price="85" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp" data-productname="Essential Amino Acid Powder"
+              data-infoid="2238" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Essential Amino Acid Powder</p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">85.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1421"
+              data-price="230" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="fec514f9-3ae0-4936-a231-aa7986259046.webp"
+              data-productname="Plant-Based Organic Protein Powder" data-infoid="2213" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/fec514f9-3ae0-4936-a231-aa7986259046.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">
+                    Plant-Based Organic Protein Powder
+                  </p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">230.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1413"
+              data-price="145" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="3acd3c87-a791-400b-b894-1a1a36bb1195.webp" data-productname="Metabolic Protein Powder"
+              data-infoid="2187" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/3acd3c87-a791-400b-b894-1a1a36bb1195.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Metabolic Protein Powder</p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">145.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1468"
+              data-price="110" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="ac57fd86-0b24-4499-9fe6-80063849f895.webp"
+              data-productname="Functional Mushroom &amp; Superfood Powder" data-infoid="2170" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/ac57fd86-0b24-4499-9fe6-80063849f895.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">
+                    Functional Mushroom &amp; Superfood Powder
+                  </p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">110.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1460"
+              data-price="120" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp" data-productname="Organic Daily Greens Powder"
+              data-infoid="2162" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Organic Daily Greens Powder</p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">120.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1450"
+              data-price="300" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="054f57b5-6440-4367-98bb-4a1915b59708.webp" data-productname="Post-Workout Electrolyte Mix"
+              data-infoid="2154" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/054f57b5-6440-4367-98bb-4a1915b59708.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Post-Workout Electrolyte Mix</p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">300.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1437"
+              data-price="190" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp" data-productname="Advanced Performance Powder"
+              data-infoid="2146" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Advanced Performance Powder</p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">190.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1385"
+              data-price="85" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp" data-productname="Ancestral Protein &amp; amminos"
+              data-infoid="2111" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400" />
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Ancestral Protein &amp; amminos</p>
+                  <p class="product-price">
+                    $<span data-attr-app="price">85.00</span>
+                  </p>
+                  <div class="add-btn">
+                    <button class="collection-btn-2 btn-sm w-100 modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="products-list" id="categoryArea" style="visibility: visible;">
+        <section class="mb-5 product_row ">
+
+          <div class="row g-3">
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1374"
+              data-price="90" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp" data-productname="Whey Isolate Protein Powder"
+              data-infoid="2103" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Whey Isolate Protein Powder</p>
+                  <p class="product-price">$<span data-attr-app="price">90.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1358"
+              data-price="70" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="3ed2d586-da93-4da2-b914-8508ff4f69b6.webp" data-productname="Ultra Testosterone"
+              data-infoid="2095" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/3ed2d586-da93-4da2-b914-8508ff4f69b6.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Ultra Testosterone</p>
+                  <p class="product-price">$<span data-attr-app="price">70.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1337"
+              data-price="60" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp" data-productname="Magnesium Glycinate"
+              data-infoid="2087" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Magnesium Glycinate</p>
+                  <p class="product-price">$<span data-attr-app="price">60.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1525"
+              data-price="110" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp" data-productname="Grass-Fed Whey Protein"
+              data-infoid="2079" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Grass-Fed Whey Protein</p>
+                  <p class="product-price">$<span data-attr-app="price">110.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1517"
+              data-price="70" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="d564b19b-8064-4f43-a1b4-bf071b3bf897.webp" data-productname="Vitamin K2 + D3"
+              data-infoid="2070" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/d564b19b-8064-4f43-a1b4-bf071b3bf897.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Vitamin K2 + D3</p>
+                  <p class="product-price">$<span data-attr-app="price">70.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1509"
+              data-price="40" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp" data-productname="20B Probiotic" data-infoid="2062"
+              data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">20B Probiotic</p>
+                  <p class="product-price">$<span data-attr-app="price">40.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1501"
+              data-price="70" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp" data-productname="Cognitive Support"
+              data-infoid="2054" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Cognitive Support</p>
+                  <p class="product-price">$<span data-attr-app="price">70.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1489"
+              data-price="50" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="b860e43e-fcbd-4836-a344-18da35568bc2.webp" data-productname="L-Arginine Plus"
+              data-infoid="2046" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/b860e43e-fcbd-4836-a344-18da35568bc2.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">L-Arginine Plus</p>
+                  <p class="product-price">$<span data-attr-app="price">50.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1473"
+              data-price="90" data-billingmodelid="" data-offerid="" data-quantity="1"
+              data-image="efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp" data-productname="Seaweed Extract"
+              data-infoid="2038" data-categoryid="184">
+              <div class="product-card">
+                <div class="product-thumb-pro product-img-wrapper">
+                  <img src="images/efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp" class="img-fluid product-image"
+                    data-attr-app="image" alt="" width="400" height="400">
+                </div>
+                <div class="product-body product-info">
+                  <p class="product-name">Seaweed Extract</p>
+                  <p class="product-price">$<span data-attr-app="price">90.00</span></p>
+                  <div class="add-btn">
+
+                    <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                      View More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+<div class="products-list" id="categoryArea" style="visibility: visible;">
+      <section class="mb-5 product_row ">
+        
+        <div class="row g-3">
+    
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1444" data-price="60" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="4eabed2d-4251-4b33-95bc-c65ac388da9c.webp" data-productname="Gut Repair" data-infoid="2030" data-categoryid="184">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/4eabed2d-4251-4b33-95bc-c65ac388da9c.webp" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Gut Repair</p>
+              <p class="product-price">$<span data-attr-app="price">60.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1395" data-price="90" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp" data-productname="Organic Sea Moss &amp; Bladderwrack Powder" data-infoid="2022" data-categoryid="184">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Organic Sea Moss &amp; Bladderwrack Powder</p>
+              <p class="product-price">$<span data-attr-app="price">90.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1372" data-price="110" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="a8aab056-dc2e-4cf4-be95-3545a301fcde.webp" data-productname="Hydrolyzed Collagen Powder" data-infoid="2014" data-categoryid="184">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/a8aab056-dc2e-4cf4-be95-3545a301fcde.webp" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Hydrolyzed Collagen Powder</p>
+              <p class="product-price">$<span data-attr-app="price">110.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1357" data-price="45" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="beafe0d3-be01-4a6c-8aca-f986a29f062c.webp" data-productname="Natural Energy" data-infoid="2006" data-categoryid="184">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/beafe0d3-be01-4a6c-8aca-f986a29f062c.webp" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Natural Energy</p>
+              <p class="product-price">$<span data-attr-app="price">45.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1345" data-price="60" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp" data-productname="Cranberry UTI" data-infoid="1998" data-categoryid="184">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Cranberry UTI</p>
+              <p class="product-price">$<span data-attr-app="price">60.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1333" data-price="70" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp" data-productname="Coleus Forskolin" data-infoid="1990" data-categoryid="184">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Coleus Forskolin</p>
+              <p class="product-price">$<span data-attr-app="price">70.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="1325" data-price="60" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="5c86e088-5e8b-435b-823a-25c08677c638.webp" data-productname="Blood Sugar Support" data-infoid="1982" data-categoryid="184">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/5c86e088-5e8b-435b-823a-25c08677c638.webp" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Blood Sugar Support</p>
+              <p class="product-price">$<span data-attr-app="price">60.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="2225" data-price="45" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="d676a4ed-60d1-4fc1-97de-d5d381c611dd.png" data-productname="Colon Cleanse Detox" data-infoid="99161" data-categoryid="">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/d676a4ed-60d1-4fc1-97de-d5d381c611dd.png" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Colon Cleanse Detox</p>
+              <p class="product-price">$<span data-attr-app="price">45.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="2229" data-price="200" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="dd63682e-04fa-4631-bd89-4294e00ce31d.png" data-productname="Micronized Monohydrate Powder" data-infoid="99169" data-categoryid="">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/dd63682e-04fa-4631-bd89-4294e00ce31d.png" class="img-fluid product-image" data-attr-app="image" alt="" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Micronized Monohydrate Powder</p>
+              <p class="product-price">$<span data-attr-app="price">200.00</span></p>
+              <div class="add-btn">
+                
+                <button class="collection-btn-2 btn-sm w-100  modal-sp-btn">
+                  View More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="2213" data-price="80" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="9c6c1ac3-4145-4d77-b89b-171a3515569c.png" data-productname="Joint Support" data-infoid="99163" data-categoryid="">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/9c6c1ac3-4145-4d77-b89b-171a3515569c.png" class="img-fluid product-image" data-attr-app="image" alt="Joint Support" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Joint Support</p>
+              <p class="product-price">$<span data-attr-app="price">80.00</span></p>
+              <div class="add-btn"><button class="collection-btn-2 btn-sm w-100 modal-sp-btn">View More</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="2221" data-price="80" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="70cc91e7-3e12-4111-b043-c1b76cff2f7f.png" data-productname="Berberine" data-infoid="99173" data-categoryid="">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/70cc91e7-3e12-4111-b043-c1b76cff2f7f.png" class="img-fluid product-image" data-attr-app="image" alt="Berberine" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Berberine</p>
+              <p class="product-price">$<span data-attr-app="price">80.00</span></p>
+              <div class="add-btn"><button class="collection-btn-2 btn-sm w-100 modal-sp-btn">View More</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-4 product-category sel-prod sel-product" data-productid="2217" data-price="140" data-billingmodelid="" data-offerid="" data-quantity="1" data-image="acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp" data-productname="Complete Nutrition Powder" data-infoid="99177" data-categoryid="">
+          <div class="product-card">
+            <div class="product-thumb-pro product-img-wrapper">
+              <img src="images/acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp" class="img-fluid product-image" data-attr-app="image" alt="Complete Nutrition Powder" width="400" height="400">
+            </div>
+            <div class="product-body product-info">
+              <p class="product-name">Complete Nutrition Powder</p>
+              <p class="product-price">$<span data-attr-app="price">140.00</span></p>
+              <div class="add-btn"><button class="collection-btn-2 btn-sm w-100 modal-sp-btn">View More</button></div>
+            </div>
+          </div>
+        </div>
+      </div></section></div>
+      <div id="pagination-loader" class="pagination-loader" hidden aria-live="polite" aria-busy="false">
+        <div class="spinner" aria-hidden="true"></div>
+        <span>Loading products…</span>
+      </div>
+
+      <!-- ===== PAGINATION ===== -->
+      <!-- Mode is controlled by PAGINATION_MODE in the script below.
+           'numbered'  -> shows #products-pagination (handled by js/pagination.js)
+           'loadmore'  -> shows .load-more-btn (handled by the inline script below) -->
+      <div class="row mt-5 mb-5">
+        <div class="col-12 d-flex justify-content-center">
+          <!-- Numbered pagination (Previous 1 2 3 … Next) — pagination.js renders here -->
+          <div id="products-pagination" class="products-pagination"><button class="pagination-btn prev-btn modal-sp-btn"
+              disabled="">Previous</button>
+            <div class="pagination-pages"><button class="page-btn modal-sp-btn active" data-page="1">1</button><button
+                class="page-btn modal-sp-btn" data-page="2">2</button><button class="page-btn modal-sp-btn"
+                data-page="3">3</button><button class="page-btn modal-sp-btn" data-page="4">4</button></div><button
+              class="pagination-btn next-btn modal-sp-btn">Next</button>
+            <div class="pagination-info">Showing <span>1</span> to <span>9</span> of <span>30</span> records</div>
+          </div>
+
+          <!-- Load More button (hidden by default; shown only in 'loadmore' mode) -->
+          <button class="load-more-btn d-none">LOAD MORE</button>
+        </div>
+      </div>
+      <!-- /luxe-container -->
+  </section>
+
+  <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+    <div class="cart-drawer-panel">
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title-group">
+          <span class="cart-drawer-title">Your Bag</span>
+          <span id="drawer-item-total-count" class="cart-drawer-badge cart-product-count">0</span>
+        </div>
+        <button id="cart-drawer-close-btn" class="cart-drawer-close-btn" aria-label="Close Shopping Cart">
+          ×
+        </button>
+      </div>
+
+      <div id="cart-drawer-items-list" class="cart-drawer-items-container cart-items-container">
+        <div class="cart-drawer-item cart-item">
+          <img src="images/product-placeholder.png" alt="Product image" class="cart-drawer-item-img"
+            data-attr-app="image" />
+          <div class="cart-item-details">
+            <h4 class="cart-item-title" data-attr-app="name">Product name</h4>
+            <p class="cart-item-price">
+              $<span data-attr-app="price">0.00</span>
+            </p>
+            <div class="cart-item-actions">
+              <div class="quantity-selector">
+                <button class="quantity-btn qty-minus decrement">-</button>
+                <span class="quantity-val" data-attr-app="quantity">1</span>
+                <button class="qty-plus quantity-btn increment">+</button>
+              </div>
+              <button class="cart-item-remove-btn cart-item-remove">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="cart-empty-state" class="cart-empty-state" style="display: none">
+          <div class="cart-empty-icon">👜</div>
+          <p class="cart-empty-title">Your collection bag is empty</p>
+          <p class="cart-empty-subtitle">
+            Explore our top picks to fill it up.
+          </p>
+        </div>
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="cart-drawer-summary-row">
+          <span class="cart-summary-label">Estimated Subtotal</span>
+          <span id="cart-drawer-subtotal" class="cart-summary-value">$<span data-attr-app="subtotal">0.00</span></span>
+        </div>
+        <p class="cart-drawer-disclaimer">
+          Shipping costs, gift packaging wrapping choices, and sales taxes are
+          compiled at secure checkout points.
+        </p>
+        <div class="cart-drawer-action-block">
+          <a class="cart-checkout-btn text-decoration-none d-block text-center" href="checkout.html">
+            Proceed To Secure Checkout
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       Bootstrap: container-fluid > row (brand + links) + row (bottom bar)
+  ============================================================ -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/selector-tags.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/floating_cart.js"></script>
+  <script src="js/searchbar.js"></script>
+  <script src="js/variant-tags.js"></script>
+
+  <script src="js/aos.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/fit.js"></script>
+  <script src="js/cookie-consent.js"></script>
+
+  <script src="js/theme.js"></script>
+  <!-- Bootstrap 5 JS -->
+  <script>
+    window.addEventListener("load", function () {
+      AOS.init({
+        duration: 900, // Animation duration
+        easing: "ease-out-cubic",
+        once: true, // Animate only once
+        mirror: false,
+        offset: 80,
+        delay: 100,
+        anchorPlacement: "top-bottom",
+      });
+
+      // Refresh after full page load
+      AOS.refresh();
+    });
+  </script>
+
+  <script>
+    (function () {
+      // If Bootstrap's JS is present and working, let it handle this.
+      if (window.bootstrap && window.bootstrap.Collapse) return;
+
+      var btn = document.querySelector(
+        '[data-bs-toggle="collapse"][data-bs-target="#navbarNav"]',
+      );
+      var menu = document.getElementById("navbarNav");
+      if (!btn || !menu) return;
+
+      function setOpen(open) {
+        menu.classList.toggle("show", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.classList.toggle("collapsed", !open);
+      }
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        setOpen(!menu.classList.contains("show"));
+      });
+
+      menu.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 992) setOpen(false);
+      });
+    })();
+  </script>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="hlx-footer__logo">
+            <img src="images/logo.png" alt="logo" width="120px" />
+          </div>
+          <p class="hlx-footer__desc">
+            We may provide good wellness products and health essentials
+            designed to support a balanced, healthier lifestyle with quality,
+            trust, and everyday care.
+          </p>
+        </div>
+        <div>
+          <h3 class="hlx-footer__heading">Quick links</h3>
+          <ul class="hlx-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="collections.html">Our Collection</a></li>
+            <li><a href="collections.html">Supplement Products</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="hlx-footer__heading">Featured Links</h3>
+          <ul class="hlx-footer__links">
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="ingredients.html">Ingredients</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="hlx-footer__heading">Contact</h3>
+          <ul class="hlx-footer__contact">
+            <li>
+              <i class="bi bi-envelope me-2"></i><a
+                href="/cdn-cgi/l/email-protection#0d7e787d7d627f794d7b687f6c756c7a68616163687e7e236e6260"><span
+                  class="__cf_email__"
+                  data-cfemail="53202623233c212713253621322b3224363f3f3d3620207d303c3e">[email&nbsp;protected]</span></a>
+            </li>
+            <li>
+              <i class="bi bi-telephone me-2"></i><a href="tel:+1 8332004192">+1 8332004192</a>
+            </li>
+            <li>
+              <i class="bi bi-geo-alt me-2"></i>1209 Mountain Road PL NE,
+              Albuquerque, NM 87110, USA
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="text-center">
+          These statements have not been evaluated by the FDA and are not
+          intended to diagnose, cure or prevent disease. Please consult your
+          physician before beginning any diet or exercise program. If there is
+          a change in your medical condition, please notify your physician
+          immediately and stop taking the product. The product is not intended
+          for use by any individual under 18 years of age, pregnant or
+          lactating women. People with the following conditions should contact
+          a doctor before consuming this product: high blood pressure, heart,
+          liver, kidney or thyroid disease, diabetes, anemia, depression,
+          anxiety, other psychiatric conditions, a family history of other
+          medical conditions, or if taking any prescription, OTC and/or other
+          herbal medications.
+        </p>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <span>©
+          <script data-cfasync="false" src="js/email-decode.min.js"></script>
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          Veraxa Wellness. All rights reserved.
+        </span>
+        <span>May designed for a healthier life everyday.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"> <img src="images/logo.png" alt="logo" width="120px" /> </div>
+        <p class="blurb">Premium supplements backed by science. Formulated for those who demand more from their health — today, and for years to come.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#/shop?category=Gut+Health">Gut Health</a></li>
+          <li><a href="#/shop?category=Performance">Performance</a></li>
+          <li><a href="#/shop?category=Protein+%26+Nutrition">Protein &amp; Nutrition</a></li>
+          <li><a href="#/shop?category=Vitamins+%26+Minerals">Vitamins &amp; Minerals</a></li>
+          <li><a href="#/shop?category=Superfoods">Superfoods</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#/">About Us</a></li>
+          <li><a href="#/">Learn</a></li>
+          <li><a href="#/">Our Approach</a></li>
+          <li><a href="#/">Third-Party Testing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#/">Contact</a></li>
+          <li><a href="#/">Shipping &amp; Returns</a></li>
+          <li><a href="#/">Subscriptions</a></li>
+          <li><a href="#/">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Veraxa. All rights reserved.</span>
+      <span>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</span>
+    </div>
+  </div>
+</footer> -->
+  <div id="cookiePopup" class="" style="display: none">
+    <div class="cookie_content">
+      <h4>Cookie Consent</h4>
+      <p>
+        Our website uses cookies to improve your browsing experience and
+        provide relevant information. By continuing to use our website, you
+        agree to our <a href="privacy.html">Cookie Policy &amp; Privacy</a>.
+      </p>
+    </div>
+    <div class="cookieBtns">
+      <button id="acceptCookie" onclick="cookieAccept()">Accept</button><button id="declineCookie"
+        onclick="cookieDecline()">Decline</button>
+    </div>
+  </div>
+  <!-- Pagination mode: must be set BEFORE pagination.js so it can skip its own
+       numbered setup when another mode is chosen.
+       'numbered' = Previous 1 2 3 … Next   |   'loadmore' = LOAD MORE button
+       'none'     = no pagination UI (also drop paginate / raise limit on <product attr-id="1482" attr-info-id="2265" attr-name="Bovine Colostrum Powder" attr-description="&lt;p&gt;A bovine colostrum powder containing naturally occurring immunoglobulins, proline-rich polypeptides, and lactoferrin. The product provides a dairy-derived colostrum ingredient in a convenient powder format for general nutritional use. Final packaging should verify bovine source, processing, IgG specification, allergen information, and avoid infection-prevention or therapeutic immune claims.&lt;/p&gt;" attr-price="130" attr-rebill-price="0" attr-sale-price="130" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="3a9c6382-6784-4bb0-8561-83360f457604.webp" attr-images="'[{\'file_name\':\'3a9c6382-6784-4bb0-8561-83360f457604.webp\',\'name\':\'6d30979d-c13c-4206-ae16-2885c072d114.webp\',\'position\':1}]'" ></product><product attr-id="1429" attr-info-id="2238" attr-name="Essential Amino Acid Powder" attr-description="&lt;p&gt;A powdered blend containing the nine essential amino acids: leucine, isoleucine, valine, lysine, threonine, phenylalanine, methionine, histidine, and tryptophan. The formula is designed as a straightforward amino-acid supplement for general sports and nutritional use. Final packaging should verify the amount of each amino acid per serving and avoid disease-treatment or muscle-wasting claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp" attr-images="'[{\'file_name\':\'1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp\',\'name\':\'da437206-d4af-4da9-ad60-679a53ba095d.webp\',\'position\':1}]'" ></product><product attr-id="1421" attr-info-id="2213" attr-name="Plant-Based Organic Protein Powder" attr-description="&lt;p&gt;An organic plant-protein powder made with pea, pumpkin seed, and hemp proteins. The blend provides multiple plant-based protein sources in a simple powder format for everyday nutrition. Final packaging should confirm protein grams, serving size, allergen or cross-contact information, and the appropriate facts-panel classification.&lt;/p&gt;" attr-price="230" attr-rebill-price="0" attr-sale-price="230" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="fec514f9-3ae0-4936-a231-aa7986259046.webp" attr-images="'[{\'file_name\':\'fec514f9-3ae0-4936-a231-aa7986259046.webp\',\'name\':\'7298dc75-15dc-4166-a93c-6485d240059d.webp\',\'position\':1}]'" ></product><product attr-id="1413" attr-info-id="2187" attr-name="Metabolic Protein Powder" attr-description="&lt;p&gt;A plant-based nutrition powder containing pea and hemp protein, fiber sources, MCT powder, carbohydrate ingredients, and a flax-derived omega-3 source. The formula is designed to provide a balanced combination of plant protein and additional nutritional ingredients. Marketing should remain focused on general nutrition and avoid weight-loss, blood-sugar-control, or metabolic-disease claims.&lt;/p&gt;" attr-price="145" attr-rebill-price="0" attr-sale-price="145" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="3acd3c87-a791-400b-b894-1a1a36bb1195.webp" attr-images="'[{\'file_name\':\'3acd3c87-a791-400b-b894-1a1a36bb1195.webp\',\'name\':\'3621f4f6-8a6b-46a8-8237-b85407f7a234.webp\',\'position\':1}]'" ></product><product attr-id="1468" attr-info-id="2170" attr-name="Functional Mushroom &amp; Superfood Powder" attr-description="&lt;p&gt;A powdered mushroom and superfood blend containing functional mushrooms, prebiotic fiber, acerola, and vitamin C. The formula combines several mushroom species with complementary plant-based ingredients for general wellness use. Final labeling should verify mushroom species, plant parts, and ingredient amounts and avoid cancer, infection, or immune-disease treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="ac57fd86-0b24-4499-9fe6-80063849f895.webp" attr-images="'[{\'file_name\':\'ac57fd86-0b24-4499-9fe6-80063849f895.webp\',\'name\':\'2768d2c5-f645-4392-b8d4-ecc5408f358a.webp\',\'position\':1}]'" ></product><product attr-id="1460" attr-info-id="2162" attr-name="Organic Daily Greens Powder" attr-description="&lt;p&gt;A powdered greens blend containing grasses, vegetables, botanicals, fruit ingredients, spices, and prebiotic fiber. The product offers a broad plant-based ingredient profile intended to complement normal dietary intake. Marketing should focus on general nutrition and wellness and avoid detoxification, disease-prevention, or unsupported immunity claims.&lt;/p&gt;" attr-price="120" attr-rebill-price="0" attr-sale-price="120" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp" attr-images="'[{\'file_name\':\'bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp\',\'name\':\'3e7e2cf8-8466-4681-b013-1f7da25a7912.webp\',\'position\':1}]'" ></product><product attr-id="1450" attr-info-id="2154" attr-name="Post-Workout Electrolyte Mix" attr-description="&lt;p&gt;A post-workout powder containing BCAAs, L-glutamine, potassium citrate, and salt. The formula provides amino acids and electrolyte ingredients commonly used in sports-nutrition products. Final labeling should verify each ingredient amount and avoid claims to treat dehydration, guarantee recovery, or provide medical benefits.&lt;/p&gt;" attr-price="300" attr-rebill-price="0" attr-sale-price="300" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="054f57b5-6440-4367-98bb-4a1915b59708.webp" attr-images="'[{\'file_name\':\'054f57b5-6440-4367-98bb-4a1915b59708.webp\',\'name\':\'95211bbe-2b89-4ec5-aefe-bba42324cee9.webp\',\'position\':1}]'" ></product><product attr-id="1437" attr-info-id="2146" attr-name="Advanced Performance Powder" attr-description="&lt;p&gt;A sports-nutrition powder containing electrolytes, B vitamins, amino acids, creatine compounds, and caffeine. The formula combines several common performance-nutrition ingredients in a convenient powdered format. Final packaging should disclose the exact caffeine amount and serving directions and avoid extreme, guaranteed, stimulant-like, or drug-comparison claims.&lt;/p&gt;" attr-price="190" attr-rebill-price="0" attr-sale-price="190" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp" attr-images="'[{\'file_name\':\'73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp\',\'name\':\'85144eee-c420-4e5b-8fca-d3d3c026b9f9.webp\',\'position\':1}]'" ></product><product attr-id="1385" attr-info-id="2111" attr-name="Ancestral Protein &amp; amminos" attr-description="&lt;p&gt;A protein powder containing beef bone broth protein, bovine organ ingredients, mineral components, and selected mushroom ingredients. The formula offers a broad animal-based protein and nutrient profile intended for general nutritional use. Final packaging should verify every animal-source ingredient and avoid disease, immunity-treatment, or organ-healing claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp" attr-images="'[{\'file_name\':\'8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp\',\'name\':\'e7a58f40-9e2e-40f3-a5bd-65062e421cb9.webp\',\'position\':1}]'" ></product><product attr-id="1374" attr-info-id="2103" attr-name="Whey Isolate Protein Powder" attr-description="&lt;p&gt;A whey protein isolate powder with sunflower lecithin for easier mixing. Whey isolate provides a concentrated source of complete protein and naturally occurring essential amino acids, including BCAAs. Final labeling should confirm protein grams, serving size, milk allergen information, and the correct facts-panel classification.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp" attr-images="'[{\'file_name\':\'db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp\',\'name\':\'3129aec1-32e2-415c-b41d-1c8731b8e672.webp\',\'position\':1}]'" ></product><product attr-id="1358" attr-info-id="2095" attr-name="Ultra Testosterone" attr-description="&lt;p&gt;A men&#039;s dietary supplement containing D-aspartic acid, ashwagandha, tribulus, chrysin, boron, and black pepper extract. The formulation combines botanical and nutritional ingredients commonly found in men&#039;s wellness products. Marketing should stay focused on general vitality and avoid testosterone-treatment, hormone-modification, sexual-performance, or guaranteed muscle-gain claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="3ed2d586-da93-4da2-b914-8508ff4f69b6.webp" attr-images="'[{\'file_name\':\'3ed2d586-da93-4da2-b914-8508ff4f69b6.webp\',\'name\':\'706ff052-a733-485d-9e56-5f9e1ba5e1ac.webp\',\'position\':1}]'" ></product><product attr-id="1337" attr-info-id="2087" attr-name="Magnesium Glycinate" attr-description="&lt;p&gt;A dietary supplement supplying magnesium in a chelated glycinate or bisglycinate form. The formula provides a straightforward source of supplemental magnesium for general nutritional use. Final packaging should state the verified elemental magnesium amount per serving and applicable Daily Value.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp" attr-images="'[{\'file_name\':\'27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp\',\'name\':\'153a5baf-61e7-4ad5-a42a-6282c072b441.webp\',\'position\':1}]'" ></product><product attr-id="1525" attr-info-id="2079" attr-name="Grass-Fed Whey Protein" attr-description="&lt;p&gt;A grass-fed whey protein concentrate powder with sunflower lecithin for mixability. Whey protein naturally provides a complete profile of essential amino acids, including the branched-chain amino acids leucine, isoleucine, and valine. Final packaging should confirm protein content, serving size, allergen information, and whether a Supplement Facts or Nutrition Facts panel is appropriate.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp" attr-images="'[{\'file_name\':\'0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp\',\'name\':\'259f8597-fa22-499b-b3bd-99e474207370.webp\',\'position\':1}]'" ></product><product attr-id="1517" attr-info-id="2070" attr-name="Vitamin K2 + D3" attr-description="&lt;p&gt;A dietary supplement containing vitamin D3 and vitamin K2. The formula offers two commonly paired fat-soluble vitamins in a straightforward daily supplement format. Final labelling should confirm the exact amounts and Daily Values and avoid claims to prevent or treat osteoporosis, heart disease, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="d564b19b-8064-4f43-a1b4-bf071b3bf897.webp" attr-images="'[{\'file_name\':\'d564b19b-8064-4f43-a1b4-bf071b3bf897.webp\',\'name\':\'7fa4c5b7-9d98-4ec1-b04b-35f08392f63e.webp\',\'position\':1}]'" ></product><product attr-id="1509" attr-info-id="2062" attr-name="20B Probiotic" attr-description="&lt;p&gt;A multi-strain probiotic dietary supplement formulated with beneficial bacterial cultures and inulin prebiotic fiber. The product is intended to provide a clearly identified probiotic blend for general digestive wellness. Final packaging should list the exact strains and verified CFU quantity and should avoid claims to treat infections, IBS, or other diseases.&lt;/p&gt;" attr-price="40" attr-rebill-price="0" attr-sale-price="40" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp" attr-images="'[{\'file_name\':\'7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp\',\'name\':\'60961718-1cea-4e61-b3bd-46dbc54a1c02.webp\',\'position\':1}]'" ></product><product attr-id="1501" attr-info-id="2054" attr-name="Cognitive Support" attr-description="&lt;p&gt;A dietary supplement containing amino acids, botanical extracts, phosphatidylserine, alpha-GPC, L-theanine, and caffeine. The formula is positioned for general cognitive and mental-performance support as part of a normal wellness routine. Marketing should avoid claims related to Alzheimer&#039;s disease, dementia, ADHD, memory-loss treatment, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp" attr-images="'[{\'file_name\':\'06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp\',\'name\':\'15014645-a967-4d25-8c55-0627bccdefe2.webp\',\'position\':1}]'" ></product><product attr-id="1489" attr-info-id="2046" attr-name="L-Arginine Plus" attr-description="&lt;p&gt;An amino-acid-based dietary supplement centred on L-arginine with vitamin C, folate, and antioxidant compounds. The formula provides a combination of nutrients commonly used in general fitness and wellness products. Product descriptions should avoid erectile dysfunction, cardiovascular disease, blood pressure, or drug-like performance claims.&lt;/p&gt;" attr-price="50" attr-rebill-price="0" attr-sale-price="50" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="b860e43e-fcbd-4836-a344-18da35568bc2.webp" attr-images="'[{\'file_name\':\'b860e43e-fcbd-4836-a344-18da35568bc2.webp\',\'name\':\'7c14f3fa-78a1-418a-9ca2-8f00c3c5f8bd.webp\',\'position\':1}]'" ></product><product attr-id="1473" attr-info-id="2038" attr-name="Seaweed Extract" attr-description="&lt;p&gt;A dietary supplement featuring brown seaweed or kelp extract as a source of naturally occurring iodine. The product provides a simple marine botanical ingredient for general nutritional use. Final labelling should confirm the exact seaweed species and iodine amount and should avoid thyroid-disease or detoxification claims.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp" attr-images="'[{\'file_name\':\'efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp\',\'name\':\'0928ad89-8a67-4195-a6f9-dcc03f379328.webp\',\'position\':1}]'" ></product><product attr-id="1444" attr-info-id="2030" attr-name="Gut Repair" attr-description="&lt;p&gt;A dietary supplement blend containing L-glutamine, apple pectin, zinc carnosine, slippery elm, DGL, aloe, tributyrin, and curcumin. The formula combines amino acid, botanical, and nutrient ingredients commonly used in digestive wellness products. Marketing should focus on general digestive support and avoid claims that it repairs disease conditions, treats IBS, or heals the gastrointestinal tract.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="4eabed2d-4251-4b33-95bc-c65ac388da9c.webp" attr-images="'[{\'file_name\':\'4eabed2d-4251-4b33-95bc-c65ac388da9c.webp\',\'name\':\'0e0b9c70-d620-4861-8589-2cf43c769ae4.webp\',\'position\':1}]'" ></product><product attr-id="1395" attr-info-id="2022" attr-name="Organic Sea Moss &amp; Bladderwrack Powder" attr-description="&lt;p&gt;A powdered botanical blend containing organic sea moss and bladderwrack. These marine ingredients naturally contain a variety of trace nutrients, with the final nutrient profile dependent on the actual manufacturer specification. The product should be marketed for general wellness without thyroid-treatment, detoxification, or disease-related claims.&lt;br&gt;&amp;nbsp;&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp" attr-images="'[{\'file_name\':\'7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp\',\'name\':\'dafee93b-1592-41bf-a5b5-144c99330675.webp\',\'position\':1}]'" ></product><product attr-id="1372" attr-info-id="2014" attr-name="Hydrolyzed Collagen Powder" attr-description="&lt;p&gt;A hydrolyzed bovine collagen peptide powder that naturally provides amino acids such as glycine, proline, and hydroxyproline. The powder is designed as a convenient source of supplemental collagen protein for everyday nutrition. Product copy should remain focused on composition and general nutritional support rather than disease, pain-relief, or anti-aging treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="a8aab056-dc2e-4cf4-be95-3545a301fcde.webp" attr-images="'[{\'file_name\':\'a8aab056-dc2e-4cf4-be95-3545a301fcde.webp\',\'name\':\'7bea101f-f195-4841-90bb-d1a1fe3f1330.webp\',\'position\':1}]'" ></product><product attr-id="1357" attr-info-id="2006" attr-name="Natural Energy" attr-description="&lt;p&gt;A dietary supplement containing L-theanine, caffeine, and vitamin B12. The combination is intended for consumers seeking a convenient energy-support formula as part of their daily routine. Any final product listing should disclose the actual caffeine amount and avoid guaranteed energy or performance claims.&lt;/p&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="beafe0d3-be01-4a6c-8aca-f986a29f062c.webp" attr-images="'[{\'file_name\':\'beafe0d3-be01-4a6c-8aca-f986a29f062c.webp\',\'name\':\'b1fedf0b-2600-4c75-a096-c8ba650054f6.webp\',\'position\':1}]'" ></product><product attr-id="1345" attr-info-id="1998" attr-name="Cranberry UTI" attr-description="&lt;p&gt;A cranberry-extract dietary supplement formulated for general urinary wellness. The product offers a simple cranberry-based ingredient profile that can complement everyday wellness routines. It is presented without claims to prevent, treat, or cure urinary tract infections or other medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp" attr-images="'[{\'file_name\':\'0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp\',\'name\':\'392eb7b6-3b18-4176-9bc0-58b7d0255a85.webp\',\'position\':1}]'" ></product><product attr-id="1333" attr-info-id="1990" attr-name="Coleus Forskolin" attr-description="&lt;p&gt;A botanical dietary supplement featuring standardized Coleus forskohlii root extract. The formula provides a straightforward plant-based ingredient profile for general wellness use. It is described without weight-loss, fat-burning, or guaranteed body-composition claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp" attr-images="'[{\'file_name\':\'07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp\',\'name\':\'47a0d017-7863-48d0-86fb-e01ea89f2bf1.webp\',\'position\':1}]'" ></product><product attr-id="1325" attr-info-id="1982" attr-name="Blood Sugar Support" attr-description="&lt;p&gt;A dietary supplement formula featuring chromium, bitter melon, cinnamon, gymnema, alpha-lipoic acid, and supporting vitamins and minerals. The blend is designed to complement a balanced wellness routine and normal nutrient intake. It is presented without claims to diagnose, treat, cure, or prevent blood-sugar-related medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="5c86e088-5e8b-435b-823a-25c08677c638.webp" attr-images="'[{\'file_name\':\'5c86e088-5e8b-435b-823a-25c08677c638.webp\',\'name\':\'3b21d4da-89eb-4652-b778-e362e61a160a.webp\',\'position\':1}]'" ></product><product attr-id="2225" attr-info-id="99161" attr-name="Colon Cleanse Detox" attr-description="&lt;p&gt;Colon Cleanse Detox is a dietary supplement formulated with Psyllium Husk and Aloe Vera to support healthy digestion and regularity. Conveniently packaged in a bottle containing capsules, this supplement can be incorporated into your daily wellness routine according to the directions provided on the product label.&lt;/p&gt;&lt;p&gt;Designed for convenient everyday use, Colon Cleanse Detox offers a simple way to add these ingredients to your digestive wellness regimen.&lt;/p&gt;&lt;p&gt;Product Details:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Brand: Veraxa Wellness&lt;/li&gt;&lt;li&gt;Product Name: Colon Cleanse Detox&lt;/li&gt;&lt;li&gt;Key Ingredients: Psyllium Husk and Aloe Vera&lt;/li&gt;&lt;li&gt;Form: Capsules&lt;/li&gt;&lt;li&gt;Product Type: Dietary Supplement&lt;/li&gt;&lt;li&gt;Purpose: Supports healthy digestion and regularity*&lt;/li&gt;&lt;/ul&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="d676a4ed-60d1-4fc1-97de-d5d381c611dd.png" attr-images="'[{\'file_name\':\'d676a4ed-60d1-4fc1-97de-d5d381c611dd.png\',\'name\':\'Veraxa Colon Cleanse Supplement Bottle.png\',\'position\':1}]'" ></product><product attr-id="2229" attr-info-id="99169" attr-name="Micronized Monohydrate Powder" attr-description="&lt;p&gt;Micronized Monohydrate Powder features a pure monohydrate formula designed to complement your fitness and workout routine. Its micronized powder format makes it convenient to mix into your preferred beverage according to the product label’s directions. Ideal for fitness enthusiasts and active individuals, this dietary supplement is formulated to support muscle strength, athletic performance, and training goals as part of a balanced diet and regular exercise program.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Product Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Brand:&lt;/strong&gt; Veraxa Wellness&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Name:&lt;/strong&gt; Micronized Monohydrate Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Formula:&lt;/strong&gt; Pure Monohydrate&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Form:&lt;/strong&gt; Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Type:&lt;/strong&gt; Dietary Supplement&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Supports muscle strength and athletic performance*&lt;/li&gt;&lt;/ul&gt;" attr-price="200" attr-rebill-price="0" attr-sale-price="200" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="dd63682e-04fa-4631-bd89-4294e00ce31d.png" attr-images="'[{\'file_name\':\'dd63682e-04fa-4631-bd89-4294e00ce31d.png\',\'name\':\'Veraxa Micronized Monohydrate Supplement Jar.png\',\'position\':1}]'" ></product><product attr-id="2213" attr-info-id="99163" attr-name="Joint Support" attr-description="&lt;p&gt;Joint Support is a dietary supplement formulated with Glucosamine HCl, Chondroitin Sulfate, MSM, Turmeric Root Extract, and Boswellia Serrata Extract. It is designed to support joint comfort, mobility, and everyday wellness as part of an active lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="9c6c1ac3-4145-4d77-b89b-171a3515569c.png" attr-images="'[{\'file_name\':\'9c6c1ac3-4145-4d77-b89b-171a3515569c.png\',\'name\':\'Veraxa Joint Support Bottle.png\',\'position\':1}]'" ></product><product attr-id="2221" attr-info-id="99173" attr-name="Berberine" attr-description="&lt;p&gt;Berberine is a botanical dietary supplement formulated with Berberine HCl and Cinnamon Bark Extract. It is designed to support everyday wellness and complement a balanced diet and healthy lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="70cc91e7-3e12-4111-b043-c1b76cff2f7f.png" attr-images="'[{\'file_name\':\'70cc91e7-3e12-4111-b043-c1b76cff2f7f.png\',\'name\':\'Berberine Wellness Supplement Bottle.png\',\'position\':1}]'" ></product><product attr-id="2217" attr-info-id="99177" attr-name="Complete Nutrition Powder" attr-description="&lt;p&gt;Complete Nutrition Powder is a dietary supplement designed to complement your daily nutrition and wellness routine. Its convenient powdered format makes it easy to incorporate into your everyday lifestyle. With a focus on balanced nutrition, daily energy, and overall wellness, this product is a suitable addition to a balanced diet and healthy lifestyle.&lt;br&gt;&lt;br&gt;Product Details:&lt;br&gt;- Brand: Veraxa Wellness&lt;br&gt;- Product Name: Complete Nutrition Powder&lt;br&gt;- Form: Powder&lt;br&gt;- Product Type: Dietary Supplement&lt;br&gt;- Purpose: Supports daily nutrition and overall wellness&lt;/p&gt;" attr-price="140" attr-rebill-price="0" attr-sale-price="140" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp" attr-images="'[{\'file_name\':\'acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp\',\'name\':\'b370f2ba-a1a2-44fa-9af5-5dc5e9e64f70.webp\',\'position\':1}]'" ></product>) -->
+  <script>
+    window.PAGINATION_MODE = "numbered";
+  </script>
+  <script src="js/pagination.js"></script>
+
+  <!-- Filter interaction -->
+  <script>
+    document.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        let id = btn.getAttribute("attr-id");
+        getProductsByCategoryId(id);
+
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("filter-btn--active"));
+        btn.classList.add("filter-btn--active");
+      });
+    });
+
+    function getProductsByCategoryId(id) {
+      if (id == 0) {
+        document.querySelectorAll("product").forEach((p) => {
+          p.classList.remove("d-none");
+        });
+        return;
+      }
+      document.querySelectorAll("product").forEach((p) => {
+        let product_id = p.getAttribute("attr-categoryid");
+        if (product_id == id) {
+          p.classList.remove("d-none");
+        } else {
+          p.classList.add("d-none");
+        }
+      });
+    }
+  </script>
+
+  <script>
+    /* =========================================================
+     PAGINATION MODE SWITCH
+     Set via `window.PAGINATION_MODE` just above (before pagination.js loads).
+     'numbered' -> Previous 1 2 3 … Next  (handled by js/pagination.js)
+     'loadmore' -> LOAD MORE button       (handled by the inline code below)
+     'none'     -> no pagination UI; all products render at once.
+                   For 'none', also drop paginate/raise the limit on the
+                   <product attr-id="1482" attr-info-id="2265" attr-name="Bovine Colostrum Powder" attr-description="&lt;p&gt;A bovine colostrum powder containing naturally occurring immunoglobulins, proline-rich polypeptides, and lactoferrin. The product provides a dairy-derived colostrum ingredient in a convenient powder format for general nutritional use. Final packaging should verify bovine source, processing, IgG specification, allergen information, and avoid infection-prevention or therapeutic immune claims.&lt;/p&gt;" attr-price="130" attr-rebill-price="0" attr-sale-price="130" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="3a9c6382-6784-4bb0-8561-83360f457604.webp" attr-images="'[{\'file_name\':\'3a9c6382-6784-4bb0-8561-83360f457604.webp\',\'name\':\'6d30979d-c13c-4206-ae16-2885c072d114.webp\',\'position\':1}]'" ></product><product attr-id="1429" attr-info-id="2238" attr-name="Essential Amino Acid Powder" attr-description="&lt;p&gt;A powdered blend containing the nine essential amino acids: leucine, isoleucine, valine, lysine, threonine, phenylalanine, methionine, histidine, and tryptophan. The formula is designed as a straightforward amino-acid supplement for general sports and nutritional use. Final packaging should verify the amount of each amino acid per serving and avoid disease-treatment or muscle-wasting claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp" attr-images="'[{\'file_name\':\'1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp\',\'name\':\'da437206-d4af-4da9-ad60-679a53ba095d.webp\',\'position\':1}]'" ></product><product attr-id="1421" attr-info-id="2213" attr-name="Plant-Based Organic Protein Powder" attr-description="&lt;p&gt;An organic plant-protein powder made with pea, pumpkin seed, and hemp proteins. The blend provides multiple plant-based protein sources in a simple powder format for everyday nutrition. Final packaging should confirm protein grams, serving size, allergen or cross-contact information, and the appropriate facts-panel classification.&lt;/p&gt;" attr-price="230" attr-rebill-price="0" attr-sale-price="230" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="fec514f9-3ae0-4936-a231-aa7986259046.webp" attr-images="'[{\'file_name\':\'fec514f9-3ae0-4936-a231-aa7986259046.webp\',\'name\':\'7298dc75-15dc-4166-a93c-6485d240059d.webp\',\'position\':1}]'" ></product><product attr-id="1413" attr-info-id="2187" attr-name="Metabolic Protein Powder" attr-description="&lt;p&gt;A plant-based nutrition powder containing pea and hemp protein, fiber sources, MCT powder, carbohydrate ingredients, and a flax-derived omega-3 source. The formula is designed to provide a balanced combination of plant protein and additional nutritional ingredients. Marketing should remain focused on general nutrition and avoid weight-loss, blood-sugar-control, or metabolic-disease claims.&lt;/p&gt;" attr-price="145" attr-rebill-price="0" attr-sale-price="145" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="3acd3c87-a791-400b-b894-1a1a36bb1195.webp" attr-images="'[{\'file_name\':\'3acd3c87-a791-400b-b894-1a1a36bb1195.webp\',\'name\':\'3621f4f6-8a6b-46a8-8237-b85407f7a234.webp\',\'position\':1}]'" ></product><product attr-id="1468" attr-info-id="2170" attr-name="Functional Mushroom &amp; Superfood Powder" attr-description="&lt;p&gt;A powdered mushroom and superfood blend containing functional mushrooms, prebiotic fiber, acerola, and vitamin C. The formula combines several mushroom species with complementary plant-based ingredients for general wellness use. Final labeling should verify mushroom species, plant parts, and ingredient amounts and avoid cancer, infection, or immune-disease treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="ac57fd86-0b24-4499-9fe6-80063849f895.webp" attr-images="'[{\'file_name\':\'ac57fd86-0b24-4499-9fe6-80063849f895.webp\',\'name\':\'2768d2c5-f645-4392-b8d4-ecc5408f358a.webp\',\'position\':1}]'" ></product><product attr-id="1460" attr-info-id="2162" attr-name="Organic Daily Greens Powder" attr-description="&lt;p&gt;A powdered greens blend containing grasses, vegetables, botanicals, fruit ingredients, spices, and prebiotic fiber. The product offers a broad plant-based ingredient profile intended to complement normal dietary intake. Marketing should focus on general nutrition and wellness and avoid detoxification, disease-prevention, or unsupported immunity claims.&lt;/p&gt;" attr-price="120" attr-rebill-price="0" attr-sale-price="120" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp" attr-images="'[{\'file_name\':\'bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp\',\'name\':\'3e7e2cf8-8466-4681-b013-1f7da25a7912.webp\',\'position\':1}]'" ></product><product attr-id="1450" attr-info-id="2154" attr-name="Post-Workout Electrolyte Mix" attr-description="&lt;p&gt;A post-workout powder containing BCAAs, L-glutamine, potassium citrate, and salt. The formula provides amino acids and electrolyte ingredients commonly used in sports-nutrition products. Final labeling should verify each ingredient amount and avoid claims to treat dehydration, guarantee recovery, or provide medical benefits.&lt;/p&gt;" attr-price="300" attr-rebill-price="0" attr-sale-price="300" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="054f57b5-6440-4367-98bb-4a1915b59708.webp" attr-images="'[{\'file_name\':\'054f57b5-6440-4367-98bb-4a1915b59708.webp\',\'name\':\'95211bbe-2b89-4ec5-aefe-bba42324cee9.webp\',\'position\':1}]'" ></product><product attr-id="1437" attr-info-id="2146" attr-name="Advanced Performance Powder" attr-description="&lt;p&gt;A sports-nutrition powder containing electrolytes, B vitamins, amino acids, creatine compounds, and caffeine. The formula combines several common performance-nutrition ingredients in a convenient powdered format. Final packaging should disclose the exact caffeine amount and serving directions and avoid extreme, guaranteed, stimulant-like, or drug-comparison claims.&lt;/p&gt;" attr-price="190" attr-rebill-price="0" attr-sale-price="190" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp" attr-images="'[{\'file_name\':\'73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp\',\'name\':\'85144eee-c420-4e5b-8fca-d3d3c026b9f9.webp\',\'position\':1}]'" ></product><product attr-id="1385" attr-info-id="2111" attr-name="Ancestral Protein &amp; amminos" attr-description="&lt;p&gt;A protein powder containing beef bone broth protein, bovine organ ingredients, mineral components, and selected mushroom ingredients. The formula offers a broad animal-based protein and nutrient profile intended for general nutritional use. Final packaging should verify every animal-source ingredient and avoid disease, immunity-treatment, or organ-healing claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp" attr-images="'[{\'file_name\':\'8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp\',\'name\':\'e7a58f40-9e2e-40f3-a5bd-65062e421cb9.webp\',\'position\':1}]'" ></product><product attr-id="1374" attr-info-id="2103" attr-name="Whey Isolate Protein Powder" attr-description="&lt;p&gt;A whey protein isolate powder with sunflower lecithin for easier mixing. Whey isolate provides a concentrated source of complete protein and naturally occurring essential amino acids, including BCAAs. Final labeling should confirm protein grams, serving size, milk allergen information, and the correct facts-panel classification.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp" attr-images="'[{\'file_name\':\'db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp\',\'name\':\'3129aec1-32e2-415c-b41d-1c8731b8e672.webp\',\'position\':1}]'" ></product><product attr-id="1358" attr-info-id="2095" attr-name="Ultra Testosterone" attr-description="&lt;p&gt;A men&#039;s dietary supplement containing D-aspartic acid, ashwagandha, tribulus, chrysin, boron, and black pepper extract. The formulation combines botanical and nutritional ingredients commonly found in men&#039;s wellness products. Marketing should stay focused on general vitality and avoid testosterone-treatment, hormone-modification, sexual-performance, or guaranteed muscle-gain claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="3ed2d586-da93-4da2-b914-8508ff4f69b6.webp" attr-images="'[{\'file_name\':\'3ed2d586-da93-4da2-b914-8508ff4f69b6.webp\',\'name\':\'706ff052-a733-485d-9e56-5f9e1ba5e1ac.webp\',\'position\':1}]'" ></product><product attr-id="1337" attr-info-id="2087" attr-name="Magnesium Glycinate" attr-description="&lt;p&gt;A dietary supplement supplying magnesium in a chelated glycinate or bisglycinate form. The formula provides a straightforward source of supplemental magnesium for general nutritional use. Final packaging should state the verified elemental magnesium amount per serving and applicable Daily Value.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp" attr-images="'[{\'file_name\':\'27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp\',\'name\':\'153a5baf-61e7-4ad5-a42a-6282c072b441.webp\',\'position\':1}]'" ></product><product attr-id="1525" attr-info-id="2079" attr-name="Grass-Fed Whey Protein" attr-description="&lt;p&gt;A grass-fed whey protein concentrate powder with sunflower lecithin for mixability. Whey protein naturally provides a complete profile of essential amino acids, including the branched-chain amino acids leucine, isoleucine, and valine. Final packaging should confirm protein content, serving size, allergen information, and whether a Supplement Facts or Nutrition Facts panel is appropriate.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp" attr-images="'[{\'file_name\':\'0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp\',\'name\':\'259f8597-fa22-499b-b3bd-99e474207370.webp\',\'position\':1}]'" ></product><product attr-id="1517" attr-info-id="2070" attr-name="Vitamin K2 + D3" attr-description="&lt;p&gt;A dietary supplement containing vitamin D3 and vitamin K2. The formula offers two commonly paired fat-soluble vitamins in a straightforward daily supplement format. Final labelling should confirm the exact amounts and Daily Values and avoid claims to prevent or treat osteoporosis, heart disease, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="d564b19b-8064-4f43-a1b4-bf071b3bf897.webp" attr-images="'[{\'file_name\':\'d564b19b-8064-4f43-a1b4-bf071b3bf897.webp\',\'name\':\'7fa4c5b7-9d98-4ec1-b04b-35f08392f63e.webp\',\'position\':1}]'" ></product><product attr-id="1509" attr-info-id="2062" attr-name="20B Probiotic" attr-description="&lt;p&gt;A multi-strain probiotic dietary supplement formulated with beneficial bacterial cultures and inulin prebiotic fiber. The product is intended to provide a clearly identified probiotic blend for general digestive wellness. Final packaging should list the exact strains and verified CFU quantity and should avoid claims to treat infections, IBS, or other diseases.&lt;/p&gt;" attr-price="40" attr-rebill-price="0" attr-sale-price="40" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp" attr-images="'[{\'file_name\':\'7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp\',\'name\':\'60961718-1cea-4e61-b3bd-46dbc54a1c02.webp\',\'position\':1}]'" ></product><product attr-id="1501" attr-info-id="2054" attr-name="Cognitive Support" attr-description="&lt;p&gt;A dietary supplement containing amino acids, botanical extracts, phosphatidylserine, alpha-GPC, L-theanine, and caffeine. The formula is positioned for general cognitive and mental-performance support as part of a normal wellness routine. Marketing should avoid claims related to Alzheimer&#039;s disease, dementia, ADHD, memory-loss treatment, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp" attr-images="'[{\'file_name\':\'06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp\',\'name\':\'15014645-a967-4d25-8c55-0627bccdefe2.webp\',\'position\':1}]'" ></product><product attr-id="1489" attr-info-id="2046" attr-name="L-Arginine Plus" attr-description="&lt;p&gt;An amino-acid-based dietary supplement centred on L-arginine with vitamin C, folate, and antioxidant compounds. The formula provides a combination of nutrients commonly used in general fitness and wellness products. Product descriptions should avoid erectile dysfunction, cardiovascular disease, blood pressure, or drug-like performance claims.&lt;/p&gt;" attr-price="50" attr-rebill-price="0" attr-sale-price="50" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="b860e43e-fcbd-4836-a344-18da35568bc2.webp" attr-images="'[{\'file_name\':\'b860e43e-fcbd-4836-a344-18da35568bc2.webp\',\'name\':\'7c14f3fa-78a1-418a-9ca2-8f00c3c5f8bd.webp\',\'position\':1}]'" ></product><product attr-id="1473" attr-info-id="2038" attr-name="Seaweed Extract" attr-description="&lt;p&gt;A dietary supplement featuring brown seaweed or kelp extract as a source of naturally occurring iodine. The product provides a simple marine botanical ingredient for general nutritional use. Final labelling should confirm the exact seaweed species and iodine amount and should avoid thyroid-disease or detoxification claims.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp" attr-images="'[{\'file_name\':\'efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp\',\'name\':\'0928ad89-8a67-4195-a6f9-dcc03f379328.webp\',\'position\':1}]'" ></product><product attr-id="1444" attr-info-id="2030" attr-name="Gut Repair" attr-description="&lt;p&gt;A dietary supplement blend containing L-glutamine, apple pectin, zinc carnosine, slippery elm, DGL, aloe, tributyrin, and curcumin. The formula combines amino acid, botanical, and nutrient ingredients commonly used in digestive wellness products. Marketing should focus on general digestive support and avoid claims that it repairs disease conditions, treats IBS, or heals the gastrointestinal tract.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="4eabed2d-4251-4b33-95bc-c65ac388da9c.webp" attr-images="'[{\'file_name\':\'4eabed2d-4251-4b33-95bc-c65ac388da9c.webp\',\'name\':\'0e0b9c70-d620-4861-8589-2cf43c769ae4.webp\',\'position\':1}]'" ></product><product attr-id="1395" attr-info-id="2022" attr-name="Organic Sea Moss &amp; Bladderwrack Powder" attr-description="&lt;p&gt;A powdered botanical blend containing organic sea moss and bladderwrack. These marine ingredients naturally contain a variety of trace nutrients, with the final nutrient profile dependent on the actual manufacturer specification. The product should be marketed for general wellness without thyroid-treatment, detoxification, or disease-related claims.&lt;br&gt;&amp;nbsp;&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp" attr-images="'[{\'file_name\':\'7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp\',\'name\':\'dafee93b-1592-41bf-a5b5-144c99330675.webp\',\'position\':1}]'" ></product><product attr-id="1372" attr-info-id="2014" attr-name="Hydrolyzed Collagen Powder" attr-description="&lt;p&gt;A hydrolyzed bovine collagen peptide powder that naturally provides amino acids such as glycine, proline, and hydroxyproline. The powder is designed as a convenient source of supplemental collagen protein for everyday nutrition. Product copy should remain focused on composition and general nutritional support rather than disease, pain-relief, or anti-aging treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="a8aab056-dc2e-4cf4-be95-3545a301fcde.webp" attr-images="'[{\'file_name\':\'a8aab056-dc2e-4cf4-be95-3545a301fcde.webp\',\'name\':\'7bea101f-f195-4841-90bb-d1a1fe3f1330.webp\',\'position\':1}]'" ></product><product attr-id="1357" attr-info-id="2006" attr-name="Natural Energy" attr-description="&lt;p&gt;A dietary supplement containing L-theanine, caffeine, and vitamin B12. The combination is intended for consumers seeking a convenient energy-support formula as part of their daily routine. Any final product listing should disclose the actual caffeine amount and avoid guaranteed energy or performance claims.&lt;/p&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="beafe0d3-be01-4a6c-8aca-f986a29f062c.webp" attr-images="'[{\'file_name\':\'beafe0d3-be01-4a6c-8aca-f986a29f062c.webp\',\'name\':\'b1fedf0b-2600-4c75-a096-c8ba650054f6.webp\',\'position\':1}]'" ></product><product attr-id="1345" attr-info-id="1998" attr-name="Cranberry UTI" attr-description="&lt;p&gt;A cranberry-extract dietary supplement formulated for general urinary wellness. The product offers a simple cranberry-based ingredient profile that can complement everyday wellness routines. It is presented without claims to prevent, treat, or cure urinary tract infections or other medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp" attr-images="'[{\'file_name\':\'0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp\',\'name\':\'392eb7b6-3b18-4176-9bc0-58b7d0255a85.webp\',\'position\':1}]'" ></product><product attr-id="1333" attr-info-id="1990" attr-name="Coleus Forskolin" attr-description="&lt;p&gt;A botanical dietary supplement featuring standardized Coleus forskohlii root extract. The formula provides a straightforward plant-based ingredient profile for general wellness use. It is described without weight-loss, fat-burning, or guaranteed body-composition claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp" attr-images="'[{\'file_name\':\'07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp\',\'name\':\'47a0d017-7863-48d0-86fb-e01ea89f2bf1.webp\',\'position\':1}]'" ></product><product attr-id="1325" attr-info-id="1982" attr-name="Blood Sugar Support" attr-description="&lt;p&gt;A dietary supplement formula featuring chromium, bitter melon, cinnamon, gymnema, alpha-lipoic acid, and supporting vitamins and minerals. The blend is designed to complement a balanced wellness routine and normal nutrient intake. It is presented without claims to diagnose, treat, cure, or prevent blood-sugar-related medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="5c86e088-5e8b-435b-823a-25c08677c638.webp" attr-images="'[{\'file_name\':\'5c86e088-5e8b-435b-823a-25c08677c638.webp\',\'name\':\'3b21d4da-89eb-4652-b778-e362e61a160a.webp\',\'position\':1}]'" ></product><product attr-id="2225" attr-info-id="99161" attr-name="Colon Cleanse Detox" attr-description="&lt;p&gt;Colon Cleanse Detox is a dietary supplement formulated with Psyllium Husk and Aloe Vera to support healthy digestion and regularity. Conveniently packaged in a bottle containing capsules, this supplement can be incorporated into your daily wellness routine according to the directions provided on the product label.&lt;/p&gt;&lt;p&gt;Designed for convenient everyday use, Colon Cleanse Detox offers a simple way to add these ingredients to your digestive wellness regimen.&lt;/p&gt;&lt;p&gt;Product Details:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Brand: Veraxa Wellness&lt;/li&gt;&lt;li&gt;Product Name: Colon Cleanse Detox&lt;/li&gt;&lt;li&gt;Key Ingredients: Psyllium Husk and Aloe Vera&lt;/li&gt;&lt;li&gt;Form: Capsules&lt;/li&gt;&lt;li&gt;Product Type: Dietary Supplement&lt;/li&gt;&lt;li&gt;Purpose: Supports healthy digestion and regularity*&lt;/li&gt;&lt;/ul&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="d676a4ed-60d1-4fc1-97de-d5d381c611dd.png" attr-images="'[{\'file_name\':\'d676a4ed-60d1-4fc1-97de-d5d381c611dd.png\',\'name\':\'Veraxa Colon Cleanse Supplement Bottle.png\',\'position\':1}]'" ></product><product attr-id="2229" attr-info-id="99169" attr-name="Micronized Monohydrate Powder" attr-description="&lt;p&gt;Micronized Monohydrate Powder features a pure monohydrate formula designed to complement your fitness and workout routine. Its micronized powder format makes it convenient to mix into your preferred beverage according to the product label’s directions. Ideal for fitness enthusiasts and active individuals, this dietary supplement is formulated to support muscle strength, athletic performance, and training goals as part of a balanced diet and regular exercise program.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Product Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Brand:&lt;/strong&gt; Veraxa Wellness&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Name:&lt;/strong&gt; Micronized Monohydrate Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Formula:&lt;/strong&gt; Pure Monohydrate&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Form:&lt;/strong&gt; Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Type:&lt;/strong&gt; Dietary Supplement&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Supports muscle strength and athletic performance*&lt;/li&gt;&lt;/ul&gt;" attr-price="200" attr-rebill-price="0" attr-sale-price="200" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="dd63682e-04fa-4631-bd89-4294e00ce31d.png" attr-images="'[{\'file_name\':\'dd63682e-04fa-4631-bd89-4294e00ce31d.png\',\'name\':\'Veraxa Micronized Monohydrate Supplement Jar.png\',\'position\':1}]'" ></product><product attr-id="2213" attr-info-id="99163" attr-name="Joint Support" attr-description="&lt;p&gt;Joint Support is a dietary supplement formulated with Glucosamine HCl, Chondroitin Sulfate, MSM, Turmeric Root Extract, and Boswellia Serrata Extract. It is designed to support joint comfort, mobility, and everyday wellness as part of an active lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="9c6c1ac3-4145-4d77-b89b-171a3515569c.png" attr-images="'[{\'file_name\':\'9c6c1ac3-4145-4d77-b89b-171a3515569c.png\',\'name\':\'Veraxa Joint Support Bottle.png\',\'position\':1}]'" ></product><product attr-id="2221" attr-info-id="99173" attr-name="Berberine" attr-description="&lt;p&gt;Berberine is a botanical dietary supplement formulated with Berberine HCl and Cinnamon Bark Extract. It is designed to support everyday wellness and complement a balanced diet and healthy lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="70cc91e7-3e12-4111-b043-c1b76cff2f7f.png" attr-images="'[{\'file_name\':\'70cc91e7-3e12-4111-b043-c1b76cff2f7f.png\',\'name\':\'Berberine Wellness Supplement Bottle.png\',\'position\':1}]'" ></product><product attr-id="2217" attr-info-id="99177" attr-name="Complete Nutrition Powder" attr-description="&lt;p&gt;Complete Nutrition Powder is a dietary supplement designed to complement your daily nutrition and wellness routine. Its convenient powdered format makes it easy to incorporate into your everyday lifestyle. With a focus on balanced nutrition, daily energy, and overall wellness, this product is a suitable addition to a balanced diet and healthy lifestyle.&lt;br&gt;&lt;br&gt;Product Details:&lt;br&gt;- Brand: Veraxa Wellness&lt;br&gt;- Product Name: Complete Nutrition Powder&lt;br&gt;- Form: Powder&lt;br&gt;- Product Type: Dietary Supplement&lt;br&gt;- Purpose: Supports daily nutrition and overall wellness&lt;/p&gt;" attr-price="140" attr-rebill-price="0" attr-sale-price="140" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp" attr-images="'[{\'file_name\':\'acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp\',\'name\':\'b370f2ba-a1a2-44fa-9af5-5dc5e9e64f70.webp\',\'position\':1}]'" ></product> tag e.g. <product attr-id="1482" attr-info-id="2265" attr-name="Bovine Colostrum Powder" attr-description="&lt;p&gt;A bovine colostrum powder containing naturally occurring immunoglobulins, proline-rich polypeptides, and lactoferrin. The product provides a dairy-derived colostrum ingredient in a convenient powder format for general nutritional use. Final packaging should verify bovine source, processing, IgG specification, allergen information, and avoid infection-prevention or therapeutic immune claims.&lt;/p&gt;" attr-price="130" attr-rebill-price="0" attr-sale-price="130" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="3a9c6382-6784-4bb0-8561-83360f457604.webp" attr-images="'[{\'file_name\':\'3a9c6382-6784-4bb0-8561-83360f457604.webp\',\'name\':\'6d30979d-c13c-4206-ae16-2885c072d114.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1429" attr-info-id="2238" attr-name="Essential Amino Acid Powder" attr-description="&lt;p&gt;A powdered blend containing the nine essential amino acids: leucine, isoleucine, valine, lysine, threonine, phenylalanine, methionine, histidine, and tryptophan. The formula is designed as a straightforward amino-acid supplement for general sports and nutritional use. Final packaging should verify the amount of each amino acid per serving and avoid disease-treatment or muscle-wasting claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp" attr-images="'[{\'file_name\':\'1d0540a6-96da-45da-8c1e-5966eaa9c9bb.webp\',\'name\':\'da437206-d4af-4da9-ad60-679a53ba095d.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1421" attr-info-id="2213" attr-name="Plant-Based Organic Protein Powder" attr-description="&lt;p&gt;An organic plant-protein powder made with pea, pumpkin seed, and hemp proteins. The blend provides multiple plant-based protein sources in a simple powder format for everyday nutrition. Final packaging should confirm protein grams, serving size, allergen or cross-contact information, and the appropriate facts-panel classification.&lt;/p&gt;" attr-price="230" attr-rebill-price="0" attr-sale-price="230" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="fec514f9-3ae0-4936-a231-aa7986259046.webp" attr-images="'[{\'file_name\':\'fec514f9-3ae0-4936-a231-aa7986259046.webp\',\'name\':\'7298dc75-15dc-4166-a93c-6485d240059d.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1413" attr-info-id="2187" attr-name="Metabolic Protein Powder" attr-description="&lt;p&gt;A plant-based nutrition powder containing pea and hemp protein, fiber sources, MCT powder, carbohydrate ingredients, and a flax-derived omega-3 source. The formula is designed to provide a balanced combination of plant protein and additional nutritional ingredients. Marketing should remain focused on general nutrition and avoid weight-loss, blood-sugar-control, or metabolic-disease claims.&lt;/p&gt;" attr-price="145" attr-rebill-price="0" attr-sale-price="145" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="3acd3c87-a791-400b-b894-1a1a36bb1195.webp" attr-images="'[{\'file_name\':\'3acd3c87-a791-400b-b894-1a1a36bb1195.webp\',\'name\':\'3621f4f6-8a6b-46a8-8237-b85407f7a234.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1468" attr-info-id="2170" attr-name="Functional Mushroom &amp; Superfood Powder" attr-description="&lt;p&gt;A powdered mushroom and superfood blend containing functional mushrooms, prebiotic fiber, acerola, and vitamin C. The formula combines several mushroom species with complementary plant-based ingredients for general wellness use. Final labeling should verify mushroom species, plant parts, and ingredient amounts and avoid cancer, infection, or immune-disease treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="ac57fd86-0b24-4499-9fe6-80063849f895.webp" attr-images="'[{\'file_name\':\'ac57fd86-0b24-4499-9fe6-80063849f895.webp\',\'name\':\'2768d2c5-f645-4392-b8d4-ecc5408f358a.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1460" attr-info-id="2162" attr-name="Organic Daily Greens Powder" attr-description="&lt;p&gt;A powdered greens blend containing grasses, vegetables, botanicals, fruit ingredients, spices, and prebiotic fiber. The product offers a broad plant-based ingredient profile intended to complement normal dietary intake. Marketing should focus on general nutrition and wellness and avoid detoxification, disease-prevention, or unsupported immunity claims.&lt;/p&gt;" attr-price="120" attr-rebill-price="0" attr-sale-price="120" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp" attr-images="'[{\'file_name\':\'bf8a62ec-1947-435f-adab-6ef1accf2dc2.webp\',\'name\':\'3e7e2cf8-8466-4681-b013-1f7da25a7912.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1450" attr-info-id="2154" attr-name="Post-Workout Electrolyte Mix" attr-description="&lt;p&gt;A post-workout powder containing BCAAs, L-glutamine, potassium citrate, and salt. The formula provides amino acids and electrolyte ingredients commonly used in sports-nutrition products. Final labeling should verify each ingredient amount and avoid claims to treat dehydration, guarantee recovery, or provide medical benefits.&lt;/p&gt;" attr-price="300" attr-rebill-price="0" attr-sale-price="300" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="054f57b5-6440-4367-98bb-4a1915b59708.webp" attr-images="'[{\'file_name\':\'054f57b5-6440-4367-98bb-4a1915b59708.webp\',\'name\':\'95211bbe-2b89-4ec5-aefe-bba42324cee9.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1437" attr-info-id="2146" attr-name="Advanced Performance Powder" attr-description="&lt;p&gt;A sports-nutrition powder containing electrolytes, B vitamins, amino acids, creatine compounds, and caffeine. The formula combines several common performance-nutrition ingredients in a convenient powdered format. Final packaging should disclose the exact caffeine amount and serving directions and avoid extreme, guaranteed, stimulant-like, or drug-comparison claims.&lt;/p&gt;" attr-price="190" attr-rebill-price="0" attr-sale-price="190" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp" attr-images="'[{\'file_name\':\'73bdd694-529b-4b0e-9808-04f63f7fcf4d.webp\',\'name\':\'85144eee-c420-4e5b-8fca-d3d3c026b9f9.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1385" attr-info-id="2111" attr-name="Ancestral Protein &amp; amminos" attr-description="&lt;p&gt;A protein powder containing beef bone broth protein, bovine organ ingredients, mineral components, and selected mushroom ingredients. The formula offers a broad animal-based protein and nutrient profile intended for general nutritional use. Final packaging should verify every animal-source ingredient and avoid disease, immunity-treatment, or organ-healing claims.&lt;/p&gt;" attr-price="85" attr-rebill-price="0" attr-sale-price="85" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp" attr-images="'[{\'file_name\':\'8d71e744-a256-4a08-b836-a4a8a0ab36ab.webp\',\'name\':\'e7a58f40-9e2e-40f3-a5bd-65062e421cb9.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1374" attr-info-id="2103" attr-name="Whey Isolate Protein Powder" attr-description="&lt;p&gt;A whey protein isolate powder with sunflower lecithin for easier mixing. Whey isolate provides a concentrated source of complete protein and naturally occurring essential amino acids, including BCAAs. Final labeling should confirm protein grams, serving size, milk allergen information, and the correct facts-panel classification.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp" attr-images="'[{\'file_name\':\'db9fa1c4-c43a-4b56-b6c0-54757cf84189.webp\',\'name\':\'3129aec1-32e2-415c-b41d-1c8731b8e672.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1358" attr-info-id="2095" attr-name="Ultra Testosterone" attr-description="&lt;p&gt;A men&#039;s dietary supplement containing D-aspartic acid, ashwagandha, tribulus, chrysin, boron, and black pepper extract. The formulation combines botanical and nutritional ingredients commonly found in men&#039;s wellness products. Marketing should stay focused on general vitality and avoid testosterone-treatment, hormone-modification, sexual-performance, or guaranteed muscle-gain claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="3ed2d586-da93-4da2-b914-8508ff4f69b6.webp" attr-images="'[{\'file_name\':\'3ed2d586-da93-4da2-b914-8508ff4f69b6.webp\',\'name\':\'706ff052-a733-485d-9e56-5f9e1ba5e1ac.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1337" attr-info-id="2087" attr-name="Magnesium Glycinate" attr-description="&lt;p&gt;A dietary supplement supplying magnesium in a chelated glycinate or bisglycinate form. The formula provides a straightforward source of supplemental magnesium for general nutritional use. Final packaging should state the verified elemental magnesium amount per serving and applicable Daily Value.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp" attr-images="'[{\'file_name\':\'27fe3643-afb8-4d78-a4fe-c3af7d77ebb8.webp\',\'name\':\'153a5baf-61e7-4ad5-a42a-6282c072b441.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1525" attr-info-id="2079" attr-name="Grass-Fed Whey Protein" attr-description="&lt;p&gt;A grass-fed whey protein concentrate powder with sunflower lecithin for mixability. Whey protein naturally provides a complete profile of essential amino acids, including the branched-chain amino acids leucine, isoleucine, and valine. Final packaging should confirm protein content, serving size, allergen information, and whether a Supplement Facts or Nutrition Facts panel is appropriate.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp" attr-images="'[{\'file_name\':\'0d696c09-b200-4d8a-80a7-baace8d3e7f8.webp\',\'name\':\'259f8597-fa22-499b-b3bd-99e474207370.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1517" attr-info-id="2070" attr-name="Vitamin K2 + D3" attr-description="&lt;p&gt;A dietary supplement containing vitamin D3 and vitamin K2. The formula offers two commonly paired fat-soluble vitamins in a straightforward daily supplement format. Final labelling should confirm the exact amounts and Daily Values and avoid claims to prevent or treat osteoporosis, heart disease, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="d564b19b-8064-4f43-a1b4-bf071b3bf897.webp" attr-images="'[{\'file_name\':\'d564b19b-8064-4f43-a1b4-bf071b3bf897.webp\',\'name\':\'7fa4c5b7-9d98-4ec1-b04b-35f08392f63e.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1509" attr-info-id="2062" attr-name="20B Probiotic" attr-description="&lt;p&gt;A multi-strain probiotic dietary supplement formulated with beneficial bacterial cultures and inulin prebiotic fiber. The product is intended to provide a clearly identified probiotic blend for general digestive wellness. Final packaging should list the exact strains and verified CFU quantity and should avoid claims to treat infections, IBS, or other diseases.&lt;/p&gt;" attr-price="40" attr-rebill-price="0" attr-sale-price="40" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp" attr-images="'[{\'file_name\':\'7d98a0c5-f906-40dc-b3cb-deadd1d5fa7b.webp\',\'name\':\'60961718-1cea-4e61-b3bd-46dbc54a1c02.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1501" attr-info-id="2054" attr-name="Cognitive Support" attr-description="&lt;p&gt;A dietary supplement containing amino acids, botanical extracts, phosphatidylserine, alpha-GPC, L-theanine, and caffeine. The formula is positioned for general cognitive and mental-performance support as part of a normal wellness routine. Marketing should avoid claims related to Alzheimer&#039;s disease, dementia, ADHD, memory-loss treatment, or other medical conditions.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp" attr-images="'[{\'file_name\':\'06574e5a-3030-4c5a-83e1-27d7b6783bbf.webp\',\'name\':\'15014645-a967-4d25-8c55-0627bccdefe2.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1489" attr-info-id="2046" attr-name="L-Arginine Plus" attr-description="&lt;p&gt;An amino-acid-based dietary supplement centred on L-arginine with vitamin C, folate, and antioxidant compounds. The formula provides a combination of nutrients commonly used in general fitness and wellness products. Product descriptions should avoid erectile dysfunction, cardiovascular disease, blood pressure, or drug-like performance claims.&lt;/p&gt;" attr-price="50" attr-rebill-price="0" attr-sale-price="50" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="b860e43e-fcbd-4836-a344-18da35568bc2.webp" attr-images="'[{\'file_name\':\'b860e43e-fcbd-4836-a344-18da35568bc2.webp\',\'name\':\'7c14f3fa-78a1-418a-9ca2-8f00c3c5f8bd.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1473" attr-info-id="2038" attr-name="Seaweed Extract" attr-description="&lt;p&gt;A dietary supplement featuring brown seaweed or kelp extract as a source of naturally occurring iodine. The product provides a simple marine botanical ingredient for general nutritional use. Final labelling should confirm the exact seaweed species and iodine amount and should avoid thyroid-disease or detoxification claims.&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp" attr-images="'[{\'file_name\':\'efcc0aed-d5e1-4ae4-ae27-be9f21facf7c.webp\',\'name\':\'0928ad89-8a67-4195-a6f9-dcc03f379328.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1444" attr-info-id="2030" attr-name="Gut Repair" attr-description="&lt;p&gt;A dietary supplement blend containing L-glutamine, apple pectin, zinc carnosine, slippery elm, DGL, aloe, tributyrin, and curcumin. The formula combines amino acid, botanical, and nutrient ingredients commonly used in digestive wellness products. Marketing should focus on general digestive support and avoid claims that it repairs disease conditions, treats IBS, or heals the gastrointestinal tract.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="4eabed2d-4251-4b33-95bc-c65ac388da9c.webp" attr-images="'[{\'file_name\':\'4eabed2d-4251-4b33-95bc-c65ac388da9c.webp\',\'name\':\'0e0b9c70-d620-4861-8589-2cf43c769ae4.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1395" attr-info-id="2022" attr-name="Organic Sea Moss &amp; Bladderwrack Powder" attr-description="&lt;p&gt;A powdered botanical blend containing organic sea moss and bladderwrack. These marine ingredients naturally contain a variety of trace nutrients, with the final nutrient profile dependent on the actual manufacturer specification. The product should be marketed for general wellness without thyroid-treatment, detoxification, or disease-related claims.&lt;br&gt;&amp;nbsp;&lt;/p&gt;" attr-price="90" attr-rebill-price="0" attr-sale-price="90" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp" attr-images="'[{\'file_name\':\'7a0f03fe-64aa-491b-a8e7-bc7601a30e1e.webp\',\'name\':\'dafee93b-1592-41bf-a5b5-144c99330675.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1372" attr-info-id="2014" attr-name="Hydrolyzed Collagen Powder" attr-description="&lt;p&gt;A hydrolyzed bovine collagen peptide powder that naturally provides amino acids such as glycine, proline, and hydroxyproline. The powder is designed as a convenient source of supplemental collagen protein for everyday nutrition. Product copy should remain focused on composition and general nutritional support rather than disease, pain-relief, or anti-aging treatment claims.&lt;/p&gt;" attr-price="110" attr-rebill-price="0" attr-sale-price="110" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="a8aab056-dc2e-4cf4-be95-3545a301fcde.webp" attr-images="'[{\'file_name\':\'a8aab056-dc2e-4cf4-be95-3545a301fcde.webp\',\'name\':\'7bea101f-f195-4841-90bb-d1a1fe3f1330.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1357" attr-info-id="2006" attr-name="Natural Energy" attr-description="&lt;p&gt;A dietary supplement containing L-theanine, caffeine, and vitamin B12. The combination is intended for consumers seeking a convenient energy-support formula as part of their daily routine. Any final product listing should disclose the actual caffeine amount and avoid guaranteed energy or performance claims.&lt;/p&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="beafe0d3-be01-4a6c-8aca-f986a29f062c.webp" attr-images="'[{\'file_name\':\'beafe0d3-be01-4a6c-8aca-f986a29f062c.webp\',\'name\':\'b1fedf0b-2600-4c75-a096-c8ba650054f6.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1345" attr-info-id="1998" attr-name="Cranberry UTI" attr-description="&lt;p&gt;A cranberry-extract dietary supplement formulated for general urinary wellness. The product offers a simple cranberry-based ingredient profile that can complement everyday wellness routines. It is presented without claims to prevent, treat, or cure urinary tract infections or other medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp" attr-images="'[{\'file_name\':\'0bd943ee-a4fa-46db-ad02-28fa8dfa997f.webp\',\'name\':\'392eb7b6-3b18-4176-9bc0-58b7d0255a85.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1333" attr-info-id="1990" attr-name="Coleus Forskolin" attr-description="&lt;p&gt;A botanical dietary supplement featuring standardized Coleus forskohlii root extract. The formula provides a straightforward plant-based ingredient profile for general wellness use. It is described without weight-loss, fat-burning, or guaranteed body-composition claims.&lt;/p&gt;" attr-price="70" attr-rebill-price="0" attr-sale-price="70" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp" attr-images="'[{\'file_name\':\'07ea2014-8bbe-4dcc-a9e7-4f8ef2accd75.webp\',\'name\':\'47a0d017-7863-48d0-86fb-e01ea89f2bf1.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="1325" attr-info-id="1982" attr-name="Blood Sugar Support" attr-description="&lt;p&gt;A dietary supplement formula featuring chromium, bitter melon, cinnamon, gymnema, alpha-lipoic acid, and supporting vitamins and minerals. The blend is designed to complement a balanced wellness routine and normal nutrient intake. It is presented without claims to diagnose, treat, cure, or prevent blood-sugar-related medical conditions.&lt;/p&gt;" attr-price="60" attr-rebill-price="0" attr-sale-price="60" attr-billing-model-id="" attr-categoryid="184" attr-category="Gut Health" attr-offer-id="" attr-shipping-id="25" attr-quantity="1" attr-total-count="30" attr-image="5c86e088-5e8b-435b-823a-25c08677c638.webp" attr-images="'[{\'file_name\':\'5c86e088-5e8b-435b-823a-25c08677c638.webp\',\'name\':\'3b21d4da-89eb-4652-b778-e362e61a160a.webp\',\'position\':1}]'" limit="100" ></product><product attr-id="2225" attr-info-id="99161" attr-name="Colon Cleanse Detox" attr-description="&lt;p&gt;Colon Cleanse Detox is a dietary supplement formulated with Psyllium Husk and Aloe Vera to support healthy digestion and regularity. Conveniently packaged in a bottle containing capsules, this supplement can be incorporated into your daily wellness routine according to the directions provided on the product label.&lt;/p&gt;&lt;p&gt;Designed for convenient everyday use, Colon Cleanse Detox offers a simple way to add these ingredients to your digestive wellness regimen.&lt;/p&gt;&lt;p&gt;Product Details:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Brand: Veraxa Wellness&lt;/li&gt;&lt;li&gt;Product Name: Colon Cleanse Detox&lt;/li&gt;&lt;li&gt;Key Ingredients: Psyllium Husk and Aloe Vera&lt;/li&gt;&lt;li&gt;Form: Capsules&lt;/li&gt;&lt;li&gt;Product Type: Dietary Supplement&lt;/li&gt;&lt;li&gt;Purpose: Supports healthy digestion and regularity*&lt;/li&gt;&lt;/ul&gt;" attr-price="45" attr-rebill-price="0" attr-sale-price="45" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="d676a4ed-60d1-4fc1-97de-d5d381c611dd.png" attr-images="'[{\'file_name\':\'d676a4ed-60d1-4fc1-97de-d5d381c611dd.png\',\'name\':\'Veraxa Colon Cleanse Supplement Bottle.png\',\'position\':1}]'" limit="100" ></product><product attr-id="2229" attr-info-id="99169" attr-name="Micronized Monohydrate Powder" attr-description="&lt;p&gt;Micronized Monohydrate Powder features a pure monohydrate formula designed to complement your fitness and workout routine. Its micronized powder format makes it convenient to mix into your preferred beverage according to the product label’s directions. Ideal for fitness enthusiasts and active individuals, this dietary supplement is formulated to support muscle strength, athletic performance, and training goals as part of a balanced diet and regular exercise program.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Product Details:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Brand:&lt;/strong&gt; Veraxa Wellness&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Name:&lt;/strong&gt; Micronized Monohydrate Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Formula:&lt;/strong&gt; Pure Monohydrate&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Form:&lt;/strong&gt; Powder&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Product Type:&lt;/strong&gt; Dietary Supplement&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Supports muscle strength and athletic performance*&lt;/li&gt;&lt;/ul&gt;" attr-price="200" attr-rebill-price="0" attr-sale-price="200" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="dd63682e-04fa-4631-bd89-4294e00ce31d.png" attr-images="'[{\'file_name\':\'dd63682e-04fa-4631-bd89-4294e00ce31d.png\',\'name\':\'Veraxa Micronized Monohydrate Supplement Jar.png\',\'position\':1}]'" limit="100" ></product><product attr-id="2213" attr-info-id="99163" attr-name="Joint Support" attr-description="&lt;p&gt;Joint Support is a dietary supplement formulated with Glucosamine HCl, Chondroitin Sulfate, MSM, Turmeric Root Extract, and Boswellia Serrata Extract. It is designed to support joint comfort, mobility, and everyday wellness as part of an active lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="9c6c1ac3-4145-4d77-b89b-171a3515569c.png" attr-images="'[{\'file_name\':\'9c6c1ac3-4145-4d77-b89b-171a3515569c.png\',\'name\':\'Veraxa Joint Support Bottle.png\',\'position\':1}]'" limit="100" ></product><product attr-id="2221" attr-info-id="99173" attr-name="Berberine" attr-description="&lt;p&gt;Berberine is a botanical dietary supplement formulated with Berberine HCl and Cinnamon Bark Extract. It is designed to support everyday wellness and complement a balanced diet and healthy lifestyle.&lt;/p&gt;" attr-price="80" attr-rebill-price="0" attr-sale-price="80" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="70cc91e7-3e12-4111-b043-c1b76cff2f7f.png" attr-images="'[{\'file_name\':\'70cc91e7-3e12-4111-b043-c1b76cff2f7f.png\',\'name\':\'Berberine Wellness Supplement Bottle.png\',\'position\':1}]'" limit="100" ></product><product attr-id="2217" attr-info-id="99177" attr-name="Complete Nutrition Powder" attr-description="&lt;p&gt;Complete Nutrition Powder is a dietary supplement designed to complement your daily nutrition and wellness routine. Its convenient powdered format makes it easy to incorporate into your everyday lifestyle. With a focus on balanced nutrition, daily energy, and overall wellness, this product is a suitable addition to a balanced diet and healthy lifestyle.&lt;br&gt;&lt;br&gt;Product Details:&lt;br&gt;- Brand: Veraxa Wellness&lt;br&gt;- Product Name: Complete Nutrition Powder&lt;br&gt;- Form: Powder&lt;br&gt;- Product Type: Dietary Supplement&lt;br&gt;- Purpose: Supports daily nutrition and overall wellness&lt;/p&gt;" attr-price="140" attr-rebill-price="0" attr-sale-price="140" attr-billing-model-id="" attr-categoryid="" attr-category="" attr-offer-id="" attr-shipping-id="7" attr-quantity="1" attr-total-count="30" attr-image="acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp" attr-images="'[{\'file_name\':\'acac79e7-6d44-4c0d-8b5f-37c653163ab2.webp\',\'name\':\'b370f2ba-a1a2-44fa-9af5-5dc5e9e64f70.webp\',\'position\':1}]'" limit="100" ></product>.
+     Change that single value to switch between the modes.
+     ========================================================= */
+    const PAGINATION_MODE = window.PAGINATION_MODE || "numbered";
+
+    let paginate = false;
+    let limit = 0;
+    let totalproducts = 0;
+    let productcategories = [];
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const search = window.location.search;
+
+      if (search) {
+        document.querySelectorAll("a[href]").forEach(function (link) {
+          const href = link.getAttribute("href");
+
+          // skip empty, hash, javascript, mailto, tel links
+          if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("javascript") ||
+            href.startsWith("mailto") ||
+            href.startsWith("tel")
+          )
+            return;
+
+          // if link already has params, append with & else use ?
+          link.href =
+            href + (href.includes("?") ? "&" : "?") + search.slice(1);
+        });
+      }
+      localStorage.setItem("currentpage", 1);
+
+      let firstProduct = document.querySelector("product");
+      if (firstProduct) {
+        paginate = firstProduct.getAttribute("paginate");
+        limit = parseInt(firstProduct.getAttribute("limit"));
+        totalproducts = parseInt(firstProduct.getAttribute("attr-total-count"));
+      }
+
+      // In 'numbered' mode, js/pagination.js renders everything into
+      // #products-pagination / #categoryArea — the inline load-more code stays off.
+      if (PAGINATION_MODE !== "loadmore") {
+        $(".load-more-btn").addClass("d-none");
+        return;
+      }
+
+      // ---------- LOAD MORE MODE ----------
+      // Render the first page of products into #categoryArea, then let the
+      // .load-more-btn append further pages.
+      $("#products-pagination").addClass("d-none"); // hide numbered UI
+      if (totalproducts > limit) {
+        $(".load-more-btn").removeClass("d-none");
+      } else {
+        $(".load-more-btn").addClass("d-none");
+      }
+
+      let products = document.querySelectorAll("product");
+      let temp = "";
+      if (products.length > 0) {
+        products.forEach((product) => {
+          let name = product.getAttribute("attr-name");
+          let price = product.getAttribute("attr-price");
+          let image = product.getAttribute("attr-image");
+          let infoid = product.getAttribute("attr-info-id");
+          let categoryid = product.getAttribute("attr-categoryid");
+          if (categoryid && categoryid.length > 0) {
+            productcategories.push(parseInt(categoryid));
+          }
+
+          temp += `
+  <div class="col-lg-4 col-md-4 col-sm-6 col-12 product-single" style="height: fit-content;" attr-info-id="${infoid}">
+    <div class="sel-prod">
+      <div class="coll-product-card">
+        <div class="coll-product-img-wrap mb-3">
+          <div class="coll-product-img">
+            <img src="images/${image}" alt="product image" data-attr-app="image" onerror="buildOnerror(this.value)" />
+          </div>
+        </div>
+        <p class="coll-product-name" data-attr-app="name">${name}</p>
+        <p class="coll-product-price">$<span data-attr-app="price">${price}</span></p>
+        <div class="d-flex gap-2 mt-2 w-100 purchase-type-group">
+          <button type="button" class="btn btn-sm btn-secondary active flex-fill purchase-type-btn" data-purchase-type="onetime">Onetime</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary flex-fill purchase-type-btn" data-purchase-type="subscription">Subscription</button>
+        </div>
+      </div>
+    </div>
+  </div>
+          `;
+        });
+        refreshCategories();
+      }
+
+      $("#categoryArea").html(temp);
+      $(".product-single").on("click", function () {
+        let infoId = $(this).attr("attr-info-id");
+        window.location.href = "product-details?id=" + infoId;
+      });
+    });
+
+    // LOAD MORE — only active in 'loadmore' mode; appends the next page to #categoryArea
+    $(".load-more-btn").click(function () {
+      if (PAGINATION_MODE !== "loadmore") return;
+      let pagenum = localStorage.getItem("currentpage");
+      let products = document.querySelectorAll("product");
+      if (products.length > 0) {
+        let limit = parseInt(products[0].getAttribute("limit"));
+        let next_page = parseInt(pagenum) + 1;
+        localStorage.setItem("currentpage", next_page);
+        callProductPageApi(
+          next_page,
+          limit,
+          function (response) {
+            let products = response.products;
+            let temp = "";
+            if (products.length > 0) {
+              products.forEach((product) => {
+                let name = product.name;
+                let price = product.price;
+                let image = getProductImageUrl(product);
+                let infoid = product.product_info_id;
+                let categoryid = product.category_info_id;
+
+                productcategories.push(categoryid);
+
+                temp += `
+  <div class="col-lg-4 col-md-4 col-sm-6 col-12 product-single" style="height: fit-content;" attr-info-id="${infoid}">
+    <div class="sel-prod">
+      <div class="coll-product-card">
+        <div class="coll-product-img-wrap mb-3">
+          <div class="coll-product-img">
+            <img src="${image}" alt="product image" data-attr-app="image" onerror="buildOnerror(this.value)" />
+          </div>
+        </div>
+        <p class="coll-product-name" data-attr-app="name">${name}</p>
+        <p class="coll-product-price">$<span data-attr-app="price">${price}</span></p>
+        <div class="d-flex gap-2 mt-2 w-100 purchase-type-group">
+          <button type="button" class="btn btn-sm btn-secondary active flex-fill purchase-type-btn" data-purchase-type="onetime">Onetime</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary flex-fill purchase-type-btn" data-purchase-type="subscription">Subscription</button>
+        </div>
+      </div>
+    </div>
+  </div>
+            `;
+              });
+              $("#categoryArea").append(temp);
+              refreshCategories();
+            }
+
+            $(".product-single")
+              .off("click")
+              .on("click", function () {
+                let infoId = $(this).attr("attr-info-id");
+                window.location.href = "product-details?id=" + infoId;
+              });
+
+            let totalprods = parseInt(next_page) * parseInt(limit);
+            if (totalprods < parseInt(totalproducts)) {
+              $(".load-more-btn").removeClass("d-none");
+            } else {
+              $(".load-more-btn").addClass("d-none");
+            }
+          },
+          0,
+          1,
+        );
+      }
+    });
+    function getProductImageUrl(product) {
+      try {
+        const imagesArr = JSON.parse(product.images);
+        if (imagesArr && imagesArr.length > 0) {
+          const sorted = imagesArr.sort((a, b) => a.position - b.position);
+          return "images/" + sorted[0].file_name; // just the filename, no base path
+        }
+      } catch (e) {
+        console.error("Failed to parse images for product", product.id, e);
+      }
+      return "images/product-placeholder.png";
+    }
+
+    // Category filter buttons. The <productcategory attr-id="184" attr-name="Gut Health" attr-url="?category=184" ></productcategory> tag renders one button
+    // per category but binds no handler, so without this the filter row is
+    // inert. Filtering goes back to the server (window.filterProductsByCategory,
+    // exposed by pagination.js) rather than hiding cards already in the DOM:
+    // a category's products may live entirely on a page that hasn't been
+    // fetched yet, so a DOM-only filter would show an empty grid.
+    document.addEventListener("click", function (event) {
+      let btn = event.target.closest(".filter-btn");
+      if (!btn) return;
+
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach((b) => b.classList.remove("filter-btn--active"));
+      btn.classList.add("filter-btn--active");
+
+      // "All" carries attr-id itself; category buttons are wrapped in
+      // <productcategory attr-id="..." attr-name="Gut Health" attr-url="?category=184" ></productcategory> which is where the id lands.
+      let holder = btn.closest("productcategory") || btn;
+      let categoryId = parseInt(holder.getAttribute("attr-id")) || 0;
+      if (typeof window.filterProductsByCategory === "function") {
+        window.filterProductsByCategory(categoryId);
+      }
+    });
+
+    function refreshCategories() {
+      let category = [];
+      if (productcategories.length > 0) {
+        category = [...new Set(productcategories)];
+      }
+
+      document.querySelectorAll("productcategory").forEach(function (el) {
+        let cat_id = el.getAttribute("attr-id");
+        if (cat_id == 0) {
+          el.classList.remove("d-none");
+        } else {
+          if (category.includes(parseInt(cat_id))) {
+            el.classList.remove("d-none");
+          } else {
+            el.classList.add("d-none");
+          }
+        }
+      });
+    }
+  </script>
+
+  <script src="js/page-loader.js"></script></body>
+
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html><html lang="en"><head>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veraxa Wellness</title>
+
+ <!-- Bootstrap 5 -->
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/floating_cart.css">
+    <link rel="stylesheet" href="css/searchbar.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/style_1.css">
+ 
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/ingredients.css">
+  
+  <style>
+    input[type=text]:focus,
+    input[type=search]:focus,
+    input[type=password]:focus,
+    input[type=tel]:focus,
+    input[type=email]:focus,
+    select:focus,
+    textarea:focus {
+      background: none !important;
+      box-shadow: none !important;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid #d6d6d6;
+
+    }
+
+    input.has-error:not([name="agree-checkbox"]) {
+      background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid orange;
+    }
+
+    select.has-error:not([name="agree-checkbox"]) {
+      background: url(images/error-input.png) 99.5% 50% no-repeat transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid orange;
+    }
+
+    input.no-error:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+    select.no-error {
+      background: url(images/tick-input.png) 99.5% 50% no-repeat transparent;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-bottom: 1px solid green;
+    }
+    .navbar:not(.cart-navbar) {
+      overflow: hidden;
+      background-color: #333;
+      position: relative !important;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+  }
+
+  #cookiePopup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #16281f !important;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      flex-wrap: nowrap;
+      z-index: 999999;
+      gap: 20px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      display: none;
+      right: 0;
+  }
+  #cookiePopup .cookieBtns button#acceptCookie, #cookiePopup .cookieBtns button#declineCookie {
+    font-size: 15px;
+    margin: 10px 0;
+    color: #16281f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #f3eddf;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 2px solid #000000;
+}
+    #cookiePopup .cookieBtns button#declineCookie:last-child {
+      background-color: #ad2b2b;
+      color: #fff;
+      border-color: #ad2b2b;
+  }  
+      #cookiePopup p a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    .cookieBtns {
+        display: inline-flex;
+        gap: 10px;
+    }
+
+    .cookie_content{
+      text-align: left;
+    }
+    .cookie_content h4{color: #fff;}
+  </style>
+
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="css/aos.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+      <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="css/bootstrap-icons.min_1.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    
+  
+
+  <link rel="stylesheet" href="css/page-loader.css"></head><body>
+  <div class="page-loader" role="status" aria-label="Loading page"><span class="page-loader__mark"></span></div>
+
+  <!-- ============================================================
+       NAVBAR
+       Bootstrap: navbar navbar-expand-lg + container-fluid + mx-auto nav
+  ============================================================ -->
+  <div class="announce">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+        <span class="side" data-icon="truck" data-size="14">Free shipping on orders over $150</span>
+        <span class="center">SCIENCE. PERFORMANCE. LONGEVITY.</span>
+        <!-- <span class="side">Subscribe &amp; save up to 20%</span> -->
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <nav class="luxe-nav navbar navbar-expand-lg">
+    <div class="header-row container">
+      <a class="navbar-brand luxe-logo" href="index.html">
+        <img src="images/logo.webp" alt="Logo" width="120">
+      </a>
+      <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto gap-lg-4">
+          <li class="nav-item">
+            <a class="nav-link luxe-nav-link" href="index.html">
+              Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link luxe-nav-link" href="about.html">
+              About Us
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link luxe-nav-link" href="collections.html">
+              Wellness Product
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link luxe-nav-link" href="contact.html">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="account_control_wrapper">
+        <button class="icon-btn cart-btn position-relative" type="button" aria-label="Cart" onclick="getCartAction()">
+          <img src="images/cart.svg" alt="" width="18" height="18">
+          <span class="cart-badge position-absolute cart-product-count">
+            0
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+
+
+<!-- <header class="site-header">
+  <div class="header-row wrap">
+    <button class="mobile-toggle" aria-label="Menu"></button>
+    <a href="index.html" class="logo"> <img src="images/logo.png"> </a>
+    <nav class="main-nav">
+      <a href="#/shop">Shop</a>
+      <a href="#/shop?sort=bestsellers">Best Sellers</a>
+      <a href="#/shop">Categories</a>
+      <a href="#/">Learn</a>
+      <a href="#/">About Us</a>
+    </nav>
+    <div class="header-icons">
+      <button aria-label="Search" data-icon="search" data-size="19"></button>
+      <button aria-label="Account" data-icon="user" data-size="19"></button>
+      <button class="cart-dot" aria-label="Cart" data-icon="bag" data-size="19">
+        <span class="cart-count" id="cart-count">0</span></button>
+    </div>
+  </div>
+</header> -->
+<main>
+
+  <!-- =========================================================
+       ABOUT INTRO / HERO
+  ========================================================= -->
+  <section class="about-intro">
+    <div class="wrap">
+      <p class="eyebrow reveal">Our Story</p>
+      <h1 class="about-intro__heading reveal">Formulated With Purpose. Backed By Proof.</h1>
+      <p class="about-intro__body reveal">
+        Veraxa was built on a simple idea: supplements should be judged the same way
+        any serious health decision is — by what’s actually in the bottle, how it was made,
+        and whether the evidence holds up. Everything else is noise.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STORY SECTION — HOW WE STARTED
+  ========================================================= -->
+  <section class="story-section">
+    <div class="wrap">
+      <div class="story-row reveal">
+        <div class="story-content">
+          <p class="eyebrow">How We Started</p>
+          <h2>From Frustration To Formulation</h2>
+          <p>
+            Veraxa started with a familiar complaint: supplement labels that promised
+            everything and disclosed almost nothing. Proprietary blends that hid actual
+            dosages. Marketing copy written to sound clinical without a single study behind
+            it. A small team of formulators, sourcing specialists, and label-compliance
+            reviewers set out to build the opposite kind of company.
+          </p>
+          <p>
+            That meant lower product development, more expensive testing, and a
+            willingness to say “we don’t claim that” even when a bolder claim would sell
+            better. Years later, that’s still the filter every Veraxa formula has to pass
+            before it reaches a shelf.
+          </p>
+        </div>
+        <div class="story-image">
+          <img src="images/glutamine.jpg" alt="Veraxa L-Glutamine Powder bottle resting on a marble platform with soft natural light and blurred palm shadow in the background" width="900" height="580">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="section-divider"></div>
+
+  <!-- =========================================================
+       STORY SECTION — OUR MISSION
+  ========================================================= -->
+  <section class="story-section">
+    <div class="wrap">
+      <div class="story-row reveal">
+        <div class="story-content">
+          <p class="eyebrow">Our Mission</p>
+          <h2>Science First, Marketing Second</h2>
+          <p>
+            We formulate for structures and functions — supporting the body’s everyday
+            processes — rather than chasing fixed-driven ingredients or making promises a
+            label shouldn’t make. Every ingredient earns its place in a formula because of
+            the research behind it, not because it’s popular that quarter.
+          </p>
+          <p>
+            Our internal compliance review is as rigorous as our formulation team from
+            day one, not at the end of the process. If a claim can’t be responsibly
+            supported, it doesn’t ship — no matter how good it would sound on the front of
+            the bottle.
+          </p>
+        </div>
+        <div class="story-image">
+          <img src="images/omega3.jpg" alt="Veraxa Omega-3 Softgels bottle next to laboratory glassware and green leaves in warm natural light" width="900" height="580" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       VALUES SECTION — WHAT WE STAND FOR
+  ========================================================= -->
+  <section class="values-section">
+    <div class="wrap">
+      <div class="section-heading reveal">
+        <h2>What We Stand For</h2>
+        <p>Six commitments that shape every formula we bring to market.</p>
+      </div>
+
+      <div class="values-grid reveal">
+        <article class="value-card">
+          <span class="value-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-flask-florence" viewBox="0 0 16 16">
+            <path d="M5.5 0a.5.5 0 0 0 0 1H6v5.416a5 5 0 1 0 4 0V1h.5a.5.5 0 0 0 0-1zM9 2h-.5a.5.5 0 0 0 0 1H9v1h-.5a.5.5 0 0 0 0 1H9v1h-.5a.5.5 0 0 0 0 1h.564a.5.5 0 0 0 .27.227A4.002 4.002 0 0 1 8 15a4 4 0 0 1-1.333-7.773.5.5 0 0 0 .333-.47V1h2z"></path>
+          </svg></span>
+          <h3>Science Driven</h3>
+          <p>Every formula starts with the research, not the marketing angle — created &amp; tested informed by published studies, not proprietary-blend guesswork.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-card__icon"><i class="bi bi-file-medical"></i></span>
+          <h3>Clean &amp; Pure</h3>
+          <p>Non-GMO ingredients, no artificial fillers or unnecessary binders, and full disclosure of what’s in every formula — and just as importantly, what isn’t.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-card__icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+          <h3>Third-Party Tested</h3>
+          <p>Independent labs verify potency and purity on every batch before it ships, so what’s on the label is what’s actually inside.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-card__icon"><i class="bi bi-hourglass-split" aria-hidden="true"></i></span>
+          <h3>Longevity Minded</h3>
+          <p>We formulate for the long game — everyday habits that support how you feel and function this year, and the years after it.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-card__icon"><i class="bi bi-heart" aria-hidden="true"></i></span>
+          <h3>Made With Care</h3>
+          <p>Manufactured in GMP-certified facilities that meet the same quality standards we’d expect for anything we put in our own bodies.</p>
+        </article>
+
+        <article class="value-card">
+          <span class="value-card__icon"><i class="bi bi-search" aria-hidden="true"></i></span>
+          <h3>Transparent Sourcing</h3>
+          <p>We work directly with ingredient suppliers we can trace and trust, and we’ll update when a formula changes suppliers or specs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STANDARDS SECTION — OUR STANDARDS
+  ========================================================= -->
+  <section class="standards-section">
+    <img src="images/leaves.png" alt="" aria-hidden="true" class="standards-leaf">
+
+    <div class="wrap standards-inner">
+      <div class="standards-content reveal">
+        <p class="eyebrow">Our Standards</p>
+        <h2>Quality Isn’t A Line On The Label</h2>
+        <p class="standards-content__intro">
+          “GMP-certified” and “third-party tested” show up on a lot of supplement
+          packaging. Here’s specifically what those words mean when they’re on ours.
+        </p>
+
+        <ul class="standards-checklist">
+          <li class="standard-check">
+            <span class="standard-check__icon" aria-hidden="true">✓</span>
+            <p>Manufactured exclusively in GMP-certified facilities, audited against current Good Manufacturing Practice standards.</p>
+          </li>
+          <li class="standard-check">
+            <span class="standard-check__icon" aria-hidden="true">✓</span>
+            <p>Every production batch is verified by an independent third-party lab for potency, purity, and label accuracy before release.</p>
+          </li>
+          <li class="standard-check">
+            <span class="standard-check__icon" aria-hidden="true">✓</span>
+            <p>Ongoing stability testing and quality controls keep our standards high — not just on day one, but for the entire shelf life.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="standards-features reveal">
+        <div class="standard-feature">
+          <span class="standard-feature__icon"><i class="bi bi-building" aria-hidden="true"></i></span>
+          <p>Manufactured in GMP Facilities</p>
+        </div>
+        <div class="standard-feature">
+          <span class="standard-feature__icon"><i class="bi bi-award" aria-hidden="true"></i></span>
+          <p>cGMP-Certified Quality</p>
+        </div>
+        <div class="standard-feature">
+          <span class="standard-feature__icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+          <p>Third-Party Tested</p>
+        </div>
+        <div class="standard-feature">
+          <span class="standard-feature__icon"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-leaf" viewBox="0 0 16 16">
+            <path d="M1.4 1.7c.216.289.65.84 1.725 1.274 1.093.44 2.884.774 5.834.528l.37-.023c1.823-.06 3.117.598 3.956 1.579C14.16 6.082 14.5 7.41 14.5 8.5c0 .58-.032 1.285-.229 1.997q.198.248.382.54c.756 1.2 1.19 2.563 1.348 3.966a1 1 0 0 1-1.98.198c-.13-.97-.397-1.913-.868-2.77C12.173 13.386 10.565 14 8 14c-1.854 0-3.32-.544-4.45-1.435-1.125-.887-1.89-2.095-2.391-3.383C.16 6.62.16 3.646.509 1.902L.73.806zm-.05 1.39c-.146 1.609-.008 3.809.74 5.728.457 1.17 1.13 2.213 2.079 2.961.942.744 2.185 1.22 3.83 1.221 2.588 0 3.91-.66 4.609-1.445-1.789-2.46-4.121-1.213-6.342-2.68-.74-.488-1.735-1.323-1.844-2.308-.023-.214.237-.274.38-.112 1.4 1.6 3.573 1.757 5.59 2.045 1.227.215 2.21.526 3.033 1.158.058-.39.075-.782.075-1.158 0-.91-.288-1.988-.975-2.792-.626-.732-1.622-1.281-3.167-1.229l-.316.02c-3.05.253-5.01-.08-6.291-.598a5.3 5.3 0 0 1-1.4-.811"></path>
+          </svg></span>
+          <p>Science Backed Formulas</p>
+        </div>
+        <div class="standard-feature">
+          <span class="standard-feature__icon"><i class="bi bi-droplet" aria-hidden="true"></i></span>
+          <p>Clean Ingredients Only</p>
+        </div>
+        <div class="standard-feature">
+          <span class="standard-feature__icon"><i class="bi bi-clipboard-check" aria-hidden="true"></i></span>
+          <p>Label You Can Trust</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+  <!-- ============================================================
+       FOOTER
+       Bootstrap: container-fluid > row (brand + links) + row (bottom bar)
+  ============================================================ -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/selector-tags.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/floating_cart.js"></script>
+  <script src="js/searchbar.js"></script>
+  <script src="js/variant-tags.js"></script> 
+
+  <script src="js/aos.js"></script>
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/fit.js"></script>
+<script src="js/cookie-consent.js"></script>
+
+<script src="js/theme.js"></script>
+  <!-- Bootstrap 5 JS -->
+<script>
+  window.addEventListener('load', function () {
+    AOS.init({
+      duration: 900,          // Animation duration
+      easing: 'ease-out-cubic',
+      once: true,             // Animate only once
+      mirror: false,
+      offset: 80,
+      delay: 100,
+      anchorPlacement: 'top-bottom'
+    });
+  
+    // Refresh after full page load
+    AOS.refresh();
+  });
+</script>
+
+<script>
+  (function () {
+    // If Bootstrap's JS is present and working, let it handle this.
+    if (window.bootstrap && window.bootstrap.Collapse) return;
+  
+    var btn  = document.querySelector('[data-bs-toggle="collapse"][data-bs-target="#navbarNav"]');
+    var menu = document.getElementById('navbarNav');
+    if (!btn || !menu) return;
+  
+    function setOpen(open) {
+      menu.classList.toggle('show', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.classList.toggle('collapsed', !open);
+    }
+  
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      setOpen(!menu.classList.contains('show'));
+    });
+  
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setOpen(false);
+    });
+  
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 992) setOpen(false);
+    });
+  })();
+  </script>
+
+
+    <footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+        <div>
+          <div class="hlx-footer__logo">
+            <img src="images/logo.png" alt="logo" width="120px">
+          </div>
+          <p class="hlx-footer__desc">We may provide good wellness products and health essentials designed to support a balanced, healthier lifestyle with quality, trust, and everyday care.</p>
+        </div>
+        <div>
+          <h3 class="hlx-footer__heading">Quick links</h3>
+          <ul class="hlx-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="collections.html">Our Collection</a></li>
+            <li><a href="collections.html">Supplement Products</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="hlx-footer__heading">Featured Links</h3>
+          <ul class="hlx-footer__links">
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="ingredients.html">Ingredients</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="hlx-footer__heading">Contact</h3>
+          <ul class="hlx-footer__contact">
+            <li><i class="bi bi-envelope me-2"></i><a href="/cdn-cgi/l/email-protection#dfacaaafafb0adab9fa9baadbea7bea8bab3b3b1baacacf1bcb0b2"><span class="__cf_email__" data-cfemail="e4979194948b9690a4928196859c85938188888a819797ca878b89">[email&nbsp;protected]</span></a></li>
+            <li><i class="bi bi-telephone me-2"></i><a href="tel:+1 8332004192">+1 8332004192</a></li>
+            <li><i class="bi bi-geo-alt me-2"></i>1209 Mountain Road PL NE, Albuquerque, NM 87110, USA</li>
+          </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-center">These statements have not been evaluated by the FDA and are not intended to diagnose, cure or prevent disease. Please consult your physician before beginning any diet or exercise program. If there is a change in your medical condition, please notify your physician immediately and stop taking the product. The product is not intended for use by any individual under 18 years of age, pregnant or lactating women. People with the following conditions should contact a doctor before consuming this product: high blood pressure, heart, liver, kidney or thyroid disease, diabetes, anemia, depression, anxiety, other psychiatric conditions, a family history of other medical conditions, or if taking any prescription, OTC and/or other herbal medications.</p>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <span>© <script data-cfasync="false" src="js/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> Veraxa Wellness. All rights reserved.</span>
+        <span>May designed for a healthier life everyday.</span>
+    </div>
+  </div>
+</footer> 
+
+<!-- <footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"> <img src="images/logo.png" alt="logo" width="120px" /> </div>
+        <p class="blurb">Premium supplements backed by science. Formulated for those who demand more from their health — today, and for years to come.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#/shop?category=Gut+Health">Gut Health</a></li>
+          <li><a href="#/shop?category=Performance">Performance</a></li>
+          <li><a href="#/shop?category=Protein+%26+Nutrition">Protein &amp; Nutrition</a></li>
+          <li><a href="#/shop?category=Vitamins+%26+Minerals">Vitamins &amp; Minerals</a></li>
+          <li><a href="#/shop?category=Superfoods">Superfoods</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#/">About Us</a></li>
+          <li><a href="#/">Learn</a></li>
+          <li><a href="#/">Our Approach</a></li>
+          <li><a href="#/">Third-Party Testing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#/">Contact</a></li>
+          <li><a href="#/">Shipping &amp; Returns</a></li>
+          <li><a href="#/">Subscriptions</a></li>
+          <li><a href="#/">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Veraxa. All rights reserved.</span>
+      <span>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</span>
+    </div>
+  </div>
+</footer> -->
+<div id="cookiePopup" class="" style="display: none;">
+  <div class="cookie_content">
+    <h4>Cookie Consent</h4>
+    <p>Our website uses cookies to improve your browsing experience and provide relevant information. By continuing to use our website, you agree to our <a href="privacy.html">Cookie Policy &amp; Privacy</a>.</p>
+  </div>
+  <div class="cookieBtns"><button id="acceptCookie" onclick="cookieAccept()">Accept</button><button id="declineCookie" onclick="cookieDecline()">Decline</button></div>
+</div>
+
+
+
+  <script src="js/page-loader.js"></script></body></html>
