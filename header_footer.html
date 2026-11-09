@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Bootstrap 5 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/floating_cart.css" /> -->
+    <link rel="stylesheet" href="css/searchbar.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="css/style_1.css" />
+
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/ingredients.css" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min_1.css" />
+
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/page-loader.css">
+    <style>
+        #cookiePopup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #16281f !important;
+        color: #fff;
+        padding: 15px;
+        display: flex;
+        flex-wrap: nowrap;
+        z-index: 999999;
+        gap: 20px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        right: 0;
+      }
+      #cookiePopup .cookieBtns button#acceptCookie,
+      #cookiePopup .cookieBtns button#declineCookie {
+        font-size: 15px;
+        margin: 10px 0;
+        color: #16281f;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: #f3eddf;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        border: 2px solid #000000;
+      }
+      #cookiePopup .cookieBtns button#declineCookie:last-child {
+        background-color: #ad2b2b;
+        color: #fff;
+        border-color: #ad2b2b;
+      }
+      #cookiePopup p a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .cookieBtns {
+        display: inline-flex;
+        gap: 10px;
+      }
+
+      .cookie_content {
+        text-align: left;
+      }
+      .cookie_content h4 {
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ============================================================
+       NAVBAR
+       Bootstrap: navbar navbar-expand-lg + container-fluid + mx-auto nav
+  ============================================================ -->
+    <div class="announce">
+      <div class="container">
+        <div class="d-flex justify-content-between">
+          <span class="side" data-icon="truck" data-size="14"
+            >Free shipping on orders over $150</span
+          >
+          <span class="center">SCIENCE. PERFORMANCE. LONGEVITY.</span>
+          <!-- <span class="side">Subscribe &amp; save up to 20%</span> -->
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <nav class="luxe-nav navbar navbar-expand-lg">
+        <div class="header-row container">
+          <a class="navbar-brand luxe-logo" href="index.html">
+            <img src="images/logo.webp" alt="Logo" width="120" />
+          </a>
+          <button
+            class="navbar-toggler border-0 p-0 shadow-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto gap-lg-4">
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="index.html"> Home </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="about.html">
+                  About Us
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="collections.html">
+                  Wellness Product
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link luxe-nav-link" href="contact.html">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="account_control_wrapper">
+            <button
+              class="icon-btn cart-btn position-relative"
+              type="button"
+              aria-label="Cart"
+              onclick="getCartAction()"
+            >
+              <img src="images/cart.svg" alt="" width="18" height="18" />
+              <span class="cart-badge position-absolute cart-product-count">
+                0
+              </span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <div class="hlx-footer__logo">
+              <img src="images/logo.png" alt="logo" width="120px" />
+            </div>
+            <p class="hlx-footer__desc">
+              We may provide good wellness products and health essentials
+              designed to support a balanced, healthier lifestyle with quality,
+              trust, and everyday care.
+            </p>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Quick links</h3>
+            <ul class="hlx-footer__links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="collections.html">Our Collection</a></li>
+              <li><a href="collections.html">Supplement Products</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Featured Links</h3>
+            <ul class="hlx-footer__links">
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="ingredients.html">Ingredients</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="hlx-footer__heading">Contact</h3>
+            <ul class="hlx-footer__contact">
+              <li>
+                <i class="bi bi-envelope me-2"></i
+                ><a
+                  href="/cdn-cgi/l/email-protection#cab9bfbabaa5b8be8abcafb8abb2abbdafa6a6a4afb9b9e4a9a5a7"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="2f5c5a5f5f405d5b6f594a5d4e574e584a4343414a5c5c014c4042"
+                    >[email&nbsp;protected]</span
+                  ></a
+                >
+              </li>
+              <li>
+                <i class="bi bi-telephone me-2"></i
+                ><a href="tel:+1 8332004192">+1 8332004192</a>
+              </li>
+              <li>
+                <i class="bi bi-geo-alt me-2"></i>1209 Mountain Road PL NE,
+                Albuquerque, NM 87110, USA
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="text-center">
+            These statements have not been evaluated by the FDA and are not
+            intended to diagnose, cure or prevent disease. Please consult your
+            physician before beginning any diet or exercise program. If there is
+            a change in your medical condition, please notify your physician
+            immediately and stop taking the product. The product is not intended
+            for use by any individual under 18 years of age, pregnant or
+            lactating women. People with the following conditions should contact
+            a doctor before consuming this product: high blood pressure, heart,
+            liver, kidney or thyroid disease, diabetes, anemia, depression,
+            anxiety, other psychiatric conditions, a family history of other
+            medical conditions, or if taking any prescription, OTC and/or other
+            herbal medications.
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <span
+            >©
+            <script data-cfasync="false" src="js/email-decode.min.js"></script>
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Veraxa Wellness. All rights reserved.</span
+          >
+          <span>May designed for a healthier life everyday.</span>
+        </div>
+      </div>
+    </footer>
+    <div id="cookiePopup" class="" style="display: none">
+      <div class="cookie_content">
+        <h4>Cookie Consent</h4>
+        <p>
+          Our website uses cookies to improve your browsing experience and
+          provide relevant information. By continuing to use our website, you
+          agree to our <a href="privacy.html">Cookie Policy &amp; Privacy</a>.
+        </p>
+      </div>
+      <div class="cookieBtns">
+        <button id="acceptCookie" onclick="cookieAccept()">Accept</button
+        ><button id="declineCookie" onclick="cookieDecline()">Decline</button>
+      </div>
+    </div>
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/selector-tags.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/floating_cart.js"></script>
+    <script src="js/searchbar.js"></script>
+    <script src="js/variant-tags.js"></script>
+
+    <script src="js/aos.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/fit.js"></script>
+    <script src="js/cookie-consent.js"></script>
+
+    <script src="js/theme.js"></script>
+    <!-- Bootstrap 5 JS -->
+    <script>
+      window.addEventListener("load", function () {
+        AOS.init({
+          duration: 900, // Animation duration
+          easing: "ease-out-cubic",
+          once: true, // Animate only once
+          mirror: false,
+          offset: 80,
+          delay: 100,
+          anchorPlacement: "top-bottom",
+        });
+
+        // Refresh after full page load
+        AOS.refresh();
+      });
+    </script>
+
+    <script>
+      (function () {
+        // If Bootstrap's JS is present and working, let it handle this.
+        if (window.bootstrap && window.bootstrap.Collapse) return;
+
+        var btn = document.querySelector(
+          '[data-bs-toggle="collapse"][data-bs-target="#navbarNav"]',
+        );
+        var menu = document.getElementById("navbarNav");
+        if (!btn || !menu) return;
+
+        function setOpen(open) {
+          menu.classList.toggle("show", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.classList.toggle("collapsed", !open);
+        }
+
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          setOpen(!menu.classList.contains("show"));
+        });
+
+        menu.addEventListener("click", function (e) {
+          if (e.target.closest("a")) setOpen(false);
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") setOpen(false);
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 992) setOpen(false);
+        });
+      })();
+    </script>
+    <script>
+      window.addEventListener("load", function () {
+        AOS.init({
+          duration: 900, // Animation duration
+          easing: "ease-out-cubic",
+          once: true, // Animate only once
+          mirror: false,
+          offset: 80,
+          delay: 100,
+          anchorPlacement: "top-bottom",
+        });
+
+        // Refresh after full page load
+        AOS.refresh();
+      });
+    </script>
+
+    <!-- Bootstrap 5 JS -->
+  
+  <script src="js/page-loader.js"></script></body>
+  </body>
+</html>
